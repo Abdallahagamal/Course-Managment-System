@@ -114,7 +114,7 @@ namespace courseApp
 
             newpic.Location = new Point(25, 26);
             newpic.BackgroundImageLayout = ImageLayout.Stretch;
-            newpic.BackgroundImage = Image.FromFile("C:\\Users\\Abdallah Gamal\\OneDrive\\Desktop\\123.png");
+            //newpic.BackgroundImage = Image.FromFile("C:\\Users\\Abdallah Gamal\\OneDrive\\Desktop\\123.png");
 
             newCoursePanel.Controls.Add(newpic);
 
@@ -240,6 +240,7 @@ namespace courseApp
 
             panel5.Controls.Add(msg2);
         }
+<<<<<<< HEAD
         ////////////////////////////////////
         private void loadMessages(int receiver, int sender)
         {
@@ -299,6 +300,123 @@ namespace courseApp
             }
 
         }
+=======
+
+        
+        private void LoadClassWork()
+        {
+            // مسح المحتوى القديم في panel2 (ClassWork)
+            //classwork.Controls.Clear();
+
+            // مسافة بداية الكروت
+            int yOffset = 180;
+
+            // الاتصال بقاعدة البيانات
+
+
+
+            
+            
+           string connectionString = "Server=DESKTOP-KN5SVN0;Database=Course_system;Trusted_Connection=True;";
+
+            // SQL Query لقراءة البيانات من جدول ClassWork
+            string query = "SELECT  CW.Title, CW.Duration, CW.Date, CW.Description, C.Title AS CourseTitle " +
+                           "FROM ClassWork CW " +
+                           "INNER JOIN Course C ON CW.CourseId = C.CourseId";
+
+            // الاتصال بقاعدة البيانات باستخدام SqlConnection
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+               
+
+                conn.Open(); // فتح الاتصال
+
+                // تنفيذ الاستعلام باستخدام SqlCommand
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    // قراءة البيانات باستخدام SqlDataReader
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            // إنشاء كرت جديد لكل ClassWork
+                            Panel card = new Panel
+                            {
+                                Size = new Size(700, 120), // تحديد حجم الكارت
+                                Location = new Point(250, yOffset),
+                                BackColor = Color.FromArgb(200, 200, 200),
+                                Font = new Font("Montserrat-ExtraBold", 10)
+                            };
+
+                            // عنوان الكورس
+                            Label lblCourse = new Label
+                            {
+                                Text = $"Course: {reader["CourseTitle"]}",
+                                Location = new Point(10, 10),
+                                AutoSize = true,
+                                Font = new Font("Montserrat", 12, FontStyle.Bold)
+                            };
+
+                            // عنوان التمرين
+                            Label lblTitle = new Label
+                            {
+                                Text = $"Title: {reader["Title"]}",
+                                Location = new Point(10, 40),
+                                AutoSize = true,
+                                Font = new Font("Montserrat", 12, FontStyle.Bold)
+                            };
+
+                            // الوصف
+                            Label lblDesc = new Label
+                            {
+                                Text = $"Description: {reader["Description"]}",
+                                Location = new Point(10, 70),
+                                AutoSize = true,
+                                Font = new Font("Montserrat", 12, FontStyle.Bold)
+                            };
+
+                            // التاريخ
+                            Label lblDate = new Label
+                            {
+                                Text = $"Date: {Convert.ToDateTime(reader["Date"]).ToShortDateString()}",
+                                Location = new Point(400, 10),
+                                AutoSize = true,
+                                Font = new Font("Montserrat", 12, FontStyle.Bold)
+                            };
+
+                            // المدة
+                            Label lblDuration = new Label
+                            {
+                                Text = $"Duration: {reader["Duration"]}",
+                                Location = new Point(400, 40),
+                                AutoSize = true,
+                                Font = new Font("Montserrat", 12, FontStyle.Bold)
+                            };
+
+                            // إضافة العناصر للكرت
+                            card.Controls.Add(lblCourse);
+                            card.Controls.Add(lblTitle);
+                            card.Controls.Add(lblDesc);
+                            card.Controls.Add(lblDate);
+                            card.Controls.Add(lblDuration);
+
+                            // إضافة الكارت للـ panel2
+                            classwork.Controls.Add(card);
+
+                            // تحديث المسافة بين الكروت
+                            yOffset += 140;
+                        }
+                    }
+               
+               
+                }
+            }
+
+            // تحديث قيمة الـ ScrollBar بناءً على المحتوى
+            vScrollBar1.Maximum = Math.Max(0, classwork.Height - this.ClientSize.Height);
+        }
+
+>>>>>>> 03f2efb36312b33e0497827112144abd1924bf3f
         public Form1()
         {
 
@@ -358,7 +476,15 @@ namespace courseApp
 
 
             AddCoursePanel("title", panel2);
+<<<<<<< HEAD
 
+=======
+            loadChat("Eyad Nader");
+            loadChat("AHMED Nader");
+            loadChat("Wael Mohamed");
+            loadChat("Wael Mohamed");
+            loadChat("Wael Mohamed");
+>>>>>>> 03f2efb36312b33e0497827112144abd1924bf3f
 
 
         }
@@ -390,6 +516,7 @@ namespace courseApp
         {
             handleicon(classworkicon2);
             classwork.BringToFront();
+            LoadClassWork();
             panel1.BringToFront();
 
         }
@@ -405,8 +532,12 @@ namespace courseApp
         private void chaticon_Click(object sender, EventArgs e)
         {
             handleicon(chaticon2);
+<<<<<<< HEAD
             chat.BringToFront();
             loadChats_inpanel(123);
+=======
+
+>>>>>>> 03f2efb36312b33e0497827112144abd1924bf3f
             panel1.BringToFront();
 
 
@@ -518,6 +649,7 @@ namespace courseApp
             messagebar.Texts = "";
         }
 
+<<<<<<< HEAD
         private void ChatContainer_Paint(object sender, PaintEventArgs e)
         {
 
@@ -583,6 +715,9 @@ namespace courseApp
         }
 
         private void addbar__TextChanged(object sender, EventArgs e)
+=======
+        private void label15_Click(object sender, EventArgs e)
+>>>>>>> 03f2efb36312b33e0497827112144abd1924bf3f
         {
 
         }
