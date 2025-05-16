@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aUydHcT2nes=",
+  "dgSpecHash": "i5BZrGbpzEE=",
   "success": true,
-  "projectFilePath": "D:\\University\\Second Year\\Second semster\\DataBase\\courseApp\\courseApp\\courseApp.csproj",
+  "projectFilePath": "D:\\University\\Second Year\\Second semster\\DataBase\\Course-Managment-System\\courseApp\\courseApp\\courseApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Abdallah Gamal\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Abdallah Gamal\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using System.Xml;
 using CustomControls.RJControls;  // ✅ Add this to access RJTextBox
 using System.Data.SqlClient;
+
 namespace courseApp
 {
     public partial class Form1 : Form
@@ -12,7 +13,7 @@ namespace courseApp
         Boolean click_check = false;
         private int panel2OriginalY;
         private int panel3OriginalY;
-
+        private int chatriginalY;
         void handleicon(PictureBox icon)
         {
             List<PictureBox> iconList = new List<PictureBox> { homeicom2, examicon2, coursesicon2, classworkicon2, chaticon2, usericon2 };
@@ -60,7 +61,7 @@ namespace courseApp
             newCoursePanel.BackColor = Color.White;
 
             // 2. Find position for the new panel
-            int newY = 10; // Default top margin if no courses
+            int newY = 10;
             int newx = 0;
             if (currentpanel.Controls.Count > 0)
             {
@@ -111,9 +112,111 @@ namespace courseApp
             UpdateScrollBar();
 
         }
+        private void loadChat(String Name)
+        {
+            Panel newchat = new Panel();
+            newchat.Size = new Size(282, 67);
+            newchat.BackColor = Color.White;
+            int newY = 43;
+            int newx = 12;
+            if (ChatContainer.Controls.Count > 0)
+            {
+                // Get the last panel's bottom position
+                Control last = ChatContainer.Controls[ChatContainer.Controls.Count - 1];
+                newY = last.Location.Y + 86;
+            }
+            newchat.Location = new Point(newx, newY);
+            newchat.Cursor = Cursors.Hand;
+            ChatContainer.Controls.Add(newchat);
+
+            PictureBox icon = new PictureBox();
+            icon.Size = new Size(81, 61);
+            icon.BackColor = Color.White;
+            icon.Location = new Point(3, 3);
+            icon.BackgroundImage = Image.FromStream(new MemoryStream(Properties.Resources.User_Circle));
+            icon.BackgroundImageLayout = ImageLayout.Zoom;
+            newchat.Controls.Add(icon);
 
 
+            Label name = new Label();
+            name.Location = new Point(74, 22);
+            name.Size = new Size(200, 26);
+            name.ForeColor = Color.FromArgb(5, 12, 22);
+            name.BackColor = Color.White;
+            name.Font = new Font("Montserrat Light", 14, FontStyle.Regular);
+            name.Text = Name;
+            newchat.Controls.Add(name);
+            name.BringToFront();
+        }
+        private void loadsender_msg(String content)
+        {
+            RichTextBox msg = new RichTextBox();
+            msg.Location = new Point(25, 176);
+            msg.Text = content;
+            msg.ForeColor = Color.FromArgb(5, 12, 22);
+            msg.Font = new Font("Montserrat Light", 16, FontStyle.Regular);
+            msg.ReadOnly = true;
+            msg.BackColor = SystemColors.ActiveCaption;
+            msg.BorderStyle = BorderStyle.None;
+            // Set a maximum width for the message box
+            int maxWidth = 400;
+            Size preferredSize = TextRenderer.MeasureText(msg.Text, msg.Font, new Size(maxWidth, int.MaxValue), TextFormatFlags.WordBreak);
 
+            msg.Width = Math.Min(preferredSize.Width + 10, maxWidth);
+            msg.Height = preferredSize.Height + 10;
+            int newY = 43;
+            int newx = 595;
+            if (panel5.Controls.Count > 0)
+            {
+                Control last = panel5.Controls[panel5.Controls.Count - 1];
+                newY = last.Bottom + 15;
+
+            }
+            if (newx + msg.Width + 20 > panel5.Width)
+            {
+                newx = panel5.Width - msg.Width - 37;
+                if (newx < 0) newx = 0;
+            }
+
+            msg.Location = new Point(newx, newY);
+
+            panel5.Controls.Add(msg);
+
+        }
+        private void loadreciver_msg(String content)
+        {
+
+            RichTextBox msg2 = new RichTextBox();
+            msg2.Location = new Point(25, 176);
+            msg2.Text = content;
+            msg2.ForeColor = Color.FromArgb(5, 12, 22);
+            msg2.Font = new Font("Montserrat Light", 16, FontStyle.Regular);
+            msg2.ReadOnly = true;
+            msg2.BackColor = Color.Gainsboro;
+            msg2.BorderStyle = BorderStyle.None;
+            // Set a maximum width for the message box
+            int maxWidth = 400;
+            Size preferredSize = TextRenderer.MeasureText(msg2.Text, msg2.Font, new Size(maxWidth, int.MaxValue), TextFormatFlags.WordBreak);
+
+            msg2.Width = Math.Min(preferredSize.Width + 10, maxWidth);
+            msg2.Height = preferredSize.Height + 10;
+            int newY = 43;
+            int newx = 32;
+            if (panel5.Controls.Count > 0)
+            {
+                Control last = panel5.Controls[panel5.Controls.Count - 1];
+                newY = last.Bottom + 15;
+            }
+            if (newx + msg2.Width + 20 > panel5.Width)
+            {
+                newx = panel5.Width - msg2.Width - 37;
+                if (newx < 0) newx = 0;
+            }
+
+            msg2.Location = new Point(newx, newY);
+
+            panel5.Controls.Add(msg2);
+        }
         public Form1()
         {
 
@@ -145,9 +248,9 @@ namespace courseApp
         private void Form1_Load(object sender, EventArgs e)
         {
             //string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
-            //string query = "SELECT Title FROM Course";
             panel2OriginalY = panel2.Location.Y; // Save original position
             panel3OriginalY = panel3.Location.Y;
+            chatriginalY = ChatContainer.Location.Y;
             vScrollBar1.Minimum = 0;
             vScrollBar1.LargeChange = this.ClientSize.Height;
             vScrollBar1.SmallChange = 20;
@@ -156,6 +259,9 @@ namespace courseApp
             vScrollBar2.LargeChange = this.ClientSize.Height;
             vScrollBar2.SmallChange = 20;
             vScrollBar2.Maximum = Math.Max(0, panel3.Height - this.ClientSize.Height);
+            /////////////////////////////////////
+
+            //////////////////////////////////
             string targetWord = "learn";
             int startIndex = richTextBox1.Text.IndexOf(targetWord, StringComparison.OrdinalIgnoreCase);
             if (startIndex >= 0)
@@ -170,22 +276,26 @@ namespace courseApp
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                SqlDataAdapter adapter = new SqlDataAdapter("SELECT Title FROM Course", conn);
+                SqlDataAdapter adapter = new SqlDataAdapter("SELECT Content FROM Message Where Sender_id=123", conn);
                 DataTable table = new DataTable();
                 adapter.Fill(table);
 
                 foreach (DataRow row in table.Rows)
                 {
-                    String title = row["Title"]?.ToString() ?? string.Empty;
+                    String title = row["Content"]?.ToString() ?? string.Empty;
+                    loadsender_msg(title);
                     // Use the title variable as needed
                     // Example: AddCoursePanel(title, panel2);
                 }
             }
             */
             AddCoursePanel("title", panel2);
-
-
-
+            loadChat("Eyad Nader");
+            loadChat("AHMED Nader");
+            loadChat("Wael Mohamed");
+            loadChat("Wael Mohamed");
+            loadChat("Wael Mohamed");
+            
 
         }
 
@@ -215,6 +325,7 @@ namespace courseApp
         private void classworkicon_Click(object sender, EventArgs e)
         {
             handleicon(classworkicon2);
+            classwork.BringToFront();
             panel1.BringToFront();
 
         }
@@ -294,8 +405,33 @@ namespace courseApp
 
         private void searchbutton_Click(object sender, EventArgs e)
         {
-            
-         
+
+
         }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void sendbtn_Click(object sender, EventArgs e)
+        {
+            if (messagebar.Texts != "")
+            {
+                string msg = messagebar.Texts;
+                loadsender_msg(msg);
+                messagebar.Texts = "";
+            }
+            else
+            {
+            }
+        }
+
+        private void messagebar_Click(object sender, EventArgs e)
+        {
+            messagebar.Texts = "";
+        }
+
+        
     }
 }

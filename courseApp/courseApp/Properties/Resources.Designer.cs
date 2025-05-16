@@ -59,5 +59,15 @@ namespace courseApp.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] User_Circle {
+            get {
+                object obj = ResourceManager.GetObject("User_Circle", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

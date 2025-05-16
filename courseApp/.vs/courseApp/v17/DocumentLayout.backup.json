@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\University\\Second Year\\Second semster\\DataBase\\courseApp\\",
+  "WorkspaceRootPath": "D:\\University\\Second Year\\Second semster\\DataBase\\Course-Managment-System\\courseApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{25226097-9EDA-45DA-9E2A-F19CF145A12A}|courseApp\\courseApp.csproj|d:\\university\\second year\\second semster\\database\\courseapp\\courseapp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{25226097-9EDA-45DA-9E2A-F19CF145A12A}|courseApp\\courseApp.csproj|d:\\university\\second year\\second semster\\database\\course-managment-system\\courseapp\\courseapp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{25226097-9EDA-45DA-9E2A-F19CF145A12A}|courseApp\\courseApp.csproj|solutionrelative:courseapp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{25226097-9EDA-45DA-9E2A-F19CF145A12A}|courseApp\\courseApp.csproj|d:\\university\\second year\\second semster\\database\\courseapp\\courseapp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{25226097-9EDA-45DA-9E2A-F19CF145A12A}|courseApp\\courseApp.csproj|d:\\university\\second year\\second semster\\database\\course-managment-system\\courseapp\\courseapp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{25226097-9EDA-45DA-9E2A-F19CF145A12A}|courseApp\\courseApp.csproj|solutionrelative:courseapp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -18,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -37,14 +37,18 @@
               "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Form1.cs",
-              "DocumentMoniker": "D:\\University\\Second Year\\Second semster\\DataBase\\courseApp\\courseApp\\Form1.cs",
+              "DocumentMoniker": "D:\\University\\Second Year\\Second semster\\DataBase\\Course-Managment-System\\courseApp\\courseApp\\Form1.cs",
               "RelativeDocumentMoniker": "courseApp\\Form1.cs",
-              "ToolTip": "D:\\University\\Second Year\\Second semster\\DataBase\\courseApp\\courseApp\\Form1.cs*",
-              "RelativeToolTip": "courseApp\\Form1.cs*",
-              "ViewState": "AgIAADsAAAAAAAAAAAAowE0AAAAhAAAAAAAAAA==",
+              "ToolTip": "D:\\University\\Second Year\\Second semster\\DataBase\\Course-Managment-System\\courseApp\\courseApp\\Form1.cs",
+              "RelativeToolTip": "courseApp\\Form1.cs",
+              "ViewState": "AgIAADkBAAAAAAAAAAAtwEgBAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-12T15:27:22.161Z",
               "EditorCaption": ""
@@ -53,10 +57,10 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "D:\\University\\Second Year\\Second semster\\DataBase\\courseApp\\courseApp\\Form1.cs",
+              "DocumentMoniker": "D:\\University\\Second Year\\Second semster\\DataBase\\Course-Managment-System\\courseApp\\courseApp\\Form1.cs",
               "RelativeDocumentMoniker": "courseApp\\Form1.cs",
-              "ToolTip": "D:\\University\\Second Year\\Second semster\\DataBase\\courseApp\\courseApp\\Form1.cs [Design]*",
-              "RelativeToolTip": "courseApp\\Form1.cs [Design]*",
+              "ToolTip": "D:\\University\\Second Year\\Second semster\\DataBase\\Course-Managment-System\\courseApp\\courseApp\\Form1.cs [Design]",
+              "RelativeToolTip": "courseApp\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-12T21:06:46.144Z",
               "EditorCaption": " [Design]"

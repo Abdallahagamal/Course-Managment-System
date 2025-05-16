@@ -95,6 +95,16 @@
             pictureBox7 = new PictureBox();
             exam = new Panel();
             label12 = new Label();
+            chat = new Panel();
+            ChatContainer = new Panel();
+            label13 = new Label();
+            MessageContainer = new Panel();
+            panel7 = new Panel();
+            messagebar = new CustomControls.RJControls.RJTextBox();
+            sendbtn = new CustomControls.RJControls.RJButton();
+            panel5 = new Panel();
+            classwork = new Panel();
+            label14 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             login.SuspendLayout();
             signup.SuspendLayout();
@@ -127,6 +137,10 @@
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             exam.SuspendLayout();
+            chat.SuspendLayout();
+            MessageContainer.SuspendLayout();
+            panel7.SuspendLayout();
+            classwork.SuspendLayout();
             SuspendLayout();
             // 
             // pictureBox1
@@ -1022,6 +1036,131 @@
             label12.TabIndex = 19;
             label12.Text = "EXAMS";
             // 
+            // chat
+            // 
+            chat.Controls.Add(ChatContainer);
+            chat.Controls.Add(label13);
+            chat.Controls.Add(MessageContainer);
+            chat.Dock = DockStyle.Fill;
+            chat.Location = new Point(0, 0);
+            chat.Name = "chat";
+            chat.Size = new Size(1429, 842);
+            chat.TabIndex = 9;
+            // 
+            // ChatContainer
+            // 
+            ChatContainer.AutoScroll = true;
+            ChatContainer.BackgroundImage = (Image)resources.GetObject("ChatContainer.BackgroundImage");
+            ChatContainer.BackgroundImageLayout = ImageLayout.Stretch;
+            ChatContainer.Location = new Point(1079, 157);
+            ChatContainer.Name = "ChatContainer";
+            ChatContainer.Size = new Size(307, 641);
+            ChatContainer.TabIndex = 22;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Montserrat ExtraBold", 28.173914F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label13.ForeColor = Color.FromArgb(5, 12, 22);
+            label13.Location = new Point(198, 55);
+            label13.Name = "label13";
+            label13.Size = new Size(141, 75);
+            label13.TabIndex = 19;
+            label13.Text = "Chat";
+            // 
+            // MessageContainer
+            // 
+            MessageContainer.AutoScroll = true;
+            MessageContainer.BackgroundImage = (Image)resources.GetObject("MessageContainer.BackgroundImage");
+            MessageContainer.BackgroundImageLayout = ImageLayout.Stretch;
+            MessageContainer.Controls.Add(panel7);
+            MessageContainer.Controls.Add(panel5);
+            MessageContainer.Location = new Point(210, 157);
+            MessageContainer.Name = "MessageContainer";
+            MessageContainer.Size = new Size(840, 641);
+            MessageContainer.TabIndex = 23;
+            MessageContainer.Paint += panel6_Paint;
+            // 
+            // panel7
+            // 
+            panel7.BackColor = Color.White;
+            panel7.Controls.Add(messagebar);
+            panel7.Controls.Add(sendbtn);
+            panel7.Location = new Point(26, 578);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(782, 63);
+            panel7.TabIndex = 0;
+            // 
+            // messagebar
+            // 
+            messagebar.BackColor = Color.White;
+            messagebar.BorderColor = Color.FromArgb(5, 12, 22);
+            messagebar.BorderFocusColor = Color.FromArgb(5, 12, 22);
+            messagebar.BorderRadius = 20;
+            messagebar.BorderSize = 2;
+            messagebar.Font = new Font("Montserrat Light", 13.7739134F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            messagebar.ForeColor = Color.DimGray;
+            messagebar.Location = new Point(17, 11);
+            messagebar.Margin = new Padding(4);
+            messagebar.Multiline = false;
+            messagebar.Name = "messagebar";
+            messagebar.Padding = new Padding(20, 7, 10, 7);
+            messagebar.PasswordChar = false;
+            messagebar.Size = new Size(596, 41);
+            messagebar.TabIndex = 0;
+            messagebar.Texts = "Message";
+            messagebar.UnderlinedStyle = false;
+            messagebar.Click += messagebar_Click;
+            // 
+            // sendbtn
+            // 
+            sendbtn.BackColor = Color.FromArgb(5, 12, 22);
+            sendbtn.BackgroundColor = Color.FromArgb(5, 12, 22);
+            sendbtn.BorderColor = Color.PaleVioletRed;
+            sendbtn.BorderRadius = 25;
+            sendbtn.BorderSize = 0;
+            sendbtn.FlatAppearance.BorderSize = 0;
+            sendbtn.FlatStyle = FlatStyle.Flat;
+            sendbtn.Font = new Font("Montserrat ExtraBold", 11.2695656F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            sendbtn.ForeColor = Color.White;
+            sendbtn.Location = new Point(629, 8);
+            sendbtn.Name = "sendbtn";
+            sendbtn.Size = new Size(150, 48);
+            sendbtn.TabIndex = 1;
+            sendbtn.Text = "Send";
+            sendbtn.TextColor = Color.White;
+            sendbtn.UseVisualStyleBackColor = false;
+            sendbtn.Click += sendbtn_Click;
+            // 
+            // panel5
+            // 
+            panel5.AutoScroll = true;
+            panel5.BackColor = Color.White;
+            panel5.Location = new Point(0, 35);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(840, 540);
+            panel5.TabIndex = 29;
+            // 
+            // classwork
+            // 
+            classwork.Controls.Add(label14);
+            classwork.Dock = DockStyle.Fill;
+            classwork.Location = new Point(0, 0);
+            classwork.Name = "classwork";
+            classwork.Size = new Size(1429, 842);
+            classwork.TabIndex = 24;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Montserrat ExtraBold", 28.173914F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label14.ForeColor = Color.FromArgb(5, 12, 22);
+            label14.Location = new Point(219, 114);
+            label14.Name = "label14";
+            label14.Size = new Size(273, 75);
+            label14.TabIndex = 19;
+            label14.Text = "Classwork";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
@@ -1030,8 +1169,10 @@
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1429, 842);
             Controls.Add(panel1);
-            Controls.Add(home);
+            Controls.Add(classwork);
             Controls.Add(courses);
+            Controls.Add(chat);
+            Controls.Add(home);
             Controls.Add(signup);
             Controls.Add(login);
             Controls.Add(exam);
@@ -1075,6 +1216,12 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             exam.ResumeLayout(false);
             exam.PerformLayout();
+            chat.ResumeLayout(false);
+            chat.PerformLayout();
+            MessageContainer.ResumeLayout(false);
+            panel7.ResumeLayout(false);
+            classwork.ResumeLayout(false);
+            classwork.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -1146,5 +1293,15 @@
         private PictureBox pictureBox10;
         private Panel exam;
         private Label label12;
+        private Panel chat;
+        private Label label13;
+        private Panel MessageContainer;
+        private Panel ChatContainer;
+        private Panel panel7;
+        private CustomControls.RJControls.RJTextBox messagebar;
+        private CustomControls.RJControls.RJButton sendbtn;
+        private Panel panel5;
+        private Panel classwork;
+        private Label label14;
     }
 }
