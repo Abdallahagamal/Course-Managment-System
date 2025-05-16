@@ -39,6 +39,46 @@ namespace courseApp
 
         private void Chatpic_Click(object sender, EventArgs e)
         {
+            
+            PictureBox pic = sender as PictureBox;
+            if (pic != null)
+            {
+                RE_ID = (int)pic.Tag;
+                string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    // Use parameters to avoid SQL injection and use the method arguments
+                    SqlDataAdapter adapter = new SqlDataAdapter(
+                        @"SELECT Subject
+              FROM Chat 
+              WHERE (Sender_id = @SenderId AND Reciever_id = @ReceiverId) ", conn);
+                    adapter.SelectCommand.Parameters.AddWithValue("@SenderId", SE_ID);
+                    adapter.SelectCommand.Parameters.AddWithValue("@ReceiverId", RE_ID);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+
+                    foreach (DataRow row in table.Rows)
+                    {
+                        string Subject = row["Subject"]?.ToString() ?? string.Empty;
+                        Subject_label.Text = Subject;
+
+                    }
+                }
+                    if (selectedChatPic != null)
+                    selectedChatPic.Enabled = true;
+
+                pic.Enabled = false;
+                selectedChatPic = pic;
+                
+                loadMessages((int)pic.Tag, SE_ID);
+
+            }
+            
+        }
+        //////to reigster course 
+        private void coursepic_Click(object sender, EventArgs e)
+        {
             PictureBox pic = sender as PictureBox;
             if (pic != null)
             {
@@ -52,6 +92,7 @@ namespace courseApp
 
             }
         }
+        /////
         private void UpdateScrollBar()
         {
             // 1. Find the total height of all the controls inside panel2
@@ -75,13 +116,13 @@ namespace courseApp
                 vScrollBar1.Value = vScrollBar1.Maximum;
             // Do NOT set panel2.Location here!
         }
-        private void AddCoursePanel(string courseName, Panel currentpanel)
+        private void AddCoursePanel(string courseName, Panel currentpanel,int course_id)
         {
             // 1. Create the new panel
             Panel newCoursePanel = new Panel();
             newCoursePanel.Size = new Size(302, 286); // Adjust as needed
             newCoursePanel.BackColor = Color.White;
-
+            newCoursePanel.Tag = course_id;
             // 2. Find position for the new panel
             int newY = 10;
             int newx = 0;
@@ -117,7 +158,7 @@ namespace courseApp
             //newpic.BackgroundImage = Image.FromFile("C:\\Users\\Abdallah Gamal\\OneDrive\\Desktop\\123.png");
 
             newCoursePanel.Controls.Add(newpic);
-
+            newpic.Click += coursepic_Click;
             currentpanel.Controls.Add(newCoursePanel);
             RichTextBox newtitle = new RichTextBox();
             newtitle.Size = new Size(251, 94);
@@ -240,8 +281,7 @@ namespace courseApp
 
             panel5.Controls.Add(msg2);
         }
-<<<<<<< HEAD
-        ////////////////////////////////////
+
         private void loadMessages(int receiver, int sender)
         {
             panel5.Controls.Clear();
@@ -252,7 +292,7 @@ namespace courseApp
                 conn.Open();
                 // Use parameters to avoid SQL injection and use the method arguments
                 SqlDataAdapter adapter = new SqlDataAdapter(
-                    @"SELECT Sender_id, Reciever_id, Content,Subject, Datee, timee 
+                    @"SELECT Sender_id, Reciever_id, Content, Datee, timee 
               FROM Message 
               WHERE (Sender_id = @SenderId AND Reciever_id = @ReceiverId) 
                  OR (Sender_id = @ReceiverId AND Reciever_id = @SenderId)
@@ -266,8 +306,7 @@ namespace courseApp
                 {
                     string content = row["Content"]?.ToString() ?? string.Empty;
                     int senderId = Convert.ToInt32(row["Sender_id"]);
-                    string Subject = row["Subject"]?.ToString() ?? string.Empty;
-                    Subject_label.Text = Subject;
+                  
                     if (senderId == sender)
                         loadsender_msg(content);
                     else
@@ -300,7 +339,6 @@ namespace courseApp
             }
 
         }
-=======
 
         
         private void LoadClassWork()
@@ -317,7 +355,7 @@ namespace courseApp
 
             
             
-           string connectionString = "Server=DESKTOP-KN5SVN0;Database=Course_system;Trusted_Connection=True;";
+           string connectionString = "Server=LAPTOP-I23IVTH3;Database=Course_system;Trusted_Connection=True;";
 
             // SQL Query لقراءة البيانات من جدول ClassWork
             string query = "SELECT  CW.Title, CW.Duration, CW.Date, CW.Description, C.Title AS CourseTitle " +
@@ -345,7 +383,8 @@ namespace courseApp
                                 Size = new Size(700, 120), // تحديد حجم الكارت
                                 Location = new Point(250, yOffset),
                                 BackColor = Color.FromArgb(200, 200, 200),
-                                Font = new Font("Montserrat-ExtraBold", 10)
+                                Font = new Font("Montserrat-ExtraBold", 10),
+                                Cursor = Cursors.Hand
                             };
 
                             // عنوان الكورس
@@ -354,7 +393,7 @@ namespace courseApp
                                 Text = $"Course: {reader["CourseTitle"]}",
                                 Location = new Point(10, 10),
                                 AutoSize = true,
-                                Font = new Font("Montserrat", 12, FontStyle.Bold)
+                                Font = new Font("Montserrat Light", 12, FontStyle.Bold)
                             };
 
                             // عنوان التمرين
@@ -363,7 +402,7 @@ namespace courseApp
                                 Text = $"Title: {reader["Title"]}",
                                 Location = new Point(10, 40),
                                 AutoSize = true,
-                                Font = new Font("Montserrat", 12, FontStyle.Bold)
+                                Font = new Font("Montserrat Light", 12, FontStyle.Bold)
                             };
 
                             // الوصف
@@ -372,7 +411,7 @@ namespace courseApp
                                 Text = $"Description: {reader["Description"]}",
                                 Location = new Point(10, 70),
                                 AutoSize = true,
-                                Font = new Font("Montserrat", 12, FontStyle.Bold)
+                                Font = new Font("Montserrat Light", 12, FontStyle.Bold)
                             };
 
                             // التاريخ
@@ -381,7 +420,7 @@ namespace courseApp
                                 Text = $"Date: {Convert.ToDateTime(reader["Date"]).ToShortDateString()}",
                                 Location = new Point(400, 10),
                                 AutoSize = true,
-                                Font = new Font("Montserrat", 12, FontStyle.Bold)
+                                Font = new Font("Montserrat Light", 12, FontStyle.Bold)
                             };
 
                             // المدة
@@ -390,7 +429,7 @@ namespace courseApp
                                 Text = $"Duration: {reader["Duration"]}",
                                 Location = new Point(400, 40),
                                 AutoSize = true,
-                                Font = new Font("Montserrat", 12, FontStyle.Bold)
+                                Font = new Font("Montserrat Light", 12, FontStyle.Bold)
                             };
 
                             // إضافة العناصر للكرت
@@ -416,7 +455,6 @@ namespace courseApp
             vScrollBar1.Maximum = Math.Max(0, classwork.Height - this.ClientSize.Height);
         }
 
->>>>>>> 03f2efb36312b33e0497827112144abd1924bf3f
         public Form1()
         {
 
@@ -475,16 +513,9 @@ namespace courseApp
 
 
 
-            AddCoursePanel("title", panel2);
-<<<<<<< HEAD
+            AddCoursePanel("title", panel2,123);
 
-=======
-            loadChat("Eyad Nader");
-            loadChat("AHMED Nader");
-            loadChat("Wael Mohamed");
-            loadChat("Wael Mohamed");
-            loadChat("Wael Mohamed");
->>>>>>> 03f2efb36312b33e0497827112144abd1924bf3f
+      
 
 
         }
@@ -532,12 +563,9 @@ namespace courseApp
         private void chaticon_Click(object sender, EventArgs e)
         {
             handleicon(chaticon2);
-<<<<<<< HEAD
             chat.BringToFront();
-            loadChats_inpanel(123);
-=======
+            loadChats_inpanel(SE_ID);
 
->>>>>>> 03f2efb36312b33e0497827112144abd1924bf3f
             panel1.BringToFront();
 
 
@@ -649,7 +677,6 @@ namespace courseApp
             messagebar.Texts = "";
         }
 
-<<<<<<< HEAD
         private void ChatContainer_Paint(object sender, PaintEventArgs e)
         {
 
@@ -657,8 +684,9 @@ namespace courseApp
 
         private void Addbtn_Click(object sender, EventArgs e)
         {
-            //if(addbar.Textchanged)
-            if (addbar.Texts != "" && subjectbar.Texts != "" && int.TryParse(addbar.Texts, out int number))
+            string previousText = "ID USER";
+            string previousText2 = "Subject";
+            if (addbar.Texts != "" && subjectbar.Texts != "" && int.TryParse(addbar.Texts, out int number)&& addbar.Texts != previousText&& subjectbar.Texts != previousText2)
             {
                 string ID = addbar.Texts;
 
@@ -696,7 +724,7 @@ namespace courseApp
 
                 }
 
-
+                Subject_temp=subjectbar.Texts;
 
             }
             else
@@ -715,9 +743,11 @@ namespace courseApp
         }
 
         private void addbar__TextChanged(object sender, EventArgs e)
-=======
+        {
+
+        }
+
         private void label15_Click(object sender, EventArgs e)
->>>>>>> 03f2efb36312b33e0497827112144abd1924bf3f
         {
 
         }
