@@ -93,6 +93,22 @@ namespace courseApp
             }
         }
         /////
+        //-----------start exam button----------------
+        private void StartExam_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (btn != null && btn.Tag is int examId)
+            {
+                MessageBox.Show($"Starting exam with ID: {examId}", "Start Exam", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                exam.Controls.Clear();
+
+                // حمّلي الامتحان في نفس البانل
+                LoadExamDetails(examId);
+
+            }
+        }
+
         private void UpdateScrollBar()
         {
             // 1. Find the total height of all the controls inside panel2
@@ -350,15 +366,11 @@ namespace courseApp
             int yOffset = 180;
 
             // الاتصال بقاعدة البيانات
-
-
-
             
-            
-           string connectionString = "Server=LAPTOP-I23IVTH3;Database=Course_system;Trusted_Connection=True;";
+           string connectionString = "Server=DESKTOP-KN5SVN0;Database=Course_system;Trusted_Connection=True;";
 
             // SQL Query لقراءة البيانات من جدول ClassWork
-            string query = "SELECT  CW.Title, CW.Duration, CW.Date, CW.Description, C.Title AS CourseTitle " +
+            string query = "SELECT C.CourseId,CW.ExId, CW.Title, CW.Duration, CW.Date, CW.Description, C.Title AS CourseTitle " +
                            "FROM ClassWork CW " +
                            "INNER JOIN Course C ON CW.CourseId = C.CourseId";
 
@@ -432,13 +444,61 @@ namespace courseApp
                                 Font = new Font("Montserrat Light", 12, FontStyle.Bold)
                             };
 
+                            // زرار رفع ملف
+                            Button uploadBtn = new Button
+                            {
+                                Text = "Upload",
+                                Location = new Point(580, 80),
+                                Size = new Size(90, 30),
+                                BackColor = Color.FromArgb(153, 102, 255),
+                                ForeColor = Color.White,
+                                FlatStyle = FlatStyle.Flat
+                            };
+                            uploadBtn.FlatAppearance.BorderSize = 0;
+
+                            // احصل على المفتاح الأساسي للكارت (CourseId و ExId)
+                            int courseId = Convert.ToInt32(reader["CourseId"]);
+                            int exId = Convert.ToInt32(reader["ExId"]);
+                            uploadBtn.Tag = (courseId, exId);
+
+                            // الحدث عند الضغط على الزر
+                            uploadBtn.Click += (s, e) =>
+                            {
+                                using (OpenFileDialog ofd = new OpenFileDialog())
+                                {
+                                    ofd.Filter = "PDF files (*.pdf)|*.pdf";
+                                    if (ofd.ShowDialog() == DialogResult.OK)
+                                    {
+                                        byte[] fileData = File.ReadAllBytes(ofd.FileName);
+
+                                        string connectionString = "Server=DESKTOP-KN5SVN0;Database=Course_system;Trusted_Connection=True;";
+                                        using (SqlConnection conn = new SqlConnection(connectionString))
+                                        {
+                                            conn.Open();
+                                            using (SqlCommand cmd = new SqlCommand("UPDATE ClassWork SET Answerpdf = @PDF WHERE CourseId = @CourseId AND ExId = @ExId", conn))
+                                            {
+                                                cmd.Parameters.AddWithValue("@PDF", fileData);
+                                                cmd.Parameters.AddWithValue("@CourseId", courseId);
+                                                cmd.Parameters.AddWithValue("@ExId", exId);
+                                                cmd.ExecuteNonQuery();
+                                            }
+                                        }
+
+                                        MessageBox.Show("File uploaded successfully!");
+                                    }
+                                }
+                            };
+
+                            // إضافة الزر إلى الكارت
+                           
+
                             // إضافة العناصر للكرت
                             card.Controls.Add(lblCourse);
                             card.Controls.Add(lblTitle);
                             card.Controls.Add(lblDesc);
                             card.Controls.Add(lblDate);
                             card.Controls.Add(lblDuration);
-
+                            card.Controls.Add(uploadBtn);
                             // إضافة الكارت للـ panel2
                             classwork.Controls.Add(card);
 
@@ -454,6 +514,285 @@ namespace courseApp
             // تحديث قيمة الـ ScrollBar بناءً على المحتوى
             vScrollBar1.Maximum = Math.Max(0, classwork.Height - this.ClientSize.Height);
         }
+
+        //------------------------Exam page (Esraa&Dado)--------------------------------------------
+        private void LoadExams()
+        {
+            exam.Controls.Clear();
+            int yOffset = 180;
+
+            string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
+            string query = "SELECT E.ExamId, E.Title, E.Description, E.Duration, E.Date, C.Title AS CourseTitle " +
+                           "FROM Exam E " +
+                           "INNER JOIN Course C ON E.ExamId = C.ExamId";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int examId = Convert.ToInt32(reader["ExamId"]);
+
+
+
+
+                        Label lblpage = new Label
+                        {
+                            Text = "Exams",
+                            Location = new Point(250, 100),
+                            Font = new Font("Montserrat", 18, FontStyle.Bold),
+                            AutoSize = true
+                        };
+
+                        Panel card = new Panel
+                        {
+                            Size = new Size(750, 200),
+                            Location = new Point(250, yOffset),
+                            BackColor = Color.FromArgb(230, 230, 250),
+                            BorderStyle = BorderStyle.Fixed3D,
+                            Padding = new Padding(10),
+                            //Tag = examId
+                        };
+
+
+                        Label lblCourse = new Label
+                        {
+                            Text = $"📚 Course: {reader["CourseTitle"]}",
+                            Location = new Point(10, 10),
+                            Font = new Font("Montserrat", 11, FontStyle.Bold),
+                            AutoSize = true
+                        };
+
+                        Label lblTitle = new Label
+                        {
+                            Text = $"📝 Type: {reader["Title"]}",
+                            Location = new Point(10, 45),
+                            Font = new Font("Montserrat", 11),
+                            AutoSize = true
+                        };
+
+                        Label lblDuration = new Label
+                        {
+                            Text = $"⏱ Duration: {reader["Duration"]}",
+                            Location = new Point(10, 80),
+                            Font = new Font("Montserrat", 11),
+                            AutoSize = true
+                        };
+
+                        Label lblDate = new Label
+                        {
+                            Text = $"📅 Date: {Convert.ToDateTime(reader["Date"]).ToShortDateString()}",
+                            Location = new Point(10, 115),
+                            Font = new Font("Montserrat", 11),
+                            AutoSize = true
+                        };
+
+                        Label lblDesc = new Label
+                        {
+                            Text = $"🧾 Description: {reader["Description"]}",
+                            Location = new Point(10, 150),
+                            Font = new Font("Montserrat", 11),
+                            AutoSize = true,
+                         
+                        };
+
+                        // ✅ زرار Start Exam
+                        Button startBtn = new Button
+                        {
+                            Text = "Start Exam",
+                            Location = new Point(600, 130),
+                            Size = new Size(120, 30),
+                            BackColor = Color.FromArgb(153, 102, 255),
+                            ForeColor = Color.White,
+                            FlatStyle = FlatStyle.Flat,
+                            Tag = examId
+                        };
+                        startBtn.FlatAppearance.BorderSize = 0;
+                        startBtn.Click += StartExam_Click;
+
+                        // Add controls to card
+                        exam.Controls.Add(lblpage);
+                        card.Controls.Add(lblCourse);
+                        card.Controls.Add(lblTitle);
+                        card.Controls.Add(lblDuration);
+                        card.Controls.Add(lblDate);
+                        card.Controls.Add(lblDesc);
+                        card.Controls.Add(startBtn);
+
+                       
+
+                        exam.Controls.Add(card);
+                        yOffset += 200;
+                    }
+                }
+            }
+
+            vScrollBar2.Maximum = Math.Max(0, exam.Height - this.ClientSize.Height);
+        }
+
+        //-----------------------the exam -----------------------
+        private void LoadExamDetails(int examId)
+        {
+            string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
+            string query = "SELECT Title, Description, Question, Duration, Date FROM Exam WHERE ExamId = @ExamId";
+          
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@ExamId", examId);
+                conn.Open();
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        // exam.Controls.Clear(); // تأكيد مسح المحتوى
+                        Color textColor = Color.FromArgb(40, 43, 130); // #282B82    
+                        Color highlight = Color.FromArgb(29, 31, 93);
+
+                        // العنوان
+                        Label lblTitle = new Label()
+                        {
+                            Text = $"📝 Exam: {reader["Title"]}",
+                            Font = new Font("Montserrat", 14, FontStyle.Bold),
+                            Location = new Point(250, 30),
+                            AutoSize = true,
+                            ForeColor = highlight
+
+                        };
+
+                        // المدة
+                        Label lblDuration = new Label()
+                        {
+                            Text = $"⏱ Duration: {reader["Duration"]}",
+                            Font = new Font("Montserrat", 12),
+                            Location = new Point(605, 30),
+                            AutoSize = true,
+                            ForeColor = textColor
+                        };
+
+                        // التاريخ
+                        Label lblDate = new Label()
+                        {
+                            Text = $"📅 Date: {Convert.ToDateTime(reader["Date"]).ToShortDateString()}",
+                            Font = new Font("Montserrat", 12),
+                            Location = new Point(955, 30),
+                            AutoSize = true,
+                            ForeColor = textColor
+                        };
+
+                        // الوصف
+                        Label lblDesc = new Label()
+                        {
+                            Text = $"📄 Content: {reader["Description"]}",
+                            Font = new Font("Montserrat", 12),
+                            Location = new Point(300, 90),
+                            AutoSize = true,
+                            ForeColor = textColor
+                        };
+
+                        // السؤال
+                        Label lblQ = new Label()
+                        {
+                            Text = $"❓ Question:",
+                            Font = new Font("Montserrat", 12, FontStyle.Bold),
+                            Location = new Point(280, 170),
+                            AutoSize = true,
+                            ForeColor = highlight
+                        };
+
+                        RichTextBox txtQuestion = new RichTextBox()
+                        {
+                            Text = reader["Question"].ToString(),
+                            Location = new Point(280, 200),
+                            Size = new Size(650, 100),
+                            ReadOnly = true,
+                            Font = new Font("Montserrat", 11),
+                            BackColor = Color.FromArgb(245, 245, 245),
+                            BorderStyle = BorderStyle.FixedSingle
+
+                        };
+
+                        // 📝 TextBox للإجابة
+                        Label lblAnswer = new Label()
+                        {
+                            Text = "✍️ Your Answer:",
+                            Font = new Font("Montserrat", 12, FontStyle.Bold),
+                            Location = new Point(280, 310),
+                            AutoSize = true,
+                            ForeColor = highlight
+                        };
+
+                        TextBox txtAnswer = new TextBox()
+                        {
+                            Location = new Point(280, 340),
+                            Size = new Size(650, 80),
+                            Multiline = true,
+                            Font = new Font("Montserrat", 11),
+                            BorderStyle = BorderStyle.FixedSingle
+                        };
+
+                        // ✅ زرار Submit
+                        Button submitBtn = new Button()
+                        {
+                            Text = "Submit Answer",
+                            Location = new Point(1000, 440),
+                            Size = new Size(140, 40),
+                            BackColor = highlight, 
+                            ForeColor = Color.White,
+                            FlatStyle = FlatStyle.Flat
+                        };
+                        submitBtn.FlatAppearance.BorderSize = 0;
+
+                        submitBtn.Click += (s, e) =>
+                        {
+                            string answer = txtAnswer.Text;
+                            if (string.IsNullOrWhiteSpace(answer))
+                            {
+                                MessageBox.Show("Please enter your answer first.", "Empty Answer", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                            else
+                            {
+                                string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
+                                using (SqlConnection conn = new SqlConnection(connectionString))
+                                {
+                                    conn.Open();
+                                    string updateQuery = "UPDATE Exam SET Answers = @Answer WHERE ExamId = @ExamId";
+                                    using (SqlCommand cmd = new SqlCommand(updateQuery, conn))
+                                    {
+                                        cmd.Parameters.AddWithValue("@Answer", answer);
+                                        cmd.Parameters.AddWithValue("@ExamId", examId);
+                                        cmd.ExecuteNonQuery();
+                                    }
+                                }
+
+                                MessageBox.Show("✅ Your answer has been submitted.\nThank you!", "Submitted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                LoadExams();
+
+
+
+                            }
+                        };
+
+                        // ➕ ضيف كل حاجة لـ panel3
+                        exam.Controls.Add(lblTitle);
+                        exam.Controls.Add(lblDuration);
+                        exam.Controls.Add(lblDate);
+                        exam.Controls.Add(lblDesc);
+                        exam.Controls.Add(lblQ);
+                        exam.Controls.Add(txtQuestion);
+                        exam.Controls.Add(lblAnswer);
+                        exam.Controls.Add(txtAnswer);
+                        exam.Controls.Add(submitBtn);
+                    }
+                }
+            }
+        }
+
 
         public Form1()
         {
@@ -574,6 +913,8 @@ namespace courseApp
         private void examicon_Click(object sender, EventArgs e)
         {
             handleicon(examicon2);
+            exam.BringToFront();
+            LoadExams(); 
             panel1.BringToFront();
 
 
