@@ -14,6 +14,12 @@ namespace courseApp
         private int panel2OriginalY;
         private int panel3OriginalY;
         private int chatriginalY;
+        ///////Global Varibales
+        int RE_ID = 0;
+        int SE_ID = 0;
+        String Subject_temp;
+        Boolean check_text=false;
+        ///
         void handleicon(PictureBox icon)
         {
             List<PictureBox> iconList = new List<PictureBox> { homeicom2, examicon2, coursesicon2, classworkicon2, chaticon2, usericon2 };
@@ -29,7 +35,23 @@ namespace courseApp
             }
 
         }
+        private PictureBox selectedChatPic = null;
 
+        private void Chatpic_Click(object sender, EventArgs e)
+        {
+            PictureBox pic = sender as PictureBox;
+            if (pic != null)
+            {
+                if (selectedChatPic != null)
+                    selectedChatPic.Enabled = true;
+
+                pic.Enabled = false;
+                selectedChatPic = pic;
+                RE_ID = (int)pic.Tag;
+                loadMessages((int)pic.Tag, 123);
+
+            }
+        }
         private void UpdateScrollBar()
         {
             // 1. Find the total height of all the controls inside panel2
@@ -112,7 +134,7 @@ namespace courseApp
             UpdateScrollBar();
 
         }
-        private void loadChat(String Name)
+        private void loadChat(String Name, int ID)
         {
             Panel newchat = new Panel();
             newchat.Size = new Size(282, 67);
@@ -135,8 +157,9 @@ namespace courseApp
             icon.Location = new Point(3, 3);
             icon.BackgroundImage = Image.FromStream(new MemoryStream(Properties.Resources.User_Circle));
             icon.BackgroundImageLayout = ImageLayout.Zoom;
+            icon.Tag = ID;
             newchat.Controls.Add(icon);
-
+            icon.Click += Chatpic_Click;
 
             Label name = new Label();
             name.Location = new Point(74, 22);
@@ -217,6 +240,65 @@ namespace courseApp
 
             panel5.Controls.Add(msg2);
         }
+        ////////////////////////////////////
+        private void loadMessages(int receiver, int sender)
+        {
+            panel5.Controls.Clear();
+
+            string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                // Use parameters to avoid SQL injection and use the method arguments
+                SqlDataAdapter adapter = new SqlDataAdapter(
+                    @"SELECT Sender_id, Reciever_id, Content,Subject, Datee, timee 
+              FROM Message 
+              WHERE (Sender_id = @SenderId AND Reciever_id = @ReceiverId) 
+                 OR (Sender_id = @ReceiverId AND Reciever_id = @SenderId)
+              ORDER BY Datee, timee", conn);
+                adapter.SelectCommand.Parameters.AddWithValue("@SenderId", sender);
+                adapter.SelectCommand.Parameters.AddWithValue("@ReceiverId", receiver);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+
+                foreach (DataRow row in table.Rows)
+                {
+                    string content = row["Content"]?.ToString() ?? string.Empty;
+                    int senderId = Convert.ToInt32(row["Sender_id"]);
+                    string Subject = row["Subject"]?.ToString() ?? string.Empty;
+                    Subject_label.Text = Subject;
+                    if (senderId == sender)
+                        loadsender_msg(content);
+                    else
+                        loadreciver_msg(content);
+                }
+            }
+        }
+        private void loadChats_inpanel(int sender)
+        {
+            string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                // Use parameters to avoid SQL injection and use the method arguments
+                SqlDataAdapter adapter = new SqlDataAdapter(
+                    @"SELECT Userr.FName + ' ' + Userr.LName AS fullname , Chat.Reciever_id
+                    FROM Userr
+                    INNER JOIN Chat ON Chat.Reciever_id = Userr.UserId
+                    WHERE Chat.Sender_id = @SenderId", conn);
+                adapter.SelectCommand.Parameters.AddWithValue("@SenderId", sender);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+
+                foreach (DataRow row in table.Rows)
+                {
+                    string name = row["fullname"]?.ToString() ?? string.Empty;
+                    int rID = Convert.ToInt32(row["Reciever_id"]);
+                    loadChat(name, rID);
+                }
+            }
+
+        }
         public Form1()
         {
 
@@ -247,7 +329,7 @@ namespace courseApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+            string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
             panel2OriginalY = panel2.Location.Y; // Save original position
             panel3OriginalY = panel3.Location.Y;
             chatriginalY = ChatContainer.Location.Y;
@@ -272,30 +354,12 @@ namespace courseApp
             }
 
             // Example: Fill a DataTable and bind to a DataGridView
-            /*
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-                SqlDataAdapter adapter = new SqlDataAdapter("SELECT Content FROM Message Where Sender_id=123", conn);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
 
-                foreach (DataRow row in table.Rows)
-                {
-                    String title = row["Content"]?.ToString() ?? string.Empty;
-                    loadsender_msg(title);
-                    // Use the title variable as needed
-                    // Example: AddCoursePanel(title, panel2);
-                }
-            }
-            */
+
+
             AddCoursePanel("title", panel2);
-            loadChat("Eyad Nader");
-            loadChat("AHMED Nader");
-            loadChat("Wael Mohamed");
-            loadChat("Wael Mohamed");
-            loadChat("Wael Mohamed");
-            
+
+
 
         }
 
@@ -341,6 +405,8 @@ namespace courseApp
         private void chaticon_Click(object sender, EventArgs e)
         {
             handleicon(chaticon2);
+            chat.BringToFront();
+            loadChats_inpanel(123);
             panel1.BringToFront();
 
 
@@ -421,6 +487,26 @@ namespace courseApp
                 string msg = messagebar.Texts;
                 loadsender_msg(msg);
                 messagebar.Texts = "";
+
+                // Insert message into database
+                string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string insertQuery = @"INSERT INTO Message (MessageId,Sender_id, Reciever_id,timee,Datee,Content,Subject ) 
+                                           VALUES (@MessageId,@SenderId, @RecieverId, @Timee, @Datee,@Content,@Subject)";
+                    using (SqlCommand cmd = new SqlCommand(insertQuery, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@MessageId", 10);
+                        cmd.Parameters.AddWithValue("@Subject", 10);
+                        cmd.Parameters.AddWithValue("@SenderId", SE_ID); // Replace with actual sender id
+                        cmd.Parameters.AddWithValue("@RecieverId", RE_ID); // Replace with actual receiver id
+                        cmd.Parameters.AddWithValue("@Content", msg);
+                        cmd.Parameters.AddWithValue("@Datee", DateTime.Now.Date);
+                        cmd.Parameters.AddWithValue("@Timee", DateTime.Now.TimeOfDay);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
             }
             else
             {
@@ -432,6 +518,73 @@ namespace courseApp
             messagebar.Texts = "";
         }
 
-        
+        private void ChatContainer_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Addbtn_Click(object sender, EventArgs e)
+        {
+            //if(addbar.Textchanged)
+            if (addbar.Texts != "" && subjectbar.Texts != "" && int.TryParse(addbar.Texts, out int number))
+            {
+                string ID = addbar.Texts;
+
+                addbar.Texts = "";
+
+                // Insert message into database
+                string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string insertQuery = @"INSERT INTO Chat (Sender_id, Reciever_id) 
+                                           VALUES (@SenderId, @RecieverId)";
+                    using (SqlCommand cmd = new SqlCommand(insertQuery, conn))
+                    {
+
+                        cmd.Parameters.AddWithValue("@SenderId", SE_ID); // Replace with actual sender id
+                        cmd.Parameters.AddWithValue("@RecieverId", Convert.ToInt32(ID)); // Replace with actual receiver id
+
+                        cmd.ExecuteNonQuery();
+                    }
+                    string selectQuery = "SELECT Userr.FName + ' ' + Userr.LName AS fullname FROM Userr WHERE UserId = @RecieverId";
+                    using (SqlCommand selectCmd = new SqlCommand(selectQuery, conn))
+                    {
+                        selectCmd.Parameters.AddWithValue("@RecieverId", Convert.ToInt32(ID));
+
+                        using (SqlDataReader reader = selectCmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                string name = reader["fullname"]?.ToString() ?? string.Empty;
+                                loadChat(name, Convert.ToInt32(ID));
+                            }
+                        }
+                    }
+
+                }
+
+
+
+            }
+            else
+            {
+            }
+        }
+
+        private void addbar_Click(object sender, EventArgs e)
+        {
+            addbar.Texts = "";
+        }
+
+        private void subjectbar_Click(object sender, EventArgs e)
+        {
+            subjectbar.Texts = "";
+        }
+
+        private void addbar__TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

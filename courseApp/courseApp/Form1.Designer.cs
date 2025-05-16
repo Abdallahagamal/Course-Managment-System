@@ -96,9 +96,14 @@
             exam = new Panel();
             label12 = new Label();
             chat = new Panel();
+            subjectbar = new CustomControls.RJControls.RJTextBox();
+            label15 = new Label();
+            addbar = new CustomControls.RJControls.RJTextBox();
+            Addbtn = new CustomControls.RJControls.RJButton();
             ChatContainer = new Panel();
             label13 = new Label();
             MessageContainer = new Panel();
+            Subject_label = new Label();
             panel7 = new Panel();
             messagebar = new CustomControls.RJControls.RJTextBox();
             sendbtn = new CustomControls.RJControls.RJButton();
@@ -1038,6 +1043,10 @@
             // 
             // chat
             // 
+            chat.Controls.Add(subjectbar);
+            chat.Controls.Add(label15);
+            chat.Controls.Add(addbar);
+            chat.Controls.Add(Addbtn);
             chat.Controls.Add(ChatContainer);
             chat.Controls.Add(label13);
             chat.Controls.Add(MessageContainer);
@@ -1046,6 +1055,80 @@
             chat.Name = "chat";
             chat.Size = new Size(1429, 842);
             chat.TabIndex = 9;
+            // 
+            // subjectbar
+            // 
+            subjectbar.BackColor = Color.White;
+            subjectbar.BorderColor = Color.FromArgb(5, 12, 22);
+            subjectbar.BorderFocusColor = Color.FromArgb(5, 12, 22);
+            subjectbar.BorderRadius = 20;
+            subjectbar.BorderSize = 2;
+            subjectbar.Font = new Font("Montserrat Light", 11.2695637F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            subjectbar.ForeColor = Color.DimGray;
+            subjectbar.Location = new Point(1241, 64);
+            subjectbar.Margin = new Padding(4);
+            subjectbar.Multiline = false;
+            subjectbar.Name = "subjectbar";
+            subjectbar.Padding = new Padding(20, 7, 10, 7);
+            subjectbar.PasswordChar = false;
+            subjectbar.Size = new Size(168, 37);
+            subjectbar.TabIndex = 25;
+            subjectbar.Texts = "Subject";
+            subjectbar.UnderlinedStyle = false;
+            subjectbar.Click += subjectbar_Click;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label15.ForeColor = Color.FromArgb(5, 12, 22);
+            label15.Location = new Point(1152, 19);
+            label15.Name = "label15";
+            label15.Size = new Size(178, 37);
+            label15.TabIndex = 24;
+            label15.Text = "Add New Chat";
+            // 
+            // addbar
+            // 
+            addbar.BackColor = Color.White;
+            addbar.BorderColor = Color.FromArgb(5, 12, 22);
+            addbar.BorderFocusColor = Color.FromArgb(5, 12, 22);
+            addbar.BorderRadius = 20;
+            addbar.BorderSize = 2;
+            addbar.Font = new Font("Montserrat Light", 11.2695637F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            addbar.ForeColor = Color.DimGray;
+            addbar.Location = new Point(1065, 64);
+            addbar.Margin = new Padding(4);
+            addbar.Multiline = false;
+            addbar.Name = "addbar";
+            addbar.Padding = new Padding(20, 7, 10, 7);
+            addbar.PasswordChar = false;
+            addbar.Size = new Size(168, 37);
+            addbar.TabIndex = 2;
+            addbar.Texts = "ID USER";
+            addbar.UnderlinedStyle = false;
+            addbar._TextChanged += addbar__TextChanged;
+            addbar.Click += addbar_Click;
+            // 
+            // Addbtn
+            // 
+            Addbtn.BackColor = Color.FromArgb(5, 12, 22);
+            Addbtn.BackgroundColor = Color.FromArgb(5, 12, 22);
+            Addbtn.BorderColor = Color.PaleVioletRed;
+            Addbtn.BorderRadius = 25;
+            Addbtn.BorderSize = 0;
+            Addbtn.FlatAppearance.BorderSize = 0;
+            Addbtn.FlatStyle = FlatStyle.Flat;
+            Addbtn.Font = new Font("Montserrat ExtraBold", 11.2695656F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Addbtn.ForeColor = Color.White;
+            Addbtn.Location = new Point(1178, 108);
+            Addbtn.Name = "Addbtn";
+            Addbtn.Size = new Size(132, 44);
+            Addbtn.TabIndex = 3;
+            Addbtn.Text = "ADD";
+            Addbtn.TextColor = Color.White;
+            Addbtn.UseVisualStyleBackColor = false;
+            Addbtn.Click += Addbtn_Click;
             // 
             // ChatContainer
             // 
@@ -1056,6 +1139,7 @@
             ChatContainer.Name = "ChatContainer";
             ChatContainer.Size = new Size(307, 641);
             ChatContainer.TabIndex = 22;
+            ChatContainer.Paint += ChatContainer_Paint;
             // 
             // label13
             // 
@@ -1073,6 +1157,7 @@
             MessageContainer.AutoScroll = true;
             MessageContainer.BackgroundImage = (Image)resources.GetObject("MessageContainer.BackgroundImage");
             MessageContainer.BackgroundImageLayout = ImageLayout.Stretch;
+            MessageContainer.Controls.Add(Subject_label);
             MessageContainer.Controls.Add(panel7);
             MessageContainer.Controls.Add(panel5);
             MessageContainer.Location = new Point(210, 157);
@@ -1080,6 +1165,18 @@
             MessageContainer.Size = new Size(840, 641);
             MessageContainer.TabIndex = 23;
             MessageContainer.Paint += panel6_Paint;
+            // 
+            // Subject_label
+            // 
+            Subject_label.AutoSize = true;
+            Subject_label.BackColor = Color.White;
+            Subject_label.Font = new Font("Montserrat Light", 11.8956518F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            Subject_label.ForeColor = Color.FromArgb(5, 12, 22);
+            Subject_label.Location = new Point(368, 8);
+            Subject_label.Name = "Subject_label";
+            Subject_label.Size = new Size(78, 23);
+            Subject_label.TabIndex = 25;
+            Subject_label.Text = "subject";
             // 
             // panel7
             // 
@@ -1169,9 +1266,9 @@
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1429, 842);
             Controls.Add(panel1);
+            Controls.Add(chat);
             Controls.Add(classwork);
             Controls.Add(courses);
-            Controls.Add(chat);
             Controls.Add(home);
             Controls.Add(signup);
             Controls.Add(login);
@@ -1219,6 +1316,7 @@
             chat.ResumeLayout(false);
             chat.PerformLayout();
             MessageContainer.ResumeLayout(false);
+            MessageContainer.PerformLayout();
             panel7.ResumeLayout(false);
             classwork.ResumeLayout(false);
             classwork.PerformLayout();
@@ -1303,5 +1401,10 @@
         private Panel panel5;
         private Panel classwork;
         private Label label14;
+        private Label label15;
+        private CustomControls.RJControls.RJTextBox addbar;
+        private CustomControls.RJControls.RJButton Addbtn;
+        private Label Subject_label;
+        private CustomControls.RJControls.RJTextBox subjectbar;
     }
 }
