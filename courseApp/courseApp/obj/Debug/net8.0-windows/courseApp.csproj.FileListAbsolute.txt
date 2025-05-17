@@ -289,3 +289,5 @@ C:\Users\user\Desktop\database1\Course-Managment-System\courseApp\courseApp\obj\
 C:\Users\user\Desktop\database1\Course-Managment-System\courseApp\courseApp\obj\Debug\net8.0-windows\courseApp.pdb
 C:\Users\user\Desktop\database1\Course-Managment-System\courseApp\courseApp\obj\Debug\net8.0-windows\courseApp.genruntimeconfig.cache
 C:\Users\user\Desktop\database1\Course-Managment-System\courseApp\courseApp\obj\Debug\net8.0-windows\ref\courseApp.dll
+C:\Users\user\Desktop\database1\Course-Managment-System\courseApp\courseApp\bin\Debug\net8.0-windows\BouncyCastle.Cryptography.dll
+C:\Users\user\Desktop\database1\Course-Managment-System\courseApp\courseApp\bin\Debug\net8.0-windows\itextsharp.dll

@@ -18,7 +18,7 @@ namespace courseApp
         int RE_ID = 0;
         int SE_ID = 0;
         String Subject_temp;
-        Boolean check_text=false;
+        Boolean check_text = false;
         ///
         void handleicon(PictureBox icon)
         {
@@ -39,7 +39,7 @@ namespace courseApp
 
         private void Chatpic_Click(object sender, EventArgs e)
         {
-            
+
             PictureBox pic = sender as PictureBox;
             if (pic != null)
             {
@@ -65,16 +65,16 @@ namespace courseApp
 
                     }
                 }
-                    if (selectedChatPic != null)
+                if (selectedChatPic != null)
                     selectedChatPic.Enabled = true;
 
                 pic.Enabled = false;
                 selectedChatPic = pic;
-                
+
                 loadMessages((int)pic.Tag, SE_ID);
 
             }
-            
+
         }
         //////to reigster course 
         private void coursepic_Click(object sender, EventArgs e)
@@ -132,7 +132,7 @@ namespace courseApp
                 vScrollBar1.Value = vScrollBar1.Maximum;
             // Do NOT set panel2.Location here!
         }
-        private void AddCoursePanel(string courseName, Panel currentpanel,int course_id)
+        private void AddCoursePanel(string courseName, Panel currentpanel, int course_id)
         {
             // 1. Create the new panel
             Panel newCoursePanel = new Panel();
@@ -322,7 +322,7 @@ namespace courseApp
                 {
                     string content = row["Content"]?.ToString() ?? string.Empty;
                     int senderId = Convert.ToInt32(row["Sender_id"]);
-                  
+
                     if (senderId == sender)
                         loadsender_msg(content);
                     else
@@ -356,7 +356,7 @@ namespace courseApp
 
         }
 
-        
+
         private void LoadClassWork()
         {
             // مسح المحتوى القديم في panel2 (ClassWork)
@@ -366,8 +366,8 @@ namespace courseApp
             int yOffset = 180;
 
             // الاتصال بقاعدة البيانات
-            
-           string connectionString = "Server=DESKTOP-KN5SVN0;Database=Course_system;Trusted_Connection=True;";
+
+            string connectionString = "Server=DESKTOP-KN5SVN0;Database=Course_system;Trusted_Connection=True;";
 
             // SQL Query لقراءة البيانات من جدول ClassWork
             string query = "SELECT C.CourseId,CW.ExId, CW.Title, CW.Duration, CW.Date, CW.Description, C.Title AS CourseTitle " +
@@ -377,7 +377,7 @@ namespace courseApp
             // الاتصال بقاعدة البيانات باستخدام SqlConnection
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-               
+
 
                 conn.Open(); // فتح الاتصال
 
@@ -490,7 +490,7 @@ namespace courseApp
                             };
 
                             // إضافة الزر إلى الكارت
-                           
+
 
                             // إضافة العناصر للكرت
                             card.Controls.Add(lblCourse);
@@ -506,8 +506,8 @@ namespace courseApp
                             yOffset += 140;
                         }
                     }
-               
-               
+
+
                 }
             }
 
@@ -596,7 +596,7 @@ namespace courseApp
                             Location = new Point(10, 150),
                             Font = new Font("Montserrat", 11),
                             AutoSize = true,
-                         
+
                         };
 
                         // ✅ زرار Start Exam
@@ -622,7 +622,7 @@ namespace courseApp
                         card.Controls.Add(lblDesc);
                         card.Controls.Add(startBtn);
 
-                       
+
 
                         exam.Controls.Add(card);
                         yOffset += 200;
@@ -638,7 +638,7 @@ namespace courseApp
         {
             string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
             string query = "SELECT Title, Description, Question, Duration, Date FROM Exam WHERE ExamId = @ExamId";
-          
+
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -742,7 +742,7 @@ namespace courseApp
                             Text = "Submit Answer",
                             Location = new Point(1000, 440),
                             Size = new Size(140, 40),
-                            BackColor = highlight, 
+                            BackColor = highlight,
                             ForeColor = Color.White,
                             FlatStyle = FlatStyle.Flat
                         };
@@ -793,6 +793,132 @@ namespace courseApp
             }
         }
 
+        //--------------------------Profile page (Esraa and Dado)-------------------------
+
+
+
+        private void LoadUserProfile()
+        {
+
+            SE_ID = 123;
+            string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
+            string query = "SELECT FName, LName, Email, User_Role FROM Userr WHERE UserId = @UserId";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@UserId", SE_ID);
+                conn.Open();
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        profile.Controls.Clear(); // نفضي البانل قبل ما نعرض بيانات جديدة
+
+                        Panel card = new Panel
+                        {
+                            Size = new Size(600, 300),
+                            Location = new Point(200, 100),
+                            BackColor = Color.White,
+                            BorderStyle = BorderStyle.FixedSingle
+                        };
+
+                        Label lblFName = new Label() { Text = "First Name:", Location = new Point(20, 20) };
+                        TextBox txtFName = new TextBox() { Text = reader["FName"].ToString(), Location = new Point(150, 20), Width = 200, ReadOnly = true, Name = "txtFName" };
+
+                        Label lblLName = new Label() { Text = "Last Name:", Location = new Point(20, 60) };
+                        TextBox txtLName = new TextBox() { Text = reader["LName"].ToString(), Location = new Point(150, 60), Width = 200, ReadOnly = true, Name = "txtLName" };
+
+                        Label lblEmail = new Label() { Text = "Email:", Location = new Point(20, 100) };
+                        TextBox txtEmail = new TextBox() { Text = reader["Email"].ToString(), Location = new Point(150, 100), Width = 200, ReadOnly = true, Name = "txtEmail" };
+
+                        Label lblrole = new Label() { Text = "Role:", Location = new Point(20, 140) };
+                        TextBox txtrole = new TextBox() { Text = reader["User_Role"].ToString(), Location = new Point(150, 140), Width = 200, ReadOnly = true, Name = "txtrole" };
+
+                        Button btnUpdate = new Button()
+                        {
+                            Text = "Update",
+                            Location = new Point(400, 220),
+                            Size = new Size(100, 40), // ممكن تعدل الحجم حسب التصميم
+                            BackColor = Color.MediumPurple,
+                            ForeColor = Color.White,
+                            Font = new Font("Montserrat", 10, FontStyle.Bold),
+                            FlatStyle = FlatStyle.Flat,
+                            TextAlign = ContentAlignment.MiddleCenter,
+
+
+                        };
+                        btnUpdate.Click += EnableEditing;
+
+                        card.Controls.AddRange(new Control[] { lblFName, txtFName, lblLName, txtLName, lblEmail, txtEmail, lblrole, txtrole, btnUpdate });
+
+                        profile.Controls.Add(card);
+                    }
+                }
+            }
+        }
+
+
+        private void EnableEditing(object sender, EventArgs e)
+        {
+            Panel card = ((Button)sender).Parent as Panel;
+
+            foreach (Control ctrl in card.Controls)
+            {
+                if (ctrl is TextBox txt)
+                {
+                    txt.ReadOnly = false;
+                }
+            }
+
+            Button btnSave = new Button()
+            {
+                Text = "Save",
+                Font = new Font("Montserrat", 10, FontStyle.Bold),
+                Location = new Point(300, 220),
+                BackColor = Color.DarkGreen,
+                ForeColor = Color.White,
+                Size = new Size(100, 40),
+                FlatStyle = FlatStyle.Flat,
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            btnSave.Click += SaveUserProfile;
+
+            card.Controls.Add(btnSave);
+        }
+
+        private void SaveUserProfile(object sender, EventArgs e)
+        {
+            Panel card = ((Button)sender).Parent as Panel;
+
+            string fname = ((TextBox)card.Controls["txtFName"]).Text;
+            string lname = ((TextBox)card.Controls["txtLName"]).Text;
+            string email = ((TextBox)card.Controls["txtEmail"]).Text;
+            string role = ((TextBox)card.Controls["txtrole"]).Text;
+
+            string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
+            string updateQuery = "UPDATE Userr SET FName = @FName, LName = @LName, Email = @Email, User_Role = @role WHERE UserId = @UserId";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlCommand cmd = new SqlCommand(updateQuery, conn))
+            {
+                cmd.Parameters.AddWithValue("@FName", fname);
+                cmd.Parameters.AddWithValue("@LName", lname);
+                cmd.Parameters.AddWithValue("@Email", email);
+                cmd.Parameters.AddWithValue("@role", role);
+                cmd.Parameters.AddWithValue("@UserId", SE_ID);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Profile updated successfully!");
+
+                LoadUserProfile(); // رجع البيانات بعد التعديل
+            }
+        }
+
+
+
+
 
         public Form1()
         {
@@ -838,7 +964,7 @@ namespace courseApp
             vScrollBar2.Maximum = Math.Max(0, panel3.Height - this.ClientSize.Height);
             /////////////////////////////////////
 
-            //////////////////////////////////
+            ////////////////////////////////////
             string targetWord = "learn";
             int startIndex = richTextBox1.Text.IndexOf(targetWord, StringComparison.OrdinalIgnoreCase);
             if (startIndex >= 0)
@@ -852,9 +978,9 @@ namespace courseApp
 
 
 
-            AddCoursePanel("title", panel2,123);
+            AddCoursePanel("title", panel2, 123);
 
-      
+
 
 
         }
@@ -914,7 +1040,7 @@ namespace courseApp
         {
             handleicon(examicon2);
             exam.BringToFront();
-            LoadExams(); 
+            LoadExams();
             panel1.BringToFront();
 
 
@@ -940,7 +1066,11 @@ namespace courseApp
         {
             handleicon(usericon2);
             click_check = true;
+            profile.BringToFront();
+            LoadUserProfile();
+            panel1.BringToFront();
         }
+
 
         private void rjTextBox2__TextChanged(object sender, EventArgs e)
         {
@@ -1027,7 +1157,7 @@ namespace courseApp
         {
             string previousText = "ID USER";
             string previousText2 = "Subject";
-            if (addbar.Texts != "" && subjectbar.Texts != "" && int.TryParse(addbar.Texts, out int number)&& addbar.Texts != previousText&& subjectbar.Texts != previousText2)
+            if (addbar.Texts != "" && subjectbar.Texts != "" && int.TryParse(addbar.Texts, out int number) && addbar.Texts != previousText && subjectbar.Texts != previousText2)
             {
                 string ID = addbar.Texts;
 
@@ -1065,7 +1195,7 @@ namespace courseApp
 
                 }
 
-                Subject_temp=subjectbar.Texts;
+                Subject_temp = subjectbar.Texts;
 
             }
             else
@@ -1089,6 +1219,11 @@ namespace courseApp
         }
 
         private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -109,6 +109,7 @@
             panel5 = new Panel();
             classwork = new Panel();
             label14 = new Label();
+            profile = new Panel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             login.SuspendLayout();
             signup.SuspendLayout();
@@ -558,6 +559,7 @@
             richTextBox1.Size = new Size(456, 211);
             richTextBox1.TabIndex = 7;
             richTextBox1.Text = "Hi, Gamal\nWhat do you want \nto learn today?";
+            richTextBox1.TextChanged += richTextBox1_TextChanged;
             // 
             // searchbutton
             // 
@@ -613,7 +615,7 @@
             // 
             // pictureBox6
             // 
-            pictureBox6.Location = new Point(145, 0);
+            pictureBox6.Location = new Point(156, 0);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(1165, 351);
             pictureBox6.TabIndex = 13;
@@ -1245,6 +1247,14 @@
             label14.TabIndex = 19;
             label14.Text = "Classwork";
             // 
+            // profile
+            // 
+            profile.Dock = DockStyle.Fill;
+            profile.Location = new Point(0, 0);
+            profile.Name = "profile";
+            profile.Size = new Size(1429, 886);
+            profile.TabIndex = 14;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -1254,6 +1264,7 @@
             ClientSize = new Size(1429, 886);
             Controls.Add(panel1);
             Controls.Add(home);
+            Controls.Add(profile);
             Controls.Add(exam);
             Controls.Add(chat);
             Controls.Add(classwork);
@@ -1390,5 +1401,6 @@
         private CustomControls.RJControls.RJButton Addbtn;
         private Label Subject_label;
         private CustomControls.RJControls.RJTextBox subjectbar;
+        private Panel profile;
     }
 }
