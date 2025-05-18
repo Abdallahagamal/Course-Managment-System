@@ -89,9 +89,6 @@
             vScrollBar2 = new VScrollBar();
             pictureBox10 = new PictureBox();
             panel3 = new Panel();
-            panel4 = new Panel();
-            richTextBox3 = new RichTextBox();
-            pictureBox7 = new PictureBox();
             exam = new Panel();
             chat = new Panel();
             subjectbar = new CustomControls.RJControls.RJTextBox();
@@ -281,6 +278,7 @@
             openFileDialog1 = new OpenFileDialog();
             openFileDialog2 = new OpenFileDialog();
             openFileDialog3 = new OpenFileDialog();
+            Register = new Panel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             login.SuspendLayout();
             signup.SuspendLayout();
@@ -309,9 +307,6 @@
             ((System.ComponentModel.ISupportInitialize)usericon2).BeginInit();
             courses.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
-            panel3.SuspendLayout();
-            panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             chat.SuspendLayout();
             MessageContainer.SuspendLayout();
             panel7.SuspendLayout();
@@ -369,9 +364,9 @@
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(166, -38);
+            pictureBox1.Location = new Point(166, -40);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1009, 476);
+            pictureBox1.Size = new Size(1009, 501);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
@@ -384,13 +379,13 @@
             rjTextBox2.BorderSize = 2;
             rjTextBox2.Font = new Font("Montserrat Light", 18.1565228F);
             rjTextBox2.ForeColor = Color.DimGray;
-            rjTextBox2.Location = new Point(463, 388);
+            rjTextBox2.Location = new Point(463, 408);
             rjTextBox2.Margin = new Padding(4);
             rjTextBox2.Multiline = false;
             rjTextBox2.Name = "rjTextBox2";
             rjTextBox2.Padding = new Padding(7);
             rjTextBox2.PasswordChar = false;
-            rjTextBox2.Size = new Size(394, 50);
+            rjTextBox2.Size = new Size(394, 63);
             rjTextBox2.TabIndex = 2;
             rjTextBox2.Texts = "";
             rjTextBox2.UnderlinedStyle = false;
@@ -405,13 +400,13 @@
             rjTextBox3.BorderSize = 2;
             rjTextBox3.Font = new Font("Montserrat Light", 18.1565228F);
             rjTextBox3.ForeColor = Color.DimGray;
-            rjTextBox3.Location = new Point(463, 504);
+            rjTextBox3.Location = new Point(463, 531);
             rjTextBox3.Margin = new Padding(4);
             rjTextBox3.Multiline = false;
             rjTextBox3.Name = "rjTextBox3";
             rjTextBox3.Padding = new Padding(7);
             rjTextBox3.PasswordChar = false;
-            rjTextBox3.Size = new Size(394, 50);
+            rjTextBox3.Size = new Size(394, 63);
             rjTextBox3.TabIndex = 3;
             rjTextBox3.Texts = "";
             rjTextBox3.UnderlinedStyle = false;
@@ -421,9 +416,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Montserrat ExtraBold", 11.8956518F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(5, 12, 22);
-            label1.Location = new Point(463, 353);
+            label1.Location = new Point(463, 372);
             label1.Name = "label1";
-            label1.Size = new Size(71, 31);
+            label1.Size = new Size(73, 31);
             label1.TabIndex = 4;
             label1.Text = "Email";
             label1.Click += label1_Click;
@@ -433,9 +428,9 @@
             label2.AutoSize = true;
             label2.Font = new Font("Montserrat ExtraBold", 11.8956518F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.FromArgb(5, 12, 22);
-            label2.Location = new Point(463, 469);
+            label2.Location = new Point(463, 494);
             label2.Name = "label2";
-            label2.Size = new Size(110, 31);
+            label2.Size = new Size(119, 31);
             label2.TabIndex = 5;
             label2.Text = "Password";
             label2.Click += label2_Click;
@@ -452,9 +447,9 @@
             rjButton1.FlatStyle = FlatStyle.Flat;
             rjButton1.Font = new Font("Montserrat ExtraBold", 11.8956518F, FontStyle.Bold, GraphicsUnit.Point, 0);
             rjButton1.ForeColor = Color.White;
-            rjButton1.Location = new Point(463, 633);
+            rjButton1.Location = new Point(463, 666);
             rjButton1.Name = "rjButton1";
-            rjButton1.Size = new Size(394, 48);
+            rjButton1.Size = new Size(394, 51);
             rjButton1.TabIndex = 6;
             rjButton1.Text = "LOG IN";
             rjButton1.TextColor = Color.White;
@@ -468,9 +463,9 @@
             label3.Cursor = Cursors.Hand;
             label3.Font = new Font("Montserrat ExtraBold", 11.8956518F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.FromArgb(67, 72, 79);
-            label3.Location = new Point(528, 701);
+            label3.Location = new Point(528, 738);
             label3.Name = "label3";
-            label3.Size = new Size(279, 31);
+            label3.Size = new Size(311, 31);
             label3.TabIndex = 7;
             label3.Text = "DON’T HAVE AN ACCOUNT?";
             // 
@@ -481,9 +476,9 @@
             label4.Cursor = Cursors.Hand;
             label4.Font = new Font("Montserrat ExtraBold", 11.8956518F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.FromArgb(67, 72, 79);
-            label4.Location = new Point(669, 577);
+            label4.Location = new Point(669, 607);
             label4.Name = "label4";
-            label4.Size = new Size(188, 31);
+            label4.Size = new Size(208, 31);
             label4.TabIndex = 8;
             label4.Text = "Forget Password?";
             // 
@@ -502,7 +497,7 @@
             login.Dock = DockStyle.Fill;
             login.Location = new Point(0, 0);
             login.Name = "login";
-            login.Size = new Size(1430, 842);
+            login.Size = new Size(1430, 886);
             login.TabIndex = 9;
             // 
             // signup
@@ -526,7 +521,7 @@
             signup.Dock = DockStyle.Fill;
             signup.Location = new Point(0, 0);
             signup.Name = "signup";
-            signup.Size = new Size(1430, 842);
+            signup.Size = new Size(1430, 886);
             signup.TabIndex = 10;
             // 
             // comboBox1
@@ -536,7 +531,7 @@
             comboBox1.ForeColor = Color.FromArgb(5, 12, 22);
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "Teacher", "Student" });
-            comboBox1.Location = new Point(778, 504);
+            comboBox1.Location = new Point(778, 531);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(240, 38);
             comboBox1.TabIndex = 16;
@@ -549,9 +544,9 @@
             label11.BackColor = Color.Transparent;
             label11.Font = new Font("Montserrat ExtraBold", 11.8956518F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label11.ForeColor = Color.FromArgb(5, 12, 22);
-            label11.Location = new Point(678, 585);
+            label11.Location = new Point(678, 616);
             label11.Name = "label11";
-            label11.Size = new Size(194, 31);
+            label11.Size = new Size(212, 31);
             label11.TabIndex = 14;
             label11.Text = "Confirm Password";
             // 
@@ -564,13 +559,13 @@
             rjTextBox7.BorderSize = 2;
             rjTextBox7.Font = new Font("Montserrat Light", 18.1565228F);
             rjTextBox7.ForeColor = Color.DimGray;
-            rjTextBox7.Location = new Point(678, 620);
+            rjTextBox7.Location = new Point(678, 653);
             rjTextBox7.Margin = new Padding(4);
             rjTextBox7.Multiline = false;
             rjTextBox7.Name = "rjTextBox7";
             rjTextBox7.Padding = new Padding(7);
             rjTextBox7.PasswordChar = false;
-            rjTextBox7.Size = new Size(394, 50);
+            rjTextBox7.Size = new Size(394, 63);
             rjTextBox7.TabIndex = 13;
             rjTextBox7.Texts = "";
             rjTextBox7.UnderlinedStyle = false;
@@ -581,9 +576,9 @@
             label10.BackColor = Color.Transparent;
             label10.Font = new Font("Montserrat ExtraBold", 11.8956518F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label10.ForeColor = Color.FromArgb(5, 12, 22);
-            label10.Location = new Point(241, 585);
+            label10.Location = new Point(241, 616);
             label10.Name = "label10";
-            label10.Size = new Size(110, 31);
+            label10.Size = new Size(119, 31);
             label10.TabIndex = 12;
             label10.Text = "Password";
             // 
@@ -596,13 +591,13 @@
             rjTextBox6.BorderSize = 2;
             rjTextBox6.Font = new Font("Montserrat Light", 18.1565228F);
             rjTextBox6.ForeColor = Color.DimGray;
-            rjTextBox6.Location = new Point(241, 620);
+            rjTextBox6.Location = new Point(241, 653);
             rjTextBox6.Margin = new Padding(4);
             rjTextBox6.Multiline = false;
             rjTextBox6.Name = "rjTextBox6";
             rjTextBox6.Padding = new Padding(7);
             rjTextBox6.PasswordChar = false;
-            rjTextBox6.Size = new Size(394, 50);
+            rjTextBox6.Size = new Size(394, 63);
             rjTextBox6.TabIndex = 11;
             rjTextBox6.Texts = "";
             rjTextBox6.UnderlinedStyle = false;
@@ -612,9 +607,9 @@
             label9.AutoSize = true;
             label9.Font = new Font("Montserrat ExtraBold", 11.8956518F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label9.ForeColor = Color.FromArgb(5, 12, 22);
-            label9.Location = new Point(678, 353);
+            label9.Location = new Point(678, 372);
             label9.Name = "label9";
-            label9.Size = new Size(119, 31);
+            label9.Size = new Size(128, 31);
             label9.TabIndex = 10;
             label9.Text = "Last Name";
             // 
@@ -627,13 +622,13 @@
             rjTextBox5.BorderSize = 2;
             rjTextBox5.Font = new Font("Montserrat Light", 18.1565228F);
             rjTextBox5.ForeColor = Color.DimGray;
-            rjTextBox5.Location = new Point(678, 388);
+            rjTextBox5.Location = new Point(678, 408);
             rjTextBox5.Margin = new Padding(4);
             rjTextBox5.Multiline = false;
             rjTextBox5.Name = "rjTextBox5";
             rjTextBox5.Padding = new Padding(7);
             rjTextBox5.PasswordChar = false;
-            rjTextBox5.Size = new Size(394, 50);
+            rjTextBox5.Size = new Size(394, 63);
             rjTextBox5.TabIndex = 9;
             rjTextBox5.Texts = "";
             rjTextBox5.UnderlinedStyle = false;
@@ -645,9 +640,9 @@
             label6.Cursor = Cursors.Hand;
             label6.Font = new Font("Montserrat ExtraBold", 11.8956518F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.FromArgb(67, 72, 79);
-            label6.Location = new Point(509, 767);
+            label6.Location = new Point(509, 807);
             label6.Name = "label6";
-            label6.Size = new Size(313, 31);
+            label6.Size = new Size(344, 31);
             label6.TabIndex = 7;
             label6.Text = "ALREADY HAVE AN ACCOUNT?";
             // 
@@ -663,9 +658,9 @@
             rjButton2.FlatStyle = FlatStyle.Flat;
             rjButton2.Font = new Font("Montserrat ExtraBold", 11.8956518F, FontStyle.Bold, GraphicsUnit.Point, 0);
             rjButton2.ForeColor = Color.White;
-            rjButton2.Location = new Point(465, 701);
+            rjButton2.Location = new Point(465, 738);
             rjButton2.Name = "rjButton2";
-            rjButton2.Size = new Size(394, 48);
+            rjButton2.Size = new Size(394, 51);
             rjButton2.TabIndex = 6;
             rjButton2.Text = "SIGN UP";
             rjButton2.TextColor = Color.White;
@@ -677,9 +672,9 @@
             label7.BackColor = Color.Transparent;
             label7.Font = new Font("Montserrat ExtraBold", 11.8956518F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.FromArgb(5, 12, 22);
-            label7.Location = new Point(241, 469);
+            label7.Location = new Point(241, 494);
             label7.Name = "label7";
-            label7.Size = new Size(71, 31);
+            label7.Size = new Size(73, 31);
             label7.TabIndex = 5;
             label7.Text = "Email";
             // 
@@ -689,9 +684,9 @@
             label8.BackColor = Color.Transparent;
             label8.Font = new Font("Montserrat ExtraBold", 11.8956518F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.FromArgb(5, 12, 22);
-            label8.Location = new Point(241, 353);
+            label8.Location = new Point(241, 372);
             label8.Name = "label8";
-            label8.Size = new Size(122, 31);
+            label8.Size = new Size(131, 31);
             label8.TabIndex = 4;
             label8.Text = "First Name";
             label8.Click += label8_Click;
@@ -705,13 +700,13 @@
             rjTextBox1.BorderSize = 2;
             rjTextBox1.Font = new Font("Montserrat Light", 18.1565228F);
             rjTextBox1.ForeColor = Color.DimGray;
-            rjTextBox1.Location = new Point(241, 504);
+            rjTextBox1.Location = new Point(241, 531);
             rjTextBox1.Margin = new Padding(4);
             rjTextBox1.Multiline = false;
             rjTextBox1.Name = "rjTextBox1";
             rjTextBox1.Padding = new Padding(7);
             rjTextBox1.PasswordChar = false;
-            rjTextBox1.Size = new Size(394, 50);
+            rjTextBox1.Size = new Size(394, 63);
             rjTextBox1.TabIndex = 3;
             rjTextBox1.Texts = "";
             rjTextBox1.UnderlinedStyle = false;
@@ -725,13 +720,13 @@
             rjTextBox4.BorderSize = 2;
             rjTextBox4.Font = new Font("Montserrat Light", 18.1565228F);
             rjTextBox4.ForeColor = Color.DimGray;
-            rjTextBox4.Location = new Point(241, 388);
+            rjTextBox4.Location = new Point(241, 408);
             rjTextBox4.Margin = new Padding(4);
             rjTextBox4.Multiline = false;
             rjTextBox4.Name = "rjTextBox4";
             rjTextBox4.Padding = new Padding(7);
             rjTextBox4.PasswordChar = false;
-            rjTextBox4.Size = new Size(394, 50);
+            rjTextBox4.Size = new Size(394, 63);
             rjTextBox4.TabIndex = 2;
             rjTextBox4.Texts = "";
             rjTextBox4.UnderlinedStyle = false;
@@ -741,14 +736,15 @@
             pictureBox2.BackColor = Color.Transparent;
             pictureBox2.BackgroundImage = (Image)resources.GetObject("pictureBox2.BackgroundImage");
             pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox2.Location = new Point(200, -38);
+            pictureBox2.Location = new Point(200, -40);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(1009, 476);
+            pictureBox2.Size = new Size(1009, 501);
             pictureBox2.TabIndex = 0;
             pictureBox2.TabStop = false;
             // 
             // home
             // 
+            home.AutoScroll = true;
             home.BackColor = Color.FromArgb(239, 239, 239);
             home.BackgroundImageLayout = ImageLayout.Stretch;
             home.Controls.Add(richTextBox1);
@@ -760,7 +756,7 @@
             home.Font = new Font("Montserrat ExtraBold", 23.7913036F, FontStyle.Bold, GraphicsUnit.Point, 0);
             home.Location = new Point(0, 0);
             home.Name = "home";
-            home.Size = new Size(1430, 842);
+            home.Size = new Size(1430, 886);
             home.TabIndex = 17;
             // 
             // richTextBox1
@@ -769,10 +765,10 @@
             richTextBox1.BorderStyle = BorderStyle.None;
             richTextBox1.Font = new Font("Montserrat ExtraBold", 28.15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             richTextBox1.ForeColor = Color.FromArgb(5, 12, 22);
-            richTextBox1.Location = new Point(200, 55);
+            richTextBox1.Location = new Point(200, 58);
             richTextBox1.Name = "richTextBox1";
             richTextBox1.ReadOnly = true;
-            richTextBox1.Size = new Size(456, 200);
+            richTextBox1.Size = new Size(456, 211);
             richTextBox1.TabIndex = 7;
             richTextBox1.Text = "Hi, Gamal\nWhat do you want \nto learn today?";
             richTextBox1.TextChanged += richTextBox1_TextChanged;
@@ -788,9 +784,9 @@
             searchbutton.FlatStyle = FlatStyle.Flat;
             searchbutton.Font = new Font("Montserrat ExtraBold", 8.765218F, FontStyle.Bold, GraphicsUnit.Point, 0);
             searchbutton.ForeColor = Color.White;
-            searchbutton.Location = new Point(1284, 45);
+            searchbutton.Location = new Point(1284, 47);
             searchbutton.Name = "searchbutton";
-            searchbutton.Size = new Size(116, 38);
+            searchbutton.Size = new Size(116, 40);
             searchbutton.TabIndex = 4;
             searchbutton.Text = "SEARCH";
             searchbutton.TextColor = Color.White;
@@ -807,14 +803,14 @@
             searchbar.BorderSize = 3;
             searchbar.Font = new Font("Montserrat Light", 11.8956518F, FontStyle.Regular, GraphicsUnit.Point, 0);
             searchbar.ForeColor = Color.DimGray;
-            searchbar.Location = new Point(978, 45);
+            searchbar.Location = new Point(978, 47);
             searchbar.Margin = new Padding(4);
             searchbar.Multiline = false;
             searchbar.Name = "searchbar";
             searchbar.Padding = new Padding(17, 7, 10, 7);
             searchbar.PasswordChar = false;
             searchbar.RightToLeft = RightToLeft.No;
-            searchbar.Size = new Size(299, 38);
+            searchbar.Size = new Size(299, 46);
             searchbar.TabIndex = 3;
             searchbar.Tag = "";
             searchbar.Texts = "Search";
@@ -825,7 +821,7 @@
             // 
             pictureBox6.Location = new Point(156, 0);
             pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(1165, 273);
+            pictureBox6.Size = new Size(1165, 287);
             pictureBox6.TabIndex = 13;
             pictureBox6.TabStop = false;
             // 
@@ -837,27 +833,28 @@
             panel2.Controls.Add(course3);
             panel2.Controls.Add(course4);
             panel2.Controls.Add(course5);
-            panel2.Location = new Point(219, 283);
+            panel2.Location = new Point(219, 298);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1111, 547);
+            panel2.Size = new Size(1111, 576);
             panel2.TabIndex = 12;
+            panel2.Paint += panel2_Paint;
             // 
             // course1
             // 
             course1.BackColor = Color.White;
             course1.Controls.Add(richTextBox2);
             course1.Controls.Add(pictureBox3);
-            course1.Location = new Point(17, 44);
+            course1.Location = new Point(17, 46);
             course1.Name = "course1";
-            course1.Size = new Size(302, 286);
+            course1.Size = new Size(302, 301);
             course1.TabIndex = 8;
             // 
             // richTextBox2
             // 
             richTextBox2.BorderStyle = BorderStyle.None;
-            richTextBox2.Location = new Point(25, 176);
+            richTextBox2.Location = new Point(25, 185);
             richTextBox2.Name = "richTextBox2";
-            richTextBox2.Size = new Size(251, 94);
+            richTextBox2.Size = new Size(251, 99);
             richTextBox2.TabIndex = 14;
             richTextBox2.Text = "";
             // 
@@ -865,51 +862,51 @@
             // 
             pictureBox3.BackgroundImage = (Image)resources.GetObject("pictureBox3.BackgroundImage");
             pictureBox3.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox3.Location = new Point(25, 26);
+            pictureBox3.Location = new Point(25, 27);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(251, 132);
+            pictureBox3.Size = new Size(251, 139);
             pictureBox3.TabIndex = 0;
             pictureBox3.TabStop = false;
             // 
             // course2
             // 
             course2.BackColor = Color.White;
-            course2.Location = new Point(396, 44);
+            course2.Location = new Point(396, 46);
             course2.Name = "course2";
-            course2.Size = new Size(302, 286);
+            course2.Size = new Size(302, 301);
             course2.TabIndex = 9;
             // 
             // course3
             // 
             course3.BackColor = Color.White;
-            course3.Location = new Point(775, 44);
+            course3.Location = new Point(775, 46);
             course3.Name = "course3";
-            course3.Size = new Size(302, 286);
+            course3.Size = new Size(302, 301);
             course3.TabIndex = 10;
             // 
             // course4
             // 
             course4.BackColor = Color.White;
             course4.Controls.Add(pictureBox5);
-            course4.Location = new Point(17, 350);
+            course4.Location = new Point(17, 368);
             course4.Name = "course4";
-            course4.Size = new Size(302, 286);
+            course4.Size = new Size(302, 301);
             course4.TabIndex = 9;
             // 
             // pictureBox5
             // 
-            pictureBox5.Location = new Point(25, 26);
+            pictureBox5.Location = new Point(25, 27);
             pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(251, 132);
+            pictureBox5.Size = new Size(251, 139);
             pictureBox5.TabIndex = 0;
             pictureBox5.TabStop = false;
             // 
             // course5
             // 
             course5.BackColor = Color.White;
-            course5.Location = new Point(396, 350);
+            course5.Location = new Point(396, 368);
             course5.Name = "course5";
-            course5.Size = new Size(302, 286);
+            course5.Size = new Size(302, 301);
             course5.TabIndex = 10;
             // 
             // panel1
@@ -930,10 +927,9 @@
             panel1.Controls.Add(classworkicon2);
             panel1.Controls.Add(examicon2);
             panel1.Controls.Add(chaticon2);
-            panel1.Controls.Add(usericon2);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(150, 842);
+            panel1.Size = new Size(150, 886);
             panel1.TabIndex = 2;
             // 
             // homeicom2
@@ -942,9 +938,9 @@
             homeicom2.BackgroundImage = (Image)resources.GetObject("homeicom2.BackgroundImage");
             homeicom2.BackgroundImageLayout = ImageLayout.Zoom;
             homeicom2.Cursor = Cursors.Hand;
-            homeicom2.Location = new Point(35, 380);
+            homeicom2.Location = new Point(35, 400);
             homeicom2.Name = "homeicom2";
-            homeicom2.Size = new Size(71, 68);
+            homeicom2.Size = new Size(71, 72);
             homeicom2.TabIndex = 8;
             homeicom2.TabStop = false;
             // 
@@ -954,9 +950,9 @@
             pictureBox9.BackgroundImage = (Image)resources.GetObject("pictureBox9.BackgroundImage");
             pictureBox9.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox9.Cursor = Cursors.Hand;
-            pictureBox9.Location = new Point(50, 748);
+            pictureBox9.Location = new Point(50, 787);
             pictureBox9.Name = "pictureBox9";
-            pictureBox9.Size = new Size(61, 45);
+            pictureBox9.Size = new Size(61, 47);
             pictureBox9.TabIndex = 7;
             pictureBox9.TabStop = false;
             // 
@@ -966,9 +962,9 @@
             usericon.BackgroundImage = (Image)resources.GetObject("usericon.BackgroundImage");
             usericon.BackgroundImageLayout = ImageLayout.Zoom;
             usericon.Cursor = Cursors.Hand;
-            usericon.Location = new Point(50, 45);
+            usericon.Location = new Point(50, 47);
             usericon.Name = "usericon";
-            usericon.Size = new Size(61, 50);
+            usericon.Size = new Size(61, 53);
             usericon.TabIndex = 6;
             usericon.TabStop = false;
             usericon.Click += usericon_Click;
@@ -980,9 +976,9 @@
             classworkicon.BackgroundImage = (Image)resources.GetObject("classworkicon.BackgroundImage");
             classworkicon.BackgroundImageLayout = ImageLayout.Zoom;
             classworkicon.Cursor = Cursors.Hand;
-            classworkicon.Location = new Point(50, 296);
+            classworkicon.Location = new Point(50, 312);
             classworkicon.Name = "classworkicon";
-            classworkicon.Size = new Size(61, 45);
+            classworkicon.Size = new Size(61, 47);
             classworkicon.TabIndex = 5;
             classworkicon.TabStop = false;
             classworkicon.Click += classworkicon_Click;
@@ -993,9 +989,9 @@
             coursesicon.BackgroundImage = (Image)resources.GetObject("coursesicon.BackgroundImage");
             coursesicon.BackgroundImageLayout = ImageLayout.Zoom;
             coursesicon.Cursor = Cursors.Hand;
-            coursesicon.Location = new Point(50, 200);
+            coursesicon.Location = new Point(50, 211);
             coursesicon.Name = "coursesicon";
-            coursesicon.Size = new Size(61, 45);
+            coursesicon.Size = new Size(61, 47);
             coursesicon.TabIndex = 4;
             coursesicon.TabStop = false;
             coursesicon.Click += coursesicon_Click;
@@ -1006,9 +1002,9 @@
             chaticon.BackgroundImage = (Image)resources.GetObject("chaticon.BackgroundImage");
             chaticon.BackgroundImageLayout = ImageLayout.Zoom;
             chaticon.Cursor = Cursors.Hand;
-            chaticon.Location = new Point(50, 495);
+            chaticon.Location = new Point(50, 521);
             chaticon.Name = "chaticon";
-            chaticon.Size = new Size(61, 45);
+            chaticon.Size = new Size(61, 47);
             chaticon.TabIndex = 3;
             chaticon.TabStop = false;
             chaticon.Click += chaticon_Click;
@@ -1019,9 +1015,9 @@
             examicon.BackgroundImage = (Image)resources.GetObject("examicon.BackgroundImage");
             examicon.BackgroundImageLayout = ImageLayout.Zoom;
             examicon.Cursor = Cursors.Hand;
-            examicon.Location = new Point(50, 591);
+            examicon.Location = new Point(50, 622);
             examicon.Name = "examicon";
-            examicon.Size = new Size(61, 45);
+            examicon.Size = new Size(61, 47);
             examicon.TabIndex = 2;
             examicon.TabStop = false;
             examicon.Click += examicon_Click;
@@ -1032,18 +1028,18 @@
             homeicon.BackgroundImage = (Image)resources.GetObject("homeicon.BackgroundImage");
             homeicon.BackgroundImageLayout = ImageLayout.Zoom;
             homeicon.Cursor = Cursors.Hand;
-            homeicon.Location = new Point(50, 393);
+            homeicon.Location = new Point(50, 414);
             homeicon.Name = "homeicon";
-            homeicon.Size = new Size(61, 45);
+            homeicon.Size = new Size(61, 47);
             homeicon.TabIndex = 1;
             homeicon.TabStop = false;
             homeicon.Click += homeicon_Click;
             // 
             // pictureBox4
             // 
-            pictureBox4.Location = new Point(22, 157);
+            pictureBox4.Location = new Point(22, 165);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(117, 524);
+            pictureBox4.Size = new Size(117, 552);
             pictureBox4.TabIndex = 9;
             pictureBox4.TabStop = false;
             // 
@@ -1053,9 +1049,9 @@
             coursesicon2.BackgroundImage = (Image)resources.GetObject("coursesicon2.BackgroundImage");
             coursesicon2.BackgroundImageLayout = ImageLayout.Zoom;
             coursesicon2.Cursor = Cursors.Hand;
-            coursesicon2.Location = new Point(35, 187);
+            coursesicon2.Location = new Point(35, 197);
             coursesicon2.Name = "coursesicon2";
-            coursesicon2.Size = new Size(71, 68);
+            coursesicon2.Size = new Size(71, 72);
             coursesicon2.TabIndex = 12;
             coursesicon2.TabStop = false;
             // 
@@ -1065,9 +1061,9 @@
             classworkicon2.BackgroundImage = (Image)resources.GetObject("classworkicon2.BackgroundImage");
             classworkicon2.BackgroundImageLayout = ImageLayout.Zoom;
             classworkicon2.Cursor = Cursors.Hand;
-            classworkicon2.Location = new Point(35, 283);
+            classworkicon2.Location = new Point(35, 298);
             classworkicon2.Name = "classworkicon2";
-            classworkicon2.Size = new Size(71, 68);
+            classworkicon2.Size = new Size(71, 72);
             classworkicon2.TabIndex = 11;
             classworkicon2.TabStop = false;
             // 
@@ -1077,9 +1073,9 @@
             examicon2.BackgroundImage = (Image)resources.GetObject("examicon2.BackgroundImage");
             examicon2.BackgroundImageLayout = ImageLayout.Zoom;
             examicon2.Cursor = Cursors.Hand;
-            examicon2.Location = new Point(35, 577);
+            examicon2.Location = new Point(35, 607);
             examicon2.Name = "examicon2";
-            examicon2.Size = new Size(71, 68);
+            examicon2.Size = new Size(71, 72);
             examicon2.TabIndex = 10;
             examicon2.TabStop = false;
             // 
@@ -1089,9 +1085,9 @@
             chaticon2.BackgroundImage = (Image)resources.GetObject("chaticon2.BackgroundImage");
             chaticon2.BackgroundImageLayout = ImageLayout.Zoom;
             chaticon2.Cursor = Cursors.Hand;
-            chaticon2.Location = new Point(35, 481);
+            chaticon2.Location = new Point(35, 506);
             chaticon2.Name = "chaticon2";
-            chaticon2.Size = new Size(71, 68);
+            chaticon2.Size = new Size(71, 72);
             chaticon2.TabIndex = 9;
             chaticon2.TabStop = false;
             // 
@@ -1101,9 +1097,9 @@
             usericon2.BackgroundImage = (Image)resources.GetObject("usericon2.BackgroundImage");
             usericon2.BackgroundImageLayout = ImageLayout.Zoom;
             usericon2.Cursor = Cursors.Hand;
-            usericon2.Location = new Point(50, 45);
+            usericon2.Location = new Point(50, 47);
             usericon2.Name = "usericon2";
-            usericon2.Size = new Size(61, 50);
+            usericon2.Size = new Size(61, 53);
             usericon2.TabIndex = 13;
             usericon2.TabStop = false;
             usericon2.Click += usericon2_Click;
@@ -1112,6 +1108,7 @@
             // 
             // courses
             // 
+            courses.AutoScroll = true;
             courses.Controls.Add(rjButton3);
             courses.Controls.Add(label5);
             courses.Controls.Add(rjTextBox8);
@@ -1121,7 +1118,7 @@
             courses.Dock = DockStyle.Fill;
             courses.Location = new Point(0, 0);
             courses.Name = "courses";
-            courses.Size = new Size(1430, 842);
+            courses.Size = new Size(1430, 886);
             courses.TabIndex = 14;
             // 
             // rjButton3
@@ -1135,9 +1132,9 @@
             rjButton3.FlatStyle = FlatStyle.Flat;
             rjButton3.Font = new Font("Montserrat ExtraBold", 8.765218F, FontStyle.Bold, GraphicsUnit.Point, 0);
             rjButton3.ForeColor = Color.White;
-            rjButton3.Location = new Point(1284, 45);
+            rjButton3.Location = new Point(1284, 47);
             rjButton3.Name = "rjButton3";
-            rjButton3.Size = new Size(116, 38);
+            rjButton3.Size = new Size(116, 40);
             rjButton3.TabIndex = 15;
             rjButton3.Text = "SEARCH";
             rjButton3.TextColor = Color.White;
@@ -1148,9 +1145,9 @@
             label5.AutoSize = true;
             label5.Font = new Font("Montserrat ExtraBold", 28.173914F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.FromArgb(5, 12, 22);
-            label5.Location = new Point(198, 114);
+            label5.Location = new Point(198, 120);
             label5.Name = "label5";
-            label5.Size = new Size(304, 75);
+            label5.Size = new Size(334, 73);
             label5.TabIndex = 0;
             label5.Text = "My Courses ";
             // 
@@ -1164,14 +1161,14 @@
             rjTextBox8.BorderSize = 3;
             rjTextBox8.Font = new Font("Montserrat Light", 11.8956518F, FontStyle.Regular, GraphicsUnit.Point, 0);
             rjTextBox8.ForeColor = Color.DimGray;
-            rjTextBox8.Location = new Point(978, 45);
+            rjTextBox8.Location = new Point(978, 47);
             rjTextBox8.Margin = new Padding(4);
             rjTextBox8.Multiline = false;
             rjTextBox8.Name = "rjTextBox8";
             rjTextBox8.Padding = new Padding(17, 7, 10, 7);
             rjTextBox8.PasswordChar = false;
             rjTextBox8.RightToLeft = RightToLeft.No;
-            rjTextBox8.Size = new Size(299, 38);
+            rjTextBox8.Size = new Size(299, 46);
             rjTextBox8.TabIndex = 14;
             rjTextBox8.Tag = "";
             rjTextBox8.Texts = "Search";
@@ -1179,63 +1176,33 @@
             // 
             // vScrollBar2
             // 
-            vScrollBar2.Location = new Point(1376, 235);
+            vScrollBar2.Location = new Point(1376, 247);
             vScrollBar2.Name = "vScrollBar2";
-            vScrollBar2.Size = new Size(24, 598);
+            vScrollBar2.Size = new Size(24, 629);
             vScrollBar2.TabIndex = 16;
             vScrollBar2.Scroll += vScrollBar2_Scroll;
             // 
             // pictureBox10
             // 
-            pictureBox10.Location = new Point(178, -24);
+            pictureBox10.Location = new Point(178, -25);
             pictureBox10.Name = "pictureBox10";
-            pictureBox10.Size = new Size(1179, 269);
+            pictureBox10.Size = new Size(1179, 283);
             pictureBox10.TabIndex = 18;
             pictureBox10.TabStop = false;
             // 
             // panel3
             // 
-            panel3.Controls.Add(panel4);
-            panel3.Location = new Point(236, 235);
+            panel3.Location = new Point(236, 247);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1111, 2000);
+            panel3.Size = new Size(1111, 2105);
             panel3.TabIndex = 17;
-            // 
-            // panel4
-            // 
-            panel4.BackColor = Color.White;
-            panel4.Controls.Add(richTextBox3);
-            panel4.Controls.Add(pictureBox7);
-            panel4.Location = new Point(17, 44);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(302, 286);
-            panel4.TabIndex = 8;
-            // 
-            // richTextBox3
-            // 
-            richTextBox3.BorderStyle = BorderStyle.None;
-            richTextBox3.Location = new Point(25, 176);
-            richTextBox3.Name = "richTextBox3";
-            richTextBox3.Size = new Size(251, 94);
-            richTextBox3.TabIndex = 14;
-            richTextBox3.Text = "";
-            // 
-            // pictureBox7
-            // 
-            pictureBox7.BackgroundImage = (Image)resources.GetObject("pictureBox7.BackgroundImage");
-            pictureBox7.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox7.Location = new Point(25, 26);
-            pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new Size(251, 132);
-            pictureBox7.TabIndex = 0;
-            pictureBox7.TabStop = false;
             // 
             // exam
             // 
             exam.Dock = DockStyle.Fill;
             exam.Location = new Point(0, 0);
             exam.Name = "exam";
-            exam.Size = new Size(1430, 842);
+            exam.Size = new Size(1430, 886);
             exam.TabIndex = 9;
             // 
             // chat
@@ -1250,7 +1217,7 @@
             chat.Dock = DockStyle.Fill;
             chat.Location = new Point(0, 0);
             chat.Name = "chat";
-            chat.Size = new Size(1430, 842);
+            chat.Size = new Size(1430, 886);
             chat.TabIndex = 9;
             // 
             // subjectbar
@@ -1262,13 +1229,13 @@
             subjectbar.BorderSize = 2;
             subjectbar.Font = new Font("Montserrat Light", 11.2695637F, FontStyle.Regular, GraphicsUnit.Point, 0);
             subjectbar.ForeColor = Color.DimGray;
-            subjectbar.Location = new Point(1241, 61);
+            subjectbar.Location = new Point(1241, 64);
             subjectbar.Margin = new Padding(4);
             subjectbar.Multiline = false;
             subjectbar.Name = "subjectbar";
             subjectbar.Padding = new Padding(20, 7, 10, 7);
             subjectbar.PasswordChar = false;
-            subjectbar.Size = new Size(168, 37);
+            subjectbar.Size = new Size(168, 45);
             subjectbar.TabIndex = 25;
             subjectbar.Texts = "Subject";
             subjectbar.UnderlinedStyle = false;
@@ -1279,9 +1246,9 @@
             label15.AutoSize = true;
             label15.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label15.ForeColor = Color.FromArgb(5, 12, 22);
-            label15.Location = new Point(1152, 18);
+            label15.Location = new Point(1152, 19);
             label15.Name = "label15";
-            label15.Size = new Size(178, 37);
+            label15.Size = new Size(192, 36);
             label15.TabIndex = 24;
             label15.Text = "Add New Chat";
             // 
@@ -1294,13 +1261,13 @@
             addbar.BorderSize = 2;
             addbar.Font = new Font("Montserrat Light", 11.2695637F, FontStyle.Regular, GraphicsUnit.Point, 0);
             addbar.ForeColor = Color.DimGray;
-            addbar.Location = new Point(1065, 61);
+            addbar.Location = new Point(1065, 64);
             addbar.Margin = new Padding(4);
             addbar.Multiline = false;
             addbar.Name = "addbar";
             addbar.Padding = new Padding(20, 7, 10, 7);
             addbar.PasswordChar = false;
-            addbar.Size = new Size(168, 37);
+            addbar.Size = new Size(168, 45);
             addbar.TabIndex = 2;
             addbar.Texts = "ID USER";
             addbar.UnderlinedStyle = false;
@@ -1318,9 +1285,9 @@
             Addbtn.FlatStyle = FlatStyle.Flat;
             Addbtn.Font = new Font("Montserrat ExtraBold", 11.2695656F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Addbtn.ForeColor = Color.White;
-            Addbtn.Location = new Point(1178, 103);
+            Addbtn.Location = new Point(1178, 108);
             Addbtn.Name = "Addbtn";
-            Addbtn.Size = new Size(132, 42);
+            Addbtn.Size = new Size(132, 44);
             Addbtn.TabIndex = 3;
             Addbtn.Text = "ADD";
             Addbtn.TextColor = Color.White;
@@ -1332,9 +1299,9 @@
             ChatContainer.AutoScroll = true;
             ChatContainer.BackgroundImage = (Image)resources.GetObject("ChatContainer.BackgroundImage");
             ChatContainer.BackgroundImageLayout = ImageLayout.Stretch;
-            ChatContainer.Location = new Point(1079, 157);
+            ChatContainer.Location = new Point(1079, 165);
             ChatContainer.Name = "ChatContainer";
-            ChatContainer.Size = new Size(307, 641);
+            ChatContainer.Size = new Size(307, 675);
             ChatContainer.TabIndex = 22;
             ChatContainer.Paint += ChatContainer_Paint;
             // 
@@ -1343,9 +1310,9 @@
             label13.AutoSize = true;
             label13.Font = new Font("Montserrat ExtraBold", 28.173914F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label13.ForeColor = Color.FromArgb(5, 12, 22);
-            label13.Location = new Point(198, 55);
+            label13.Location = new Point(198, 58);
             label13.Name = "label13";
-            label13.Size = new Size(141, 75);
+            label13.Size = new Size(150, 73);
             label13.TabIndex = 19;
             label13.Text = "Chat";
             // 
@@ -1357,9 +1324,9 @@
             MessageContainer.Controls.Add(Subject_label);
             MessageContainer.Controls.Add(panel7);
             MessageContainer.Controls.Add(panel5);
-            MessageContainer.Location = new Point(210, 157);
+            MessageContainer.Location = new Point(210, 165);
             MessageContainer.Name = "MessageContainer";
-            MessageContainer.Size = new Size(840, 641);
+            MessageContainer.Size = new Size(840, 675);
             MessageContainer.TabIndex = 23;
             MessageContainer.Paint += panel6_Paint;
             // 
@@ -1371,7 +1338,7 @@
             Subject_label.ForeColor = Color.FromArgb(5, 12, 22);
             Subject_label.Location = new Point(368, 8);
             Subject_label.Name = "Subject_label";
-            Subject_label.Size = new Size(78, 23);
+            Subject_label.Size = new Size(87, 31);
             Subject_label.TabIndex = 25;
             Subject_label.Text = "subject";
             // 
@@ -1380,9 +1347,9 @@
             panel7.BackColor = Color.White;
             panel7.Controls.Add(messagebar);
             panel7.Controls.Add(sendbtn);
-            panel7.Location = new Point(26, 578);
+            panel7.Location = new Point(26, 608);
             panel7.Name = "panel7";
-            panel7.Size = new Size(782, 63);
+            panel7.Size = new Size(782, 66);
             panel7.TabIndex = 0;
             // 
             // messagebar
@@ -1394,13 +1361,13 @@
             messagebar.BorderSize = 2;
             messagebar.Font = new Font("Montserrat Light", 13.7739134F, FontStyle.Regular, GraphicsUnit.Point, 0);
             messagebar.ForeColor = Color.DimGray;
-            messagebar.Location = new Point(17, 11);
+            messagebar.Location = new Point(17, 12);
             messagebar.Margin = new Padding(4);
             messagebar.Multiline = false;
             messagebar.Name = "messagebar";
             messagebar.Padding = new Padding(20, 7, 10, 7);
             messagebar.PasswordChar = false;
-            messagebar.Size = new Size(596, 41);
+            messagebar.Size = new Size(596, 51);
             messagebar.TabIndex = 0;
             messagebar.Texts = "Message";
             messagebar.UnderlinedStyle = false;
@@ -1419,7 +1386,7 @@
             sendbtn.ForeColor = Color.White;
             sendbtn.Location = new Point(629, 8);
             sendbtn.Name = "sendbtn";
-            sendbtn.Size = new Size(150, 48);
+            sendbtn.Size = new Size(150, 51);
             sendbtn.TabIndex = 1;
             sendbtn.Text = "Send";
             sendbtn.TextColor = Color.White;
@@ -1430,9 +1397,9 @@
             // 
             panel5.AutoScroll = true;
             panel5.BackColor = Color.White;
-            panel5.Location = new Point(0, 35);
+            panel5.Location = new Point(0, 37);
             panel5.Name = "panel5";
-            panel5.Size = new Size(840, 540);
+            panel5.Size = new Size(840, 568);
             panel5.TabIndex = 29;
             // 
             // classwork
@@ -1442,7 +1409,7 @@
             classwork.Dock = DockStyle.Fill;
             classwork.Location = new Point(0, 0);
             classwork.Name = "classwork";
-            classwork.Size = new Size(1430, 842);
+            classwork.Size = new Size(1430, 886);
             classwork.TabIndex = 24;
             // 
             // label14
@@ -1450,9 +1417,9 @@
             label14.AutoSize = true;
             label14.Font = new Font("Montserrat ExtraBold", 28.173914F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label14.ForeColor = Color.FromArgb(5, 12, 22);
-            label14.Location = new Point(221, 45);
+            label14.Location = new Point(221, 47);
             label14.Name = "label14";
-            label14.Size = new Size(273, 75);
+            label14.Size = new Size(291, 73);
             label14.TabIndex = 19;
             label14.Text = "Classwork";
             // 
@@ -1461,11 +1428,12 @@
             profile.Dock = DockStyle.Fill;
             profile.Location = new Point(0, 0);
             profile.Name = "profile";
-            profile.Size = new Size(1429, 886);
+            profile.Size = new Size(1430, 886);
             profile.TabIndex = 14;
-
+            // 
             // teacher
             // 
+            teacher.Controls.Add(usericon2);
             teacher.Controls.Add(icons);
             teacher.Controls.Add(courses_th);
             teacher.Controls.Add(grades_admin);
@@ -1482,7 +1450,7 @@
             teacher.Dock = DockStyle.Fill;
             teacher.Location = new Point(0, 0);
             teacher.Name = "teacher";
-            teacher.Size = new Size(1430, 842);
+            teacher.Size = new Size(1430, 886);
             teacher.TabIndex = 14;
             // 
             // icons
@@ -1506,7 +1474,7 @@
             icons.Controls.Add(Grades2);
             icons.Location = new Point(8, 8);
             icons.Name = "icons";
-            icons.Size = new Size(150, 800);
+            icons.Size = new Size(150, 842);
             icons.TabIndex = 14;
             // 
             // Home_th2
@@ -1515,9 +1483,9 @@
             Home_th2.BackgroundImage = (Image)resources.GetObject("Home_th2.BackgroundImage");
             Home_th2.BackgroundImageLayout = ImageLayout.Zoom;
             Home_th2.Cursor = Cursors.Hand;
-            Home_th2.Location = new Point(35, 361);
+            Home_th2.Location = new Point(35, 380);
             Home_th2.Name = "Home_th2";
-            Home_th2.Size = new Size(71, 65);
+            Home_th2.Size = new Size(71, 68);
             Home_th2.TabIndex = 8;
             Home_th2.TabStop = false;
             // 
@@ -1527,9 +1495,9 @@
             logout_th.BackgroundImage = (Image)resources.GetObject("logout_th.BackgroundImage");
             logout_th.BackgroundImageLayout = ImageLayout.Zoom;
             logout_th.Cursor = Cursors.Hand;
-            logout_th.Location = new Point(50, 711);
+            logout_th.Location = new Point(50, 748);
             logout_th.Name = "logout_th";
-            logout_th.Size = new Size(61, 43);
+            logout_th.Size = new Size(61, 45);
             logout_th.TabIndex = 7;
             logout_th.TabStop = false;
             // 
@@ -1539,9 +1507,9 @@
             user_th.BackgroundImage = (Image)resources.GetObject("user_th.BackgroundImage");
             user_th.BackgroundImageLayout = ImageLayout.Zoom;
             user_th.Cursor = Cursors.Hand;
-            user_th.Location = new Point(50, 43);
+            user_th.Location = new Point(50, 45);
             user_th.Name = "user_th";
-            user_th.Size = new Size(61, 48);
+            user_th.Size = new Size(61, 51);
             user_th.TabIndex = 6;
             user_th.TabStop = false;
             user_th.Click += user_th_Click;
@@ -1553,9 +1521,9 @@
             classwork_th.BackgroundImage = (Image)resources.GetObject("classwork_th.BackgroundImage");
             classwork_th.BackgroundImageLayout = ImageLayout.Zoom;
             classwork_th.Cursor = Cursors.Hand;
-            classwork_th.Location = new Point(50, 281);
+            classwork_th.Location = new Point(50, 296);
             classwork_th.Name = "classwork_th";
-            classwork_th.Size = new Size(61, 43);
+            classwork_th.Size = new Size(61, 45);
             classwork_th.TabIndex = 5;
             classwork_th.TabStop = false;
             classwork_th.Click += classwork_th_Click;
@@ -1566,9 +1534,9 @@
             grades.BackgroundImage = (Image)resources.GetObject("grades.BackgroundImage");
             grades.BackgroundImageLayout = ImageLayout.Zoom;
             grades.Cursor = Cursors.Hand;
-            grades.Location = new Point(50, 190);
+            grades.Location = new Point(50, 200);
             grades.Name = "grades";
-            grades.Size = new Size(61, 43);
+            grades.Size = new Size(61, 45);
             grades.TabIndex = 4;
             grades.TabStop = false;
             grades.Click += grades_Click;
@@ -1579,9 +1547,9 @@
             chat_th.BackgroundImage = (Image)resources.GetObject("chat_th.BackgroundImage");
             chat_th.BackgroundImageLayout = ImageLayout.Zoom;
             chat_th.Cursor = Cursors.Hand;
-            chat_th.Location = new Point(50, 470);
+            chat_th.Location = new Point(50, 495);
             chat_th.Name = "chat_th";
-            chat_th.Size = new Size(61, 43);
+            chat_th.Size = new Size(61, 45);
             chat_th.TabIndex = 3;
             chat_th.TabStop = false;
             chat_th.Click += chat_th_Click;
@@ -1592,9 +1560,9 @@
             exam_th.BackgroundImage = (Image)resources.GetObject("exam_th.BackgroundImage");
             exam_th.BackgroundImageLayout = ImageLayout.Zoom;
             exam_th.Cursor = Cursors.Hand;
-            exam_th.Location = new Point(50, 561);
+            exam_th.Location = new Point(50, 591);
             exam_th.Name = "exam_th";
-            exam_th.Size = new Size(61, 43);
+            exam_th.Size = new Size(61, 45);
             exam_th.TabIndex = 2;
             exam_th.TabStop = false;
             exam_th.Click += exam_th_Click;
@@ -1605,18 +1573,18 @@
             Home_th.BackgroundImage = (Image)resources.GetObject("Home_th.BackgroundImage");
             Home_th.BackgroundImageLayout = ImageLayout.Zoom;
             Home_th.Cursor = Cursors.Hand;
-            Home_th.Location = new Point(50, 373);
+            Home_th.Location = new Point(50, 393);
             Home_th.Name = "Home_th";
-            Home_th.Size = new Size(61, 43);
+            Home_th.Size = new Size(61, 45);
             Home_th.TabIndex = 1;
             Home_th.TabStop = false;
             Home_th.Click += Home_th_Click;
             // 
             // pictureBox18
             // 
-            pictureBox18.Location = new Point(22, 149);
+            pictureBox18.Location = new Point(22, 157);
             pictureBox18.Name = "pictureBox18";
-            pictureBox18.Size = new Size(117, 498);
+            pictureBox18.Size = new Size(117, 524);
             pictureBox18.TabIndex = 9;
             pictureBox18.TabStop = false;
             // 
@@ -1626,9 +1594,9 @@
             classwork_th2.BackgroundImage = (Image)resources.GetObject("classwork_th2.BackgroundImage");
             classwork_th2.BackgroundImageLayout = ImageLayout.Zoom;
             classwork_th2.Cursor = Cursors.Hand;
-            classwork_th2.Location = new Point(35, 269);
+            classwork_th2.Location = new Point(35, 283);
             classwork_th2.Name = "classwork_th2";
-            classwork_th2.Size = new Size(71, 65);
+            classwork_th2.Size = new Size(71, 68);
             classwork_th2.TabIndex = 11;
             classwork_th2.TabStop = false;
             // 
@@ -1638,9 +1606,9 @@
             exam_th2.BackgroundImage = (Image)resources.GetObject("exam_th2.BackgroundImage");
             exam_th2.BackgroundImageLayout = ImageLayout.Zoom;
             exam_th2.Cursor = Cursors.Hand;
-            exam_th2.Location = new Point(35, 548);
+            exam_th2.Location = new Point(35, 577);
             exam_th2.Name = "exam_th2";
-            exam_th2.Size = new Size(71, 65);
+            exam_th2.Size = new Size(71, 68);
             exam_th2.TabIndex = 10;
             exam_th2.TabStop = false;
             // 
@@ -1650,9 +1618,9 @@
             chat_th2.BackgroundImage = (Image)resources.GetObject("chat_th2.BackgroundImage");
             chat_th2.BackgroundImageLayout = ImageLayout.Zoom;
             chat_th2.Cursor = Cursors.Hand;
-            chat_th2.Location = new Point(35, 457);
+            chat_th2.Location = new Point(35, 481);
             chat_th2.Name = "chat_th2";
-            chat_th2.Size = new Size(71, 65);
+            chat_th2.Size = new Size(71, 68);
             chat_th2.TabIndex = 9;
             chat_th2.TabStop = false;
             // 
@@ -1662,9 +1630,9 @@
             user_th2.BackgroundImage = (Image)resources.GetObject("user_th2.BackgroundImage");
             user_th2.BackgroundImageLayout = ImageLayout.Zoom;
             user_th2.Cursor = Cursors.Hand;
-            user_th2.Location = new Point(50, 43);
+            user_th2.Location = new Point(50, 45);
             user_th2.Name = "user_th2";
-            user_th2.Size = new Size(61, 48);
+            user_th2.Size = new Size(61, 51);
             user_th2.TabIndex = 13;
             user_th2.TabStop = false;
             user_th2.Click += user_th2_Click;
@@ -1677,9 +1645,9 @@
             Grades2.BackgroundImage = (Image)resources.GetObject("Grades2.BackgroundImage");
             Grades2.BackgroundImageLayout = ImageLayout.Zoom;
             Grades2.Cursor = Cursors.Hand;
-            Grades2.Location = new Point(35, 178);
+            Grades2.Location = new Point(35, 187);
             Grades2.Name = "Grades2";
-            Grades2.Size = new Size(71, 65);
+            Grades2.Size = new Size(71, 68);
             Grades2.TabIndex = 12;
             Grades2.TabStop = false;
             // 
@@ -1691,7 +1659,7 @@
             courses_th.Dock = DockStyle.Fill;
             courses_th.Location = new Point(0, 0);
             courses_th.Name = "courses_th";
-            courses_th.Size = new Size(1430, 842);
+            courses_th.Size = new Size(1430, 886);
             courses_th.TabIndex = 15;
             // 
             // add_coursebtn
@@ -1706,9 +1674,9 @@
             add_coursebtn.FlatStyle = FlatStyle.Flat;
             add_coursebtn.Font = new Font("Montserrat ExtraBold", 11.8956518F, FontStyle.Bold, GraphicsUnit.Point, 0);
             add_coursebtn.ForeColor = Color.White;
-            add_coursebtn.Location = new Point(1139, 172);
+            add_coursebtn.Location = new Point(1139, 181);
             add_coursebtn.Name = "add_coursebtn";
-            add_coursebtn.Size = new Size(234, 46);
+            add_coursebtn.Size = new Size(234, 48);
             add_coursebtn.TabIndex = 16;
             add_coursebtn.Text = "Add Course";
             add_coursebtn.TextColor = Color.White;
@@ -1719,9 +1687,9 @@
             // 
             panel6.AutoScroll = true;
             panel6.Controls.Add(panel8);
-            panel6.Location = new Point(184, 258);
+            panel6.Location = new Point(184, 272);
             panel6.Name = "panel6";
-            panel6.Size = new Size(1173, 530);
+            panel6.Size = new Size(1173, 558);
             panel6.TabIndex = 15;
             // 
             // panel8
@@ -1733,9 +1701,9 @@
             panel8.Controls.Add(deletebtn);
             panel8.Controls.Add(richTextBox5);
             panel8.Controls.Add(pictureBox8);
-            panel8.Location = new Point(48, 64);
+            panel8.Location = new Point(48, 67);
             panel8.Name = "panel8";
-            panel8.Size = new Size(520, 223);
+            panel8.Size = new Size(520, 235);
             panel8.TabIndex = 0;
             // 
             // pictureBox15
@@ -1744,9 +1712,9 @@
             pictureBox15.BackgroundImage = (Image)resources.GetObject("pictureBox15.BackgroundImage");
             pictureBox15.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox15.Cursor = Cursors.Hand;
-            pictureBox15.Location = new Point(267, 164);
+            pictureBox15.Location = new Point(267, 173);
             pictureBox15.Name = "pictureBox15";
-            pictureBox15.Size = new Size(61, 43);
+            pictureBox15.Size = new Size(61, 45);
             pictureBox15.TabIndex = 20;
             pictureBox15.TabStop = false;
             // 
@@ -1756,9 +1724,9 @@
             pictureBox12.BackgroundImage = (Image)resources.GetObject("pictureBox12.BackgroundImage");
             pictureBox12.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox12.Cursor = Cursors.Hand;
-            pictureBox12.Location = new Point(326, 164);
+            pictureBox12.Location = new Point(326, 173);
             pictureBox12.Name = "pictureBox12";
-            pictureBox12.Size = new Size(61, 43);
+            pictureBox12.Size = new Size(61, 45);
             pictureBox12.TabIndex = 19;
             pictureBox12.TabStop = false;
             // 
@@ -1768,9 +1736,9 @@
             pictureBox11.BackgroundImage = (Image)resources.GetObject("pictureBox11.BackgroundImage");
             pictureBox11.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox11.Cursor = Cursors.Hand;
-            pictureBox11.Location = new Point(385, 164);
+            pictureBox11.Location = new Point(385, 173);
             pictureBox11.Name = "pictureBox11";
-            pictureBox11.Size = new Size(61, 43);
+            pictureBox11.Size = new Size(61, 45);
             pictureBox11.TabIndex = 18;
             pictureBox11.TabStop = false;
             // 
@@ -1780,9 +1748,9 @@
             deletebtn.BackgroundImage = (Image)resources.GetObject("deletebtn.BackgroundImage");
             deletebtn.BackgroundImageLayout = ImageLayout.Zoom;
             deletebtn.Cursor = Cursors.Hand;
-            deletebtn.Location = new Point(444, 164);
+            deletebtn.Location = new Point(444, 173);
             deletebtn.Name = "deletebtn";
-            deletebtn.Size = new Size(61, 43);
+            deletebtn.Size = new Size(61, 45);
             deletebtn.TabIndex = 14;
             deletebtn.TabStop = false;
             // 
@@ -1792,10 +1760,10 @@
             richTextBox5.BorderStyle = BorderStyle.None;
             richTextBox5.Font = new Font("Montserrat ExtraBold", 16.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             richTextBox5.ForeColor = Color.FromArgb(5, 12, 22);
-            richTextBox5.Location = new Point(275, 24);
+            richTextBox5.Location = new Point(275, 25);
             richTextBox5.Name = "richTextBox5";
             richTextBox5.ReadOnly = true;
-            richTextBox5.Size = new Size(231, 87);
+            richTextBox5.Size = new Size(231, 92);
             richTextBox5.TabIndex = 17;
             richTextBox5.Text = "Course Name";
             // 
@@ -1803,9 +1771,9 @@
             // 
             pictureBox8.BackgroundImage = (Image)resources.GetObject("pictureBox8.BackgroundImage");
             pictureBox8.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox8.Location = new Point(13, 13);
+            pictureBox8.Location = new Point(13, 14);
             pictureBox8.Name = "pictureBox8";
-            pictureBox8.Size = new Size(241, 194);
+            pictureBox8.Size = new Size(241, 204);
             pictureBox8.TabIndex = 0;
             pictureBox8.TabStop = false;
             // 
@@ -1815,10 +1783,10 @@
             richTextBox4.BorderStyle = BorderStyle.None;
             richTextBox4.Font = new Font("Montserrat ExtraBold", 28.15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             richTextBox4.ForeColor = Color.FromArgb(5, 12, 22);
-            richTextBox4.Location = new Point(213, 73);
+            richTextBox4.Location = new Point(201, 45);
             richTextBox4.Name = "richTextBox4";
             richTextBox4.ReadOnly = true;
-            richTextBox4.Size = new Size(465, 207);
+            richTextBox4.Size = new Size(465, 218);
             richTextBox4.TabIndex = 14;
             richTextBox4.Text = "Hi, Gamal\nWhat do you want \nto Teaching today?";
             // 
@@ -1827,7 +1795,7 @@
             grades_admin.Dock = DockStyle.Fill;
             grades_admin.Location = new Point(0, 0);
             grades_admin.Name = "grades_admin";
-            grades_admin.Size = new Size(1430, 842);
+            grades_admin.Size = new Size(1430, 886);
             grades_admin.TabIndex = 17;
             // 
             // chatadmin
@@ -1842,7 +1810,7 @@
             chatadmin.Dock = DockStyle.Fill;
             chatadmin.Location = new Point(0, 0);
             chatadmin.Name = "chatadmin";
-            chatadmin.Size = new Size(1430, 842);
+            chatadmin.Size = new Size(1430, 886);
             chatadmin.TabIndex = 26;
             // 
             // subjectbar_ad
@@ -1854,13 +1822,13 @@
             subjectbar_ad.BorderSize = 2;
             subjectbar_ad.Font = new Font("Montserrat Light", 11.2695637F, FontStyle.Regular, GraphicsUnit.Point, 0);
             subjectbar_ad.ForeColor = Color.DimGray;
-            subjectbar_ad.Location = new Point(1241, 61);
+            subjectbar_ad.Location = new Point(1241, 64);
             subjectbar_ad.Margin = new Padding(4);
             subjectbar_ad.Multiline = false;
             subjectbar_ad.Name = "subjectbar_ad";
             subjectbar_ad.Padding = new Padding(20, 7, 10, 7);
             subjectbar_ad.PasswordChar = false;
-            subjectbar_ad.Size = new Size(168, 37);
+            subjectbar_ad.Size = new Size(168, 45);
             subjectbar_ad.TabIndex = 25;
             subjectbar_ad.Texts = "Subject";
             subjectbar_ad.UnderlinedStyle = false;
@@ -1870,9 +1838,9 @@
             label69.AutoSize = true;
             label69.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label69.ForeColor = Color.FromArgb(5, 12, 22);
-            label69.Location = new Point(1152, 18);
+            label69.Location = new Point(1152, 19);
             label69.Name = "label69";
-            label69.Size = new Size(178, 37);
+            label69.Size = new Size(192, 36);
             label69.TabIndex = 24;
             label69.Text = "Add New Chat";
             // 
@@ -1885,13 +1853,13 @@
             userid_ad.BorderSize = 2;
             userid_ad.Font = new Font("Montserrat Light", 11.2695637F, FontStyle.Regular, GraphicsUnit.Point, 0);
             userid_ad.ForeColor = Color.DimGray;
-            userid_ad.Location = new Point(1065, 61);
+            userid_ad.Location = new Point(1065, 64);
             userid_ad.Margin = new Padding(4);
             userid_ad.Multiline = false;
             userid_ad.Name = "userid_ad";
             userid_ad.Padding = new Padding(20, 7, 10, 7);
             userid_ad.PasswordChar = false;
-            userid_ad.Size = new Size(168, 37);
+            userid_ad.Size = new Size(168, 45);
             userid_ad.TabIndex = 2;
             userid_ad.Texts = "ID USER";
             userid_ad.UnderlinedStyle = false;
@@ -1907,9 +1875,9 @@
             rjButton13.FlatStyle = FlatStyle.Flat;
             rjButton13.Font = new Font("Montserrat ExtraBold", 11.2695656F, FontStyle.Bold, GraphicsUnit.Point, 0);
             rjButton13.ForeColor = Color.White;
-            rjButton13.Location = new Point(1178, 103);
+            rjButton13.Location = new Point(1178, 108);
             rjButton13.Name = "rjButton13";
-            rjButton13.Size = new Size(132, 42);
+            rjButton13.Size = new Size(132, 44);
             rjButton13.TabIndex = 3;
             rjButton13.Text = "ADD";
             rjButton13.TextColor = Color.White;
@@ -1921,9 +1889,9 @@
             ChatContainer_ad.AutoScroll = true;
             ChatContainer_ad.BackgroundImage = (Image)resources.GetObject("ChatContainer_ad.BackgroundImage");
             ChatContainer_ad.BackgroundImageLayout = ImageLayout.Stretch;
-            ChatContainer_ad.Location = new Point(1079, 157);
+            ChatContainer_ad.Location = new Point(1079, 165);
             ChatContainer_ad.Name = "ChatContainer_ad";
-            ChatContainer_ad.Size = new Size(307, 641);
+            ChatContainer_ad.Size = new Size(307, 675);
             ChatContainer_ad.TabIndex = 22;
             // 
             // label70
@@ -1931,9 +1899,9 @@
             label70.AutoSize = true;
             label70.Font = new Font("Montserrat ExtraBold", 28.173914F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label70.ForeColor = Color.FromArgb(5, 12, 22);
-            label70.Location = new Point(198, 55);
+            label70.Location = new Point(198, 58);
             label70.Name = "label70";
-            label70.Size = new Size(141, 75);
+            label70.Size = new Size(150, 73);
             label70.TabIndex = 19;
             label70.Text = "Chat";
             // 
@@ -1945,9 +1913,9 @@
             panel12.Controls.Add(subject_label2);
             panel12.Controls.Add(panel13);
             panel12.Controls.Add(panel14);
-            panel12.Location = new Point(210, 157);
+            panel12.Location = new Point(210, 165);
             panel12.Name = "panel12";
-            panel12.Size = new Size(840, 641);
+            panel12.Size = new Size(840, 675);
             panel12.TabIndex = 23;
             // 
             // subject_label2
@@ -1958,7 +1926,7 @@
             subject_label2.ForeColor = Color.FromArgb(5, 12, 22);
             subject_label2.Location = new Point(368, 8);
             subject_label2.Name = "subject_label2";
-            subject_label2.Size = new Size(78, 23);
+            subject_label2.Size = new Size(87, 31);
             subject_label2.TabIndex = 25;
             subject_label2.Text = "subject";
             // 
@@ -1967,9 +1935,9 @@
             panel13.BackColor = Color.White;
             panel13.Controls.Add(msgbar_ad);
             panel13.Controls.Add(btnbar_ad);
-            panel13.Location = new Point(26, 578);
+            panel13.Location = new Point(26, 608);
             panel13.Name = "panel13";
-            panel13.Size = new Size(782, 63);
+            panel13.Size = new Size(782, 66);
             panel13.TabIndex = 0;
             // 
             // msgbar_ad
@@ -1981,13 +1949,13 @@
             msgbar_ad.BorderSize = 2;
             msgbar_ad.Font = new Font("Montserrat Light", 13.7739134F, FontStyle.Regular, GraphicsUnit.Point, 0);
             msgbar_ad.ForeColor = Color.DimGray;
-            msgbar_ad.Location = new Point(17, 11);
+            msgbar_ad.Location = new Point(17, 12);
             msgbar_ad.Margin = new Padding(4);
             msgbar_ad.Multiline = false;
             msgbar_ad.Name = "msgbar_ad";
             msgbar_ad.Padding = new Padding(20, 7, 10, 7);
             msgbar_ad.PasswordChar = false;
-            msgbar_ad.Size = new Size(596, 41);
+            msgbar_ad.Size = new Size(596, 51);
             msgbar_ad.TabIndex = 0;
             msgbar_ad.Texts = "Message";
             msgbar_ad.UnderlinedStyle = false;
@@ -2005,7 +1973,7 @@
             btnbar_ad.ForeColor = Color.White;
             btnbar_ad.Location = new Point(629, 8);
             btnbar_ad.Name = "btnbar_ad";
-            btnbar_ad.Size = new Size(150, 48);
+            btnbar_ad.Size = new Size(150, 51);
             btnbar_ad.TabIndex = 1;
             btnbar_ad.Text = "Send";
             btnbar_ad.TextColor = Color.White;
@@ -2016,9 +1984,9 @@
             // 
             panel14.AutoScroll = true;
             panel14.BackColor = Color.White;
-            panel14.Location = new Point(0, 35);
+            panel14.Location = new Point(0, 37);
             panel14.Name = "panel14";
-            panel14.Size = new Size(840, 540);
+            panel14.Size = new Size(840, 568);
             panel14.TabIndex = 29;
             // 
             // Examadd
@@ -2044,14 +2012,14 @@
             Examadd.Dock = DockStyle.Fill;
             Examadd.Location = new Point(0, 0);
             Examadd.Name = "Examadd";
-            Examadd.Size = new Size(1430, 842);
+            Examadd.Size = new Size(1430, 886);
             Examadd.TabIndex = 24;
             // 
             // dateTimePicker4
             // 
-            dateTimePicker4.Location = new Point(246, 324);
+            dateTimePicker4.Location = new Point(246, 341);
             dateTimePicker4.Name = "dateTimePicker4";
-            dateTimePicker4.Size = new Size(240, 26);
+            dateTimePicker4.Size = new Size(240, 27);
             dateTimePicker4.TabIndex = 26;
             // 
             // label53
@@ -2059,9 +2027,9 @@
             label53.AutoSize = true;
             label53.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label53.ForeColor = Color.FromArgb(5, 12, 22);
-            label53.Location = new Point(503, 374);
+            label53.Location = new Point(503, 394);
             label53.Name = "label53";
-            label53.Size = new Size(125, 37);
+            label53.Size = new Size(135, 36);
             label53.TabIndex = 25;
             label53.Text = "Course ID";
             // 
@@ -2070,9 +2038,9 @@
             label52.AutoSize = true;
             label52.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label52.ForeColor = Color.FromArgb(5, 12, 22);
-            label52.Location = new Point(239, 372);
+            label52.Location = new Point(239, 392);
             label52.Name = "label52";
-            label52.Size = new Size(111, 37);
+            label52.Size = new Size(116, 36);
             label52.TabIndex = 24;
             label52.Text = "Exam ID";
             // 
@@ -2085,13 +2053,13 @@
             courseid_edex2.BorderSize = 2;
             courseid_edex2.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             courseid_edex2.ForeColor = Color.DimGray;
-            courseid_edex2.Location = new Point(503, 412);
+            courseid_edex2.Location = new Point(503, 434);
             courseid_edex2.Margin = new Padding(4);
             courseid_edex2.Multiline = false;
             courseid_edex2.Name = "courseid_edex2";
             courseid_edex2.Padding = new Padding(10, 7, 10, 7);
             courseid_edex2.PasswordChar = false;
-            courseid_edex2.Size = new Size(216, 46);
+            courseid_edex2.Size = new Size(216, 59);
             courseid_edex2.TabIndex = 23;
             courseid_edex2.Texts = "";
             courseid_edex2.UnderlinedStyle = false;
@@ -2105,13 +2073,13 @@
             exam_edex.BorderSize = 2;
             exam_edex.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             exam_edex.ForeColor = Color.DimGray;
-            exam_edex.Location = new Point(239, 412);
+            exam_edex.Location = new Point(239, 434);
             exam_edex.Margin = new Padding(4);
             exam_edex.Multiline = false;
             exam_edex.Name = "exam_edex";
             exam_edex.Padding = new Padding(10, 7, 10, 7);
             exam_edex.PasswordChar = false;
-            exam_edex.Size = new Size(216, 46);
+            exam_edex.Size = new Size(216, 59);
             exam_edex.TabIndex = 22;
             exam_edex.Texts = "";
             exam_edex.UnderlinedStyle = false;
@@ -2121,9 +2089,9 @@
             label45.AutoSize = true;
             label45.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label45.ForeColor = Color.FromArgb(5, 12, 22);
-            label45.Location = new Point(239, 273);
+            label45.Location = new Point(239, 287);
             label45.Name = "label45";
-            label45.Size = new Size(70, 37);
+            label45.Size = new Size(73, 36);
             label45.TabIndex = 20;
             label45.Text = "Date";
             // 
@@ -2132,9 +2100,9 @@
             label46.AutoSize = true;
             label46.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label46.ForeColor = Color.FromArgb(5, 12, 22);
-            label46.Location = new Point(239, 465);
+            label46.Location = new Point(239, 489);
             label46.Name = "label46";
-            label46.Size = new Size(149, 37);
+            label46.Size = new Size(157, 36);
             label46.TabIndex = 18;
             label46.Text = "Description";
             // 
@@ -2147,13 +2115,13 @@
             desc_edex2.BorderSize = 2;
             desc_edex2.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             desc_edex2.ForeColor = Color.DimGray;
-            desc_edex2.Location = new Point(241, 505);
+            desc_edex2.Location = new Point(241, 532);
             desc_edex2.Margin = new Padding(4);
             desc_edex2.Multiline = true;
             desc_edex2.Name = "desc_edex2";
             desc_edex2.Padding = new Padding(10, 7, 10, 7);
             desc_edex2.PasswordChar = false;
-            desc_edex2.Size = new Size(478, 161);
+            desc_edex2.Size = new Size(478, 169);
             desc_edex2.TabIndex = 17;
             desc_edex2.Texts = "";
             desc_edex2.UnderlinedStyle = false;
@@ -2170,9 +2138,9 @@
             rjButton9.FlatStyle = FlatStyle.Flat;
             rjButton9.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             rjButton9.ForeColor = Color.White;
-            rjButton9.Location = new Point(544, 749);
+            rjButton9.Location = new Point(544, 788);
             rjButton9.Name = "rjButton9";
-            rjButton9.Size = new Size(392, 46);
+            rjButton9.Size = new Size(392, 48);
             rjButton9.TabIndex = 16;
             rjButton9.Text = "Add Exam";
             rjButton9.TextColor = Color.White;
@@ -2184,9 +2152,9 @@
             pictureBox19.BackgroundImage = (Image)resources.GetObject("pictureBox19.BackgroundImage");
             pictureBox19.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox19.Cursor = Cursors.Hand;
-            pictureBox19.Location = new Point(-4, -13);
+            pictureBox19.Location = new Point(-4, -14);
             pictureBox19.Name = "pictureBox19";
-            pictureBox19.Size = new Size(142, 121);
+            pictureBox19.Size = new Size(142, 127);
             pictureBox19.TabIndex = 15;
             pictureBox19.TabStop = false;
             pictureBox19.Click += pictureBox19_Click;
@@ -2196,9 +2164,9 @@
             label47.AutoSize = true;
             label47.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label47.ForeColor = Color.FromArgb(5, 12, 22);
-            label47.Location = new Point(503, 273);
+            label47.Location = new Point(503, 287);
             label47.Name = "label47";
-            label47.Size = new Size(118, 37);
+            label47.Size = new Size(121, 36);
             label47.TabIndex = 10;
             label47.Text = "Duration";
             // 
@@ -2207,9 +2175,9 @@
             label48.AutoSize = true;
             label48.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label48.ForeColor = Color.FromArgb(5, 12, 22);
-            label48.Location = new Point(801, 157);
+            label48.Location = new Point(801, 165);
             label48.Name = "label48";
-            label48.Size = new Size(121, 37);
+            label48.Size = new Size(126, 36);
             label48.TabIndex = 8;
             label48.Text = "Question";
             // 
@@ -2218,9 +2186,9 @@
             label49.AutoSize = true;
             label49.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label49.ForeColor = Color.FromArgb(5, 12, 22);
-            label49.Location = new Point(239, 165);
+            label49.Location = new Point(239, 174);
             label49.Name = "label49";
-            label49.Size = new Size(68, 37);
+            label49.Size = new Size(69, 36);
             label49.TabIndex = 7;
             label49.Text = "Title";
             // 
@@ -2233,13 +2201,13 @@
             dur_edex2.BorderSize = 2;
             dur_edex2.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dur_edex2.ForeColor = Color.DimGray;
-            dur_edex2.Location = new Point(503, 311);
+            dur_edex2.Location = new Point(503, 327);
             dur_edex2.Margin = new Padding(4);
             dur_edex2.Multiline = false;
             dur_edex2.Name = "dur_edex2";
             dur_edex2.Padding = new Padding(10, 7, 10, 7);
             dur_edex2.PasswordChar = false;
-            dur_edex2.Size = new Size(216, 46);
+            dur_edex2.Size = new Size(216, 59);
             dur_edex2.TabIndex = 4;
             dur_edex2.Texts = "";
             dur_edex2.UnderlinedStyle = false;
@@ -2253,13 +2221,13 @@
             ques_edex2.BorderSize = 2;
             ques_edex2.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ques_edex2.ForeColor = Color.DimGray;
-            ques_edex2.Location = new Point(801, 205);
+            ques_edex2.Location = new Point(801, 216);
             ques_edex2.Margin = new Padding(4);
             ques_edex2.Multiline = true;
             ques_edex2.Name = "ques_edex2";
             ques_edex2.Padding = new Padding(10, 7, 10, 7);
             ques_edex2.PasswordChar = false;
-            ques_edex2.Size = new Size(505, 467);
+            ques_edex2.Size = new Size(505, 492);
             ques_edex2.TabIndex = 3;
             ques_edex2.Texts = "";
             ques_edex2.UnderlinedStyle = false;
@@ -2273,13 +2241,13 @@
             title_edex2.BorderSize = 2;
             title_edex2.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             title_edex2.ForeColor = Color.DimGray;
-            title_edex2.Location = new Point(241, 212);
+            title_edex2.Location = new Point(241, 223);
             title_edex2.Margin = new Padding(4);
             title_edex2.Multiline = false;
             title_edex2.Name = "title_edex2";
             title_edex2.Padding = new Padding(10, 7, 10, 7);
             title_edex2.PasswordChar = false;
-            title_edex2.Size = new Size(478, 46);
+            title_edex2.Size = new Size(478, 59);
             title_edex2.TabIndex = 1;
             title_edex2.Texts = "";
             title_edex2.UnderlinedStyle = false;
@@ -2289,16 +2257,16 @@
             label50.AutoSize = true;
             label50.Font = new Font("Montserrat ExtraBold", 23.7913036F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label50.ForeColor = Color.FromArgb(5, 12, 22);
-            label50.Location = new Point(615, 43);
+            label50.Location = new Point(615, 45);
             label50.Name = "label50";
-            label50.Size = new Size(227, 64);
+            label50.Size = new Size(245, 62);
             label50.TabIndex = 0;
             label50.Text = "Add Exam";
             // 
             // label51
             // 
             label51.AutoSize = true;
-            label51.Location = new Point(1015, 342);
+            label51.Location = new Point(1015, 360);
             label51.Name = "label51";
             label51.Size = new Size(58, 20);
             label51.TabIndex = 21;
@@ -2323,14 +2291,14 @@
             editexam.Dock = DockStyle.Fill;
             editexam.Location = new Point(0, 0);
             editexam.Name = "editexam";
-            editexam.Size = new Size(1430, 842);
+            editexam.Size = new Size(1430, 886);
             editexam.TabIndex = 23;
             // 
             // dateTimePicker3
             // 
-            dateTimePicker3.Location = new Point(241, 320);
+            dateTimePicker3.Location = new Point(241, 337);
             dateTimePicker3.Name = "dateTimePicker3";
-            dateTimePicker3.Size = new Size(240, 26);
+            dateTimePicker3.Size = new Size(240, 27);
             dateTimePicker3.TabIndex = 22;
             // 
             // label43
@@ -2338,9 +2306,9 @@
             label43.AutoSize = true;
             label43.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label43.ForeColor = Color.FromArgb(5, 12, 22);
-            label43.Location = new Point(239, 273);
+            label43.Location = new Point(239, 287);
             label43.Name = "label43";
-            label43.Size = new Size(70, 37);
+            label43.Size = new Size(73, 36);
             label43.TabIndex = 20;
             label43.Text = "Date";
             // 
@@ -2349,9 +2317,9 @@
             label42.AutoSize = true;
             label42.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label42.ForeColor = Color.FromArgb(5, 12, 22);
-            label42.Location = new Point(239, 362);
+            label42.Location = new Point(239, 381);
             label42.Name = "label42";
-            label42.Size = new Size(149, 37);
+            label42.Size = new Size(157, 36);
             label42.TabIndex = 18;
             label42.Text = "Description";
             // 
@@ -2364,13 +2332,13 @@
             desc_edex.BorderSize = 2;
             desc_edex.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             desc_edex.ForeColor = Color.DimGray;
-            desc_edex.Location = new Point(241, 402);
+            desc_edex.Location = new Point(241, 423);
             desc_edex.Margin = new Padding(4);
             desc_edex.Multiline = true;
             desc_edex.Name = "desc_edex";
             desc_edex.Padding = new Padding(10, 7, 10, 7);
             desc_edex.PasswordChar = false;
-            desc_edex.Size = new Size(478, 270);
+            desc_edex.Size = new Size(478, 284);
             desc_edex.TabIndex = 17;
             desc_edex.Texts = "";
             desc_edex.UnderlinedStyle = false;
@@ -2387,9 +2355,9 @@
             rjButton6.FlatStyle = FlatStyle.Flat;
             rjButton6.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             rjButton6.ForeColor = Color.White;
-            rjButton6.Location = new Point(544, 749);
+            rjButton6.Location = new Point(544, 788);
             rjButton6.Name = "rjButton6";
-            rjButton6.Size = new Size(392, 46);
+            rjButton6.Size = new Size(392, 48);
             rjButton6.TabIndex = 16;
             rjButton6.Text = "Edit Exam";
             rjButton6.TextColor = Color.White;
@@ -2401,9 +2369,9 @@
             pictureBox17.BackgroundImage = (Image)resources.GetObject("pictureBox17.BackgroundImage");
             pictureBox17.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox17.Cursor = Cursors.Hand;
-            pictureBox17.Location = new Point(-4, -13);
+            pictureBox17.Location = new Point(-4, -14);
             pictureBox17.Name = "pictureBox17";
-            pictureBox17.Size = new Size(142, 121);
+            pictureBox17.Size = new Size(142, 127);
             pictureBox17.TabIndex = 15;
             pictureBox17.TabStop = false;
             pictureBox17.Click += pictureBox17_Click;
@@ -2413,9 +2381,9 @@
             label34.AutoSize = true;
             label34.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label34.ForeColor = Color.FromArgb(5, 12, 22);
-            label34.Location = new Point(503, 273);
+            label34.Location = new Point(503, 287);
             label34.Name = "label34";
-            label34.Size = new Size(118, 37);
+            label34.Size = new Size(121, 36);
             label34.TabIndex = 10;
             label34.Text = "Duration";
             // 
@@ -2424,9 +2392,9 @@
             label35.AutoSize = true;
             label35.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label35.ForeColor = Color.FromArgb(5, 12, 22);
-            label35.Location = new Point(801, 157);
+            label35.Location = new Point(801, 165);
             label35.Name = "label35";
-            label35.Size = new Size(121, 37);
+            label35.Size = new Size(126, 36);
             label35.TabIndex = 8;
             label35.Text = "Question";
             // 
@@ -2435,9 +2403,9 @@
             label37.AutoSize = true;
             label37.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label37.ForeColor = Color.FromArgb(5, 12, 22);
-            label37.Location = new Point(239, 165);
+            label37.Location = new Point(239, 174);
             label37.Name = "label37";
-            label37.Size = new Size(68, 37);
+            label37.Size = new Size(69, 36);
             label37.TabIndex = 7;
             label37.Text = "Title";
             // 
@@ -2450,13 +2418,13 @@
             dur_edex.BorderSize = 2;
             dur_edex.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dur_edex.ForeColor = Color.DimGray;
-            dur_edex.Location = new Point(503, 311);
+            dur_edex.Location = new Point(503, 327);
             dur_edex.Margin = new Padding(4);
             dur_edex.Multiline = false;
             dur_edex.Name = "dur_edex";
             dur_edex.Padding = new Padding(10, 7, 10, 7);
             dur_edex.PasswordChar = false;
-            dur_edex.Size = new Size(216, 46);
+            dur_edex.Size = new Size(216, 59);
             dur_edex.TabIndex = 4;
             dur_edex.Texts = "";
             dur_edex.UnderlinedStyle = false;
@@ -2470,13 +2438,13 @@
             ques_edex.BorderSize = 2;
             ques_edex.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ques_edex.ForeColor = Color.DimGray;
-            ques_edex.Location = new Point(801, 205);
+            ques_edex.Location = new Point(801, 216);
             ques_edex.Margin = new Padding(4);
             ques_edex.Multiline = true;
             ques_edex.Name = "ques_edex";
             ques_edex.Padding = new Padding(10, 7, 10, 7);
             ques_edex.PasswordChar = false;
-            ques_edex.Size = new Size(505, 467);
+            ques_edex.Size = new Size(505, 492);
             ques_edex.TabIndex = 3;
             ques_edex.Texts = "";
             ques_edex.UnderlinedStyle = false;
@@ -2490,13 +2458,13 @@
             title_edex.BorderSize = 2;
             title_edex.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             title_edex.ForeColor = Color.DimGray;
-            title_edex.Location = new Point(241, 212);
+            title_edex.Location = new Point(241, 223);
             title_edex.Margin = new Padding(4);
             title_edex.Multiline = false;
             title_edex.Name = "title_edex";
             title_edex.Padding = new Padding(10, 7, 10, 7);
             title_edex.PasswordChar = false;
-            title_edex.Size = new Size(478, 46);
+            title_edex.Size = new Size(478, 59);
             title_edex.TabIndex = 1;
             title_edex.Texts = "";
             title_edex.UnderlinedStyle = false;
@@ -2506,16 +2474,16 @@
             label41.AutoSize = true;
             label41.Font = new Font("Montserrat ExtraBold", 23.7913036F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label41.ForeColor = Color.FromArgb(5, 12, 22);
-            label41.Location = new Point(615, 43);
+            label41.Location = new Point(615, 45);
             label41.Name = "label41";
-            label41.Size = new Size(227, 64);
+            label41.Size = new Size(244, 62);
             label41.TabIndex = 0;
             label41.Text = "Edit Exam";
             // 
             // label44
             // 
             label44.AutoSize = true;
-            label44.Location = new Point(1015, 342);
+            label44.Location = new Point(1015, 360);
             label44.Name = "label44";
             label44.Size = new Size(58, 20);
             label44.TabIndex = 21;
@@ -2529,7 +2497,7 @@
             examadmin.Dock = DockStyle.Fill;
             examadmin.Location = new Point(0, 0);
             examadmin.Name = "examadmin";
-            examadmin.Size = new Size(1430, 842);
+            examadmin.Size = new Size(1430, 886);
             examadmin.TabIndex = 17;
             // 
             // rjButton8
@@ -2543,9 +2511,9 @@
             rjButton8.FlatStyle = FlatStyle.Flat;
             rjButton8.Font = new Font("Montserrat ExtraBold", 11.8956518F, FontStyle.Bold, GraphicsUnit.Point, 0);
             rjButton8.ForeColor = Color.White;
-            rjButton8.Location = new Point(1051, 89);
+            rjButton8.Location = new Point(1051, 94);
             rjButton8.Name = "rjButton8";
-            rjButton8.Size = new Size(322, 48);
+            rjButton8.Size = new Size(322, 51);
             rjButton8.TabIndex = 2;
             rjButton8.Text = "Add Exam";
             rjButton8.TextColor = Color.White;
@@ -2555,9 +2523,9 @@
             // examadmin_cont
             // 
             examadmin_cont.AutoScroll = true;
-            examadmin_cont.Location = new Point(198, 172);
+            examadmin_cont.Location = new Point(198, 181);
             examadmin_cont.Name = "examadmin_cont";
-            examadmin_cont.Size = new Size(1175, 636);
+            examadmin_cont.Size = new Size(1175, 669);
             examadmin_cont.TabIndex = 1;
             // 
             // label12
@@ -2565,9 +2533,9 @@
             label12.AutoSize = true;
             label12.Font = new Font("Montserrat ExtraBold", 26.2956524F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label12.ForeColor = Color.FromArgb(5, 12, 22);
-            label12.Location = new Point(186, 84);
+            label12.Location = new Point(186, 88);
             label12.Name = "label12";
-            label12.Size = new Size(153, 70);
+            label12.Size = new Size(161, 69);
             label12.TabIndex = 0;
             label12.Text = "Exam";
             // 
@@ -2588,14 +2556,14 @@
             editclasswork.Dock = DockStyle.Fill;
             editclasswork.Location = new Point(0, 0);
             editclasswork.Name = "editclasswork";
-            editclasswork.Size = new Size(1430, 842);
+            editclasswork.Size = new Size(1430, 886);
             editclasswork.TabIndex = 24;
             // 
             // dateTimePicker2
             // 
-            dateTimePicker2.Location = new Point(503, 335);
+            dateTimePicker2.Location = new Point(503, 353);
             dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(240, 26);
+            dateTimePicker2.Size = new Size(240, 27);
             dateTimePicker2.TabIndex = 22;
             // 
             // label55
@@ -2603,9 +2571,9 @@
             label55.AutoSize = true;
             label55.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label55.ForeColor = Color.FromArgb(5, 12, 22);
-            label55.Location = new Point(501, 295);
+            label55.Location = new Point(501, 311);
             label55.Name = "label55";
-            label55.Size = new Size(70, 37);
+            label55.Size = new Size(73, 36);
             label55.TabIndex = 20;
             label55.Text = "Date";
             // 
@@ -2614,9 +2582,9 @@
             label56.AutoSize = true;
             label56.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label56.ForeColor = Color.FromArgb(5, 12, 22);
-            label56.Location = new Point(501, 376);
+            label56.Location = new Point(501, 396);
             label56.Name = "label56";
-            label56.Size = new Size(149, 37);
+            label56.Size = new Size(157, 36);
             label56.TabIndex = 18;
             label56.Text = "Description";
             // 
@@ -2629,13 +2597,13 @@
             desc_edcw.BorderSize = 2;
             desc_edcw.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             desc_edcw.ForeColor = Color.DimGray;
-            desc_edcw.Location = new Point(503, 416);
+            desc_edcw.Location = new Point(503, 438);
             desc_edcw.Margin = new Padding(4);
             desc_edcw.Multiline = true;
             desc_edcw.Name = "desc_edcw";
             desc_edcw.Padding = new Padding(10, 7, 10, 7);
             desc_edcw.PasswordChar = false;
-            desc_edcw.Size = new Size(478, 270);
+            desc_edcw.Size = new Size(478, 284);
             desc_edcw.TabIndex = 17;
             desc_edcw.Texts = "";
             desc_edcw.UnderlinedStyle = false;
@@ -2652,9 +2620,9 @@
             rjButton11.FlatStyle = FlatStyle.Flat;
             rjButton11.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             rjButton11.ForeColor = Color.White;
-            rjButton11.Location = new Point(544, 722);
+            rjButton11.Location = new Point(544, 760);
             rjButton11.Name = "rjButton11";
-            rjButton11.Size = new Size(392, 46);
+            rjButton11.Size = new Size(392, 48);
             rjButton11.TabIndex = 16;
             rjButton11.Text = "Edit Exam";
             rjButton11.TextColor = Color.White;
@@ -2666,9 +2634,9 @@
             pictureBox20.BackgroundImage = (Image)resources.GetObject("pictureBox20.BackgroundImage");
             pictureBox20.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox20.Cursor = Cursors.Hand;
-            pictureBox20.Location = new Point(-4, -13);
+            pictureBox20.Location = new Point(-4, -14);
             pictureBox20.Name = "pictureBox20";
-            pictureBox20.Size = new Size(142, 121);
+            pictureBox20.Size = new Size(142, 127);
             pictureBox20.TabIndex = 15;
             pictureBox20.TabStop = false;
             pictureBox20.Click += pictureBox20_Click;
@@ -2678,9 +2646,9 @@
             label57.AutoSize = true;
             label57.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label57.ForeColor = Color.FromArgb(5, 12, 22);
-            label57.Location = new Point(765, 287);
+            label57.Location = new Point(765, 302);
             label57.Name = "label57";
-            label57.Size = new Size(118, 37);
+            label57.Size = new Size(121, 36);
             label57.TabIndex = 10;
             label57.Text = "Duration";
             // 
@@ -2689,9 +2657,9 @@
             label59.AutoSize = true;
             label59.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label59.ForeColor = Color.FromArgb(5, 12, 22);
-            label59.Location = new Point(501, 179);
+            label59.Location = new Point(501, 188);
             label59.Name = "label59";
-            label59.Size = new Size(68, 37);
+            label59.Size = new Size(69, 36);
             label59.TabIndex = 7;
             label59.Text = "Title";
             // 
@@ -2704,13 +2672,13 @@
             dur_edcw.BorderSize = 2;
             dur_edcw.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dur_edcw.ForeColor = Color.DimGray;
-            dur_edcw.Location = new Point(765, 325);
+            dur_edcw.Location = new Point(765, 342);
             dur_edcw.Margin = new Padding(4);
             dur_edcw.Multiline = false;
             dur_edcw.Name = "dur_edcw";
             dur_edcw.Padding = new Padding(10, 7, 10, 7);
             dur_edcw.PasswordChar = false;
-            dur_edcw.Size = new Size(216, 46);
+            dur_edcw.Size = new Size(216, 59);
             dur_edcw.TabIndex = 4;
             dur_edcw.Texts = "";
             dur_edcw.UnderlinedStyle = false;
@@ -2724,13 +2692,13 @@
             title_edcw.BorderSize = 2;
             title_edcw.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             title_edcw.ForeColor = Color.DimGray;
-            title_edcw.Location = new Point(503, 226);
+            title_edcw.Location = new Point(503, 238);
             title_edcw.Margin = new Padding(4);
             title_edcw.Multiline = false;
             title_edcw.Name = "title_edcw";
             title_edcw.Padding = new Padding(10, 7, 10, 7);
             title_edcw.PasswordChar = false;
-            title_edcw.Size = new Size(478, 46);
+            title_edcw.Size = new Size(478, 59);
             title_edcw.TabIndex = 1;
             title_edcw.Texts = "";
             title_edcw.UnderlinedStyle = false;
@@ -2740,16 +2708,16 @@
             label60.AutoSize = true;
             label60.Font = new Font("Montserrat ExtraBold", 23.7913036F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label60.ForeColor = Color.FromArgb(5, 12, 22);
-            label60.Location = new Point(563, 43);
+            label60.Location = new Point(563, 45);
             label60.Name = "label60";
-            label60.Size = new Size(354, 64);
+            label60.Size = new Size(383, 62);
             label60.TabIndex = 0;
             label60.Text = "Edit Assignment";
             // 
             // label61
             // 
             label61.AutoSize = true;
-            label61.Location = new Point(684, 488);
+            label61.Location = new Point(684, 514);
             label61.Name = "label61";
             label61.Size = new Size(58, 20);
             label61.TabIndex = 21;
@@ -2777,14 +2745,14 @@
             Addclasswork.Dock = DockStyle.Fill;
             Addclasswork.Location = new Point(0, 0);
             Addclasswork.Name = "Addclasswork";
-            Addclasswork.Size = new Size(1430, 842);
+            Addclasswork.Size = new Size(1430, 886);
             Addclasswork.TabIndex = 25;
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(294, 385);
+            dateTimePicker1.Location = new Point(294, 405);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(240, 26);
+            dateTimePicker1.Size = new Size(240, 27);
             dateTimePicker1.TabIndex = 26;
             // 
             // label67
@@ -2792,9 +2760,9 @@
             label67.AutoSize = true;
             label67.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label67.ForeColor = Color.FromArgb(5, 12, 22);
-            label67.Location = new Point(289, 434);
+            label67.Location = new Point(289, 457);
             label67.Name = "label67";
-            label67.Size = new Size(125, 37);
+            label67.Size = new Size(135, 36);
             label67.TabIndex = 25;
             label67.Text = "Course ID";
             // 
@@ -2807,13 +2775,13 @@
             coursecw_id.BorderSize = 2;
             coursecw_id.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             coursecw_id.ForeColor = Color.DimGray;
-            coursecw_id.Location = new Point(289, 472);
+            coursecw_id.Location = new Point(289, 497);
             coursecw_id.Margin = new Padding(4);
             coursecw_id.Multiline = false;
             coursecw_id.Name = "coursecw_id";
             coursecw_id.Padding = new Padding(10, 7, 10, 7);
             coursecw_id.PasswordChar = false;
-            coursecw_id.Size = new Size(216, 46);
+            coursecw_id.Size = new Size(216, 59);
             coursecw_id.TabIndex = 24;
             coursecw_id.Texts = "";
             coursecw_id.UnderlinedStyle = false;
@@ -2823,9 +2791,9 @@
             label68.AutoSize = true;
             label68.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label68.ForeColor = Color.FromArgb(5, 12, 22);
-            label68.Location = new Point(553, 434);
+            label68.Location = new Point(553, 457);
             label68.Name = "label68";
-            label68.Size = new Size(111, 37);
+            label68.Size = new Size(116, 36);
             label68.TabIndex = 23;
             label68.Text = "Exam ID";
             // 
@@ -2838,13 +2806,13 @@
             examcw_id.BorderSize = 2;
             examcw_id.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             examcw_id.ForeColor = Color.DimGray;
-            examcw_id.Location = new Point(553, 472);
+            examcw_id.Location = new Point(553, 497);
             examcw_id.Margin = new Padding(4);
             examcw_id.Multiline = false;
             examcw_id.Name = "examcw_id";
             examcw_id.Padding = new Padding(10, 7, 10, 7);
             examcw_id.PasswordChar = false;
-            examcw_id.Size = new Size(216, 46);
+            examcw_id.Size = new Size(216, 59);
             examcw_id.TabIndex = 22;
             examcw_id.Texts = "";
             examcw_id.UnderlinedStyle = false;
@@ -2854,9 +2822,9 @@
             label58.AutoSize = true;
             label58.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label58.ForeColor = Color.FromArgb(5, 12, 22);
-            label58.Location = new Point(289, 336);
+            label58.Location = new Point(289, 354);
             label58.Name = "label58";
-            label58.Size = new Size(70, 37);
+            label58.Size = new Size(73, 36);
             label58.TabIndex = 20;
             label58.Text = "Date";
             // 
@@ -2865,9 +2833,9 @@
             label62.AutoSize = true;
             label62.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label62.ForeColor = Color.FromArgb(5, 12, 22);
-            label62.Location = new Point(788, 233);
+            label62.Location = new Point(788, 245);
             label62.Name = "label62";
-            label62.Size = new Size(149, 37);
+            label62.Size = new Size(157, 36);
             label62.TabIndex = 18;
             label62.Text = "Description";
             // 
@@ -2880,13 +2848,13 @@
             descbaradd.BorderSize = 2;
             descbaradd.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             descbaradd.ForeColor = Color.DimGray;
-            descbaradd.Location = new Point(790, 273);
+            descbaradd.Location = new Point(790, 287);
             descbaradd.Margin = new Padding(4);
             descbaradd.Multiline = true;
             descbaradd.Name = "descbaradd";
             descbaradd.Padding = new Padding(10, 7, 10, 7);
             descbaradd.PasswordChar = false;
-            descbaradd.Size = new Size(478, 245);
+            descbaradd.Size = new Size(478, 258);
             descbaradd.TabIndex = 17;
             descbaradd.Texts = "";
             descbaradd.UnderlinedStyle = false;
@@ -2903,9 +2871,9 @@
             rjButton12.FlatStyle = FlatStyle.Flat;
             rjButton12.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             rjButton12.ForeColor = Color.White;
-            rjButton12.Location = new Point(544, 722);
+            rjButton12.Location = new Point(544, 760);
             rjButton12.Name = "rjButton12";
-            rjButton12.Size = new Size(392, 46);
+            rjButton12.Size = new Size(392, 48);
             rjButton12.TabIndex = 16;
             rjButton12.Text = "Add Assignment";
             rjButton12.TextColor = Color.White;
@@ -2917,9 +2885,9 @@
             pictureBox21.BackgroundImage = (Image)resources.GetObject("pictureBox21.BackgroundImage");
             pictureBox21.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox21.Cursor = Cursors.Hand;
-            pictureBox21.Location = new Point(-4, -13);
+            pictureBox21.Location = new Point(-4, -14);
             pictureBox21.Name = "pictureBox21";
-            pictureBox21.Size = new Size(142, 121);
+            pictureBox21.Size = new Size(142, 127);
             pictureBox21.TabIndex = 15;
             pictureBox21.TabStop = false;
             pictureBox21.Click += pictureBox21_Click;
@@ -2929,9 +2897,9 @@
             label63.AutoSize = true;
             label63.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label63.ForeColor = Color.FromArgb(5, 12, 22);
-            label63.Location = new Point(553, 336);
+            label63.Location = new Point(553, 354);
             label63.Name = "label63";
-            label63.Size = new Size(118, 37);
+            label63.Size = new Size(121, 36);
             label63.TabIndex = 10;
             label63.Text = "Duration";
             // 
@@ -2940,9 +2908,9 @@
             label64.AutoSize = true;
             label64.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label64.ForeColor = Color.FromArgb(5, 12, 22);
-            label64.Location = new Point(289, 228);
+            label64.Location = new Point(289, 240);
             label64.Name = "label64";
-            label64.Size = new Size(68, 37);
+            label64.Size = new Size(69, 36);
             label64.TabIndex = 7;
             label64.Text = "Title";
             // 
@@ -2955,13 +2923,13 @@
             durbaradd.BorderSize = 2;
             durbaradd.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             durbaradd.ForeColor = Color.DimGray;
-            durbaradd.Location = new Point(553, 374);
+            durbaradd.Location = new Point(553, 394);
             durbaradd.Margin = new Padding(4);
             durbaradd.Multiline = false;
             durbaradd.Name = "durbaradd";
             durbaradd.Padding = new Padding(10, 7, 10, 7);
             durbaradd.PasswordChar = false;
-            durbaradd.Size = new Size(216, 46);
+            durbaradd.Size = new Size(216, 59);
             durbaradd.TabIndex = 4;
             durbaradd.Texts = "";
             durbaradd.UnderlinedStyle = false;
@@ -2975,13 +2943,13 @@
             titlebaradd.BorderSize = 2;
             titlebaradd.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             titlebaradd.ForeColor = Color.DimGray;
-            titlebaradd.Location = new Point(291, 275);
+            titlebaradd.Location = new Point(291, 289);
             titlebaradd.Margin = new Padding(4);
             titlebaradd.Multiline = false;
             titlebaradd.Name = "titlebaradd";
             titlebaradd.Padding = new Padding(10, 7, 10, 7);
             titlebaradd.PasswordChar = false;
-            titlebaradd.Size = new Size(478, 46);
+            titlebaradd.Size = new Size(478, 59);
             titlebaradd.TabIndex = 1;
             titlebaradd.Texts = "";
             titlebaradd.UnderlinedStyle = false;
@@ -2991,16 +2959,16 @@
             label65.AutoSize = true;
             label65.Font = new Font("Montserrat ExtraBold", 23.7913036F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label65.ForeColor = Color.FromArgb(5, 12, 22);
-            label65.Location = new Point(563, 43);
+            label65.Location = new Point(563, 45);
             label65.Name = "label65";
-            label65.Size = new Size(354, 64);
+            label65.Size = new Size(384, 62);
             label65.TabIndex = 0;
             label65.Text = "Add Assignment";
             // 
             // label66
             // 
             label66.AutoSize = true;
-            label66.Location = new Point(1050, 372);
+            label66.Location = new Point(1050, 392);
             label66.Name = "label66";
             label66.Size = new Size(58, 20);
             label66.TabIndex = 21;
@@ -3014,7 +2982,7 @@
             classworkadmin.Dock = DockStyle.Fill;
             classworkadmin.Location = new Point(0, 0);
             classworkadmin.Name = "classworkadmin";
-            classworkadmin.Size = new Size(1430, 842);
+            classworkadmin.Size = new Size(1430, 886);
             classworkadmin.TabIndex = 18;
             // 
             // rjButton10
@@ -3028,9 +2996,9 @@
             rjButton10.FlatStyle = FlatStyle.Flat;
             rjButton10.Font = new Font("Montserrat ExtraBold", 11.8956518F, FontStyle.Bold, GraphicsUnit.Point, 0);
             rjButton10.ForeColor = Color.White;
-            rjButton10.Location = new Point(1051, 89);
+            rjButton10.Location = new Point(1051, 94);
             rjButton10.Name = "rjButton10";
-            rjButton10.Size = new Size(322, 48);
+            rjButton10.Size = new Size(322, 51);
             rjButton10.TabIndex = 2;
             rjButton10.Text = "Add Assignment";
             rjButton10.TextColor = Color.White;
@@ -3040,9 +3008,9 @@
             // panel10
             // 
             panel10.AutoScroll = true;
-            panel10.Location = new Point(198, 172);
+            panel10.Location = new Point(198, 181);
             panel10.Name = "panel10";
-            panel10.Size = new Size(1175, 636);
+            panel10.Size = new Size(1175, 669);
             panel10.TabIndex = 1;
             // 
             // label54
@@ -3050,9 +3018,9 @@
             label54.AutoSize = true;
             label54.Font = new Font("Montserrat ExtraBold", 26.2956524F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label54.ForeColor = Color.FromArgb(5, 12, 22);
-            label54.Location = new Point(186, 84);
+            label54.Location = new Point(186, 88);
             label54.Name = "label54";
-            label54.Size = new Size(254, 70);
+            label54.Size = new Size(271, 69);
             label54.TabIndex = 0;
             label54.Text = "Classwork";
             // 
@@ -3082,7 +3050,7 @@
             update_course.Dock = DockStyle.Fill;
             update_course.Location = new Point(0, 0);
             update_course.Name = "update_course";
-            update_course.Size = new Size(1430, 842);
+            update_course.Size = new Size(1430, 886);
             update_course.TabIndex = 21;
             // 
             // label26
@@ -3090,9 +3058,9 @@
             label26.AutoSize = true;
             label26.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label26.ForeColor = Color.FromArgb(5, 12, 22);
-            label26.Location = new Point(235, 614);
+            label26.Location = new Point(235, 646);
             label26.Name = "label26";
-            label26.Size = new Size(196, 37);
+            label26.Size = new Size(211, 36);
             label26.TabIndex = 18;
             label26.Text = "Passed Exam ID";
             // 
@@ -3105,13 +3073,13 @@
             exambar_ed.BorderSize = 2;
             exambar_ed.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             exambar_ed.ForeColor = Color.DimGray;
-            exambar_ed.Location = new Point(442, 605);
+            exambar_ed.Location = new Point(442, 637);
             exambar_ed.Margin = new Padding(4);
             exambar_ed.Multiline = false;
             exambar_ed.Name = "exambar_ed";
             exambar_ed.Padding = new Padding(10, 7, 10, 7);
             exambar_ed.PasswordChar = false;
-            exambar_ed.Size = new Size(296, 46);
+            exambar_ed.Size = new Size(296, 59);
             exambar_ed.TabIndex = 17;
             exambar_ed.Texts = "";
             exambar_ed.UnderlinedStyle = false;
@@ -3128,9 +3096,9 @@
             rjButton4.FlatStyle = FlatStyle.Flat;
             rjButton4.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             rjButton4.ForeColor = Color.White;
-            rjButton4.Location = new Point(544, 719);
+            rjButton4.Location = new Point(544, 757);
             rjButton4.Name = "rjButton4";
-            rjButton4.Size = new Size(392, 46);
+            rjButton4.Size = new Size(392, 48);
             rjButton4.TabIndex = 16;
             rjButton4.Text = "Edit Course";
             rjButton4.TextColor = Color.White;
@@ -3142,9 +3110,9 @@
             pictureBox14.BackgroundImage = (Image)resources.GetObject("pictureBox14.BackgroundImage");
             pictureBox14.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox14.Cursor = Cursors.Hand;
-            pictureBox14.Location = new Point(-4, -13);
+            pictureBox14.Location = new Point(-4, -14);
             pictureBox14.Name = "pictureBox14";
-            pictureBox14.Size = new Size(142, 121);
+            pictureBox14.Size = new Size(142, 127);
             pictureBox14.TabIndex = 15;
             pictureBox14.TabStop = false;
             pictureBox14.Click += pictureBox14_Click;
@@ -3161,9 +3129,9 @@
             rjButton5.FlatStyle = FlatStyle.Flat;
             rjButton5.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             rjButton5.ForeColor = Color.White;
-            rjButton5.Location = new Point(863, 580);
+            rjButton5.Location = new Point(863, 611);
             rjButton5.Name = "rjButton5";
-            rjButton5.Size = new Size(392, 46);
+            rjButton5.Size = new Size(392, 48);
             rjButton5.TabIndex = 14;
             rjButton5.Text = "Upload Image";
             rjButton5.TextColor = Color.White;
@@ -3174,9 +3142,9 @@
             // 
             imagepreview_ed.BackgroundImage = (Image)resources.GetObject("imagepreview_ed.BackgroundImage");
             imagepreview_ed.BackgroundImageLayout = ImageLayout.Zoom;
-            imagepreview_ed.Location = new Point(865, 255);
+            imagepreview_ed.Location = new Point(865, 268);
             imagepreview_ed.Name = "imagepreview_ed";
-            imagepreview_ed.Size = new Size(392, 313);
+            imagepreview_ed.Size = new Size(392, 329);
             imagepreview_ed.TabIndex = 13;
             imagepreview_ed.TabStop = false;
             // 
@@ -3185,9 +3153,9 @@
             label27.AutoSize = true;
             label27.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label27.ForeColor = Color.FromArgb(5, 12, 22);
-            label27.Location = new Point(532, 505);
+            label27.Location = new Point(532, 532);
             label27.Name = "label27";
-            label27.Size = new Size(100, 37);
+            label27.Size = new Size(105, 36);
             label27.TabIndex = 12;
             label27.Text = "Privacy";
             // 
@@ -3196,9 +3164,9 @@
             label28.AutoSize = true;
             label28.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label28.ForeColor = Color.FromArgb(5, 12, 22);
-            label28.Location = new Point(532, 411);
+            label28.Location = new Point(532, 433);
             label28.Name = "label28";
-            label28.Size = new Size(112, 37);
+            label28.Size = new Size(117, 36);
             label28.TabIndex = 11;
             label28.Text = "Semster";
             // 
@@ -3207,9 +3175,9 @@
             label29.AutoSize = true;
             label29.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label29.ForeColor = Color.FromArgb(5, 12, 22);
-            label29.Location = new Point(532, 315);
+            label29.Location = new Point(532, 332);
             label29.Name = "label29";
-            label29.Size = new Size(175, 37);
+            label29.Size = new Size(186, 36);
             label29.TabIndex = 10;
             label29.Text = "Studying Year";
             // 
@@ -3218,9 +3186,9 @@
             label30.AutoSize = true;
             label30.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label30.ForeColor = Color.FromArgb(5, 12, 22);
-            label30.Location = new Point(207, 314);
+            label30.Location = new Point(207, 331);
             label30.Name = "label30";
-            label30.Size = new Size(149, 37);
+            label30.Size = new Size(157, 36);
             label30.TabIndex = 9;
             label30.Text = "Description";
             // 
@@ -3229,9 +3197,9 @@
             label31.AutoSize = true;
             label31.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label31.ForeColor = Color.FromArgb(5, 12, 22);
-            label31.Location = new Point(532, 218);
+            label31.Location = new Point(532, 229);
             label31.Name = "label31";
-            label31.Size = new Size(119, 37);
+            label31.Size = new Size(126, 36);
             label31.TabIndex = 8;
             label31.Text = "Category";
             // 
@@ -3240,9 +3208,9 @@
             label32.AutoSize = true;
             label32.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label32.ForeColor = Color.FromArgb(5, 12, 22);
-            label32.Location = new Point(208, 218);
+            label32.Location = new Point(208, 229);
             label32.Name = "label32";
-            label32.Size = new Size(68, 37);
+            label32.Size = new Size(69, 36);
             label32.TabIndex = 7;
             label32.Text = "Title";
             // 
@@ -3252,9 +3220,9 @@
             privebar_ed.ForeColor = Color.FromArgb(5, 12, 22);
             privebar_ed.FormattingEnabled = true;
             privebar_ed.Items.AddRange(new object[] { "Public", "Private" });
-            privebar_ed.Location = new Point(532, 543);
+            privebar_ed.Location = new Point(532, 572);
             privebar_ed.Name = "privebar_ed";
-            privebar_ed.Size = new Size(216, 39);
+            privebar_ed.Size = new Size(216, 50);
             privebar_ed.TabIndex = 6;
             // 
             // semsterbar_ed
@@ -3266,13 +3234,13 @@
             semsterbar_ed.BorderSize = 2;
             semsterbar_ed.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             semsterbar_ed.ForeColor = Color.DimGray;
-            semsterbar_ed.Location = new Point(532, 447);
+            semsterbar_ed.Location = new Point(532, 471);
             semsterbar_ed.Margin = new Padding(4);
             semsterbar_ed.Multiline = false;
             semsterbar_ed.Name = "semsterbar_ed";
             semsterbar_ed.Padding = new Padding(10, 7, 10, 7);
             semsterbar_ed.PasswordChar = false;
-            semsterbar_ed.Size = new Size(216, 46);
+            semsterbar_ed.Size = new Size(216, 59);
             semsterbar_ed.TabIndex = 5;
             semsterbar_ed.Texts = "";
             semsterbar_ed.UnderlinedStyle = false;
@@ -3286,13 +3254,13 @@
             yearbar_ed.BorderSize = 2;
             yearbar_ed.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             yearbar_ed.ForeColor = Color.DimGray;
-            yearbar_ed.Location = new Point(532, 353);
+            yearbar_ed.Location = new Point(532, 372);
             yearbar_ed.Margin = new Padding(4);
             yearbar_ed.Multiline = false;
             yearbar_ed.Name = "yearbar_ed";
             yearbar_ed.Padding = new Padding(10, 7, 10, 7);
             yearbar_ed.PasswordChar = false;
-            yearbar_ed.Size = new Size(216, 46);
+            yearbar_ed.Size = new Size(216, 59);
             yearbar_ed.TabIndex = 4;
             yearbar_ed.Texts = "";
             yearbar_ed.UnderlinedStyle = false;
@@ -3306,13 +3274,13 @@
             categorybar_ed.BorderSize = 2;
             categorybar_ed.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             categorybar_ed.ForeColor = Color.DimGray;
-            categorybar_ed.Location = new Point(532, 257);
+            categorybar_ed.Location = new Point(532, 271);
             categorybar_ed.Margin = new Padding(4);
             categorybar_ed.Multiline = false;
             categorybar_ed.Name = "categorybar_ed";
             categorybar_ed.Padding = new Padding(10, 7, 10, 7);
             categorybar_ed.PasswordChar = false;
-            categorybar_ed.Size = new Size(216, 46);
+            categorybar_ed.Size = new Size(216, 59);
             categorybar_ed.TabIndex = 3;
             categorybar_ed.Texts = "";
             categorybar_ed.UnderlinedStyle = false;
@@ -3326,13 +3294,13 @@
             descbar_ed.BorderSize = 2;
             descbar_ed.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             descbar_ed.ForeColor = Color.DimGray;
-            descbar_ed.Location = new Point(200, 353);
+            descbar_ed.Location = new Point(200, 372);
             descbar_ed.Margin = new Padding(4);
             descbar_ed.Multiline = true;
             descbar_ed.Name = "descbar_ed";
             descbar_ed.Padding = new Padding(10, 7, 10, 7);
             descbar_ed.PasswordChar = false;
-            descbar_ed.Size = new Size(299, 227);
+            descbar_ed.Size = new Size(299, 239);
             descbar_ed.TabIndex = 2;
             descbar_ed.Texts = "";
             descbar_ed.UnderlinedStyle = false;
@@ -3346,13 +3314,13 @@
             titlebar_ed.BorderSize = 2;
             titlebar_ed.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             titlebar_ed.ForeColor = Color.DimGray;
-            titlebar_ed.Location = new Point(200, 257);
+            titlebar_ed.Location = new Point(200, 271);
             titlebar_ed.Margin = new Padding(4);
             titlebar_ed.Multiline = false;
             titlebar_ed.Name = "titlebar_ed";
             titlebar_ed.Padding = new Padding(10, 7, 10, 7);
             titlebar_ed.PasswordChar = false;
-            titlebar_ed.Size = new Size(299, 46);
+            titlebar_ed.Size = new Size(299, 59);
             titlebar_ed.TabIndex = 1;
             titlebar_ed.Texts = "";
             titlebar_ed.UnderlinedStyle = false;
@@ -3362,9 +3330,9 @@
             label33.AutoSize = true;
             label33.Font = new Font("Montserrat ExtraBold", 23.7913036F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label33.ForeColor = Color.FromArgb(5, 12, 22);
-            label33.Location = new Point(615, 43);
+            label33.Location = new Point(615, 45);
             label33.Name = "label33";
-            label33.Size = new Size(251, 64);
+            label33.Size = new Size(274, 62);
             label33.TabIndex = 0;
             label33.Text = "Edit Course";
             // 
@@ -3373,9 +3341,9 @@
             label25.AutoSize = true;
             label25.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label25.ForeColor = Color.FromArgb(5, 12, 22);
-            label25.Location = new Point(997, 389);
+            label25.Location = new Point(997, 409);
             label25.Name = "label25";
-            label25.Size = new Size(125, 37);
+            label25.Size = new Size(135, 36);
             label25.TabIndex = 20;
             label25.Text = "Course ID";
             // 
@@ -3388,13 +3356,13 @@
             coursebar_ed.BorderSize = 2;
             coursebar_ed.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             coursebar_ed.ForeColor = Color.DimGray;
-            coursebar_ed.Location = new Point(951, 432);
+            coursebar_ed.Location = new Point(951, 455);
             coursebar_ed.Margin = new Padding(4);
             coursebar_ed.Multiline = false;
             coursebar_ed.Name = "coursebar_ed";
             coursebar_ed.Padding = new Padding(10, 7, 10, 7);
             coursebar_ed.PasswordChar = false;
-            coursebar_ed.Size = new Size(224, 46);
+            coursebar_ed.Size = new Size(224, 59);
             coursebar_ed.TabIndex = 19;
             coursebar_ed.Texts = "";
             coursebar_ed.UnderlinedStyle = false;
@@ -3425,7 +3393,7 @@
             add_course.Dock = DockStyle.Fill;
             add_course.Location = new Point(0, 0);
             add_course.Name = "add_course";
-            add_course.Size = new Size(1430, 842);
+            add_course.Size = new Size(1430, 886);
             add_course.TabIndex = 17;
             // 
             // label24
@@ -3433,9 +3401,9 @@
             label24.AutoSize = true;
             label24.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label24.ForeColor = Color.FromArgb(5, 12, 22);
-            label24.Location = new Point(519, 589);
+            label24.Location = new Point(519, 620);
             label24.Name = "label24";
-            label24.Size = new Size(125, 37);
+            label24.Size = new Size(135, 36);
             label24.TabIndex = 20;
             label24.Text = "Course ID";
             // 
@@ -3448,13 +3416,13 @@
             courseid_th.BorderSize = 2;
             courseid_th.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             courseid_th.ForeColor = Color.DimGray;
-            courseid_th.Location = new Point(528, 626);
+            courseid_th.Location = new Point(528, 659);
             courseid_th.Margin = new Padding(4);
             courseid_th.Multiline = false;
             courseid_th.Name = "courseid_th";
             courseid_th.Padding = new Padding(10, 7, 10, 7);
             courseid_th.PasswordChar = false;
-            courseid_th.Size = new Size(224, 46);
+            courseid_th.Size = new Size(224, 59);
             courseid_th.TabIndex = 19;
             courseid_th.Texts = "";
             courseid_th.UnderlinedStyle = false;
@@ -3464,9 +3432,9 @@
             label23.AutoSize = true;
             label23.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label23.ForeColor = Color.FromArgb(5, 12, 22);
-            label23.Location = new Point(198, 586);
+            label23.Location = new Point(198, 617);
             label23.Name = "label23";
-            label23.Size = new Size(196, 37);
+            label23.Size = new Size(211, 36);
             label23.TabIndex = 18;
             label23.Text = "Passed Exam ID";
             // 
@@ -3479,13 +3447,13 @@
             examidbar.BorderSize = 2;
             examidbar.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             examidbar.ForeColor = Color.DimGray;
-            examidbar.Location = new Point(198, 626);
+            examidbar.Location = new Point(198, 659);
             examidbar.Margin = new Padding(4);
             examidbar.Multiline = false;
             examidbar.Name = "examidbar";
             examidbar.Padding = new Padding(10, 7, 10, 7);
             examidbar.PasswordChar = false;
-            examidbar.Size = new Size(296, 46);
+            examidbar.Size = new Size(296, 59);
             examidbar.TabIndex = 17;
             examidbar.Texts = "";
             examidbar.UnderlinedStyle = false;
@@ -3502,9 +3470,9 @@
             add_course_sql.FlatStyle = FlatStyle.Flat;
             add_course_sql.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             add_course_sql.ForeColor = Color.White;
-            add_course_sql.Location = new Point(544, 719);
+            add_course_sql.Location = new Point(544, 757);
             add_course_sql.Name = "add_course_sql";
-            add_course_sql.Size = new Size(392, 46);
+            add_course_sql.Size = new Size(392, 48);
             add_course_sql.TabIndex = 16;
             add_course_sql.Text = "Add Course";
             add_course_sql.TextColor = Color.White;
@@ -3516,9 +3484,9 @@
             pictureBox13.BackgroundImage = (Image)resources.GetObject("pictureBox13.BackgroundImage");
             pictureBox13.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox13.Cursor = Cursors.Hand;
-            pictureBox13.Location = new Point(-4, -13);
+            pictureBox13.Location = new Point(-4, -14);
             pictureBox13.Name = "pictureBox13";
-            pictureBox13.Size = new Size(142, 121);
+            pictureBox13.Size = new Size(142, 127);
             pictureBox13.TabIndex = 15;
             pictureBox13.TabStop = false;
             pictureBox13.Click += pictureBox13_Click;
@@ -3535,9 +3503,9 @@
             uploadbtn.FlatStyle = FlatStyle.Flat;
             uploadbtn.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             uploadbtn.ForeColor = Color.White;
-            uploadbtn.Location = new Point(863, 580);
+            uploadbtn.Location = new Point(863, 611);
             uploadbtn.Name = "uploadbtn";
-            uploadbtn.Size = new Size(392, 46);
+            uploadbtn.Size = new Size(392, 48);
             uploadbtn.TabIndex = 14;
             uploadbtn.Text = "Upload Image";
             uploadbtn.TextColor = Color.White;
@@ -3548,9 +3516,9 @@
             // 
             image_preview.BackgroundImage = (Image)resources.GetObject("image_preview.BackgroundImage");
             image_preview.BackgroundImageLayout = ImageLayout.Zoom;
-            image_preview.Location = new Point(865, 255);
+            image_preview.Location = new Point(865, 268);
             image_preview.Name = "image_preview";
-            image_preview.Size = new Size(392, 313);
+            image_preview.Size = new Size(392, 329);
             image_preview.TabIndex = 13;
             image_preview.TabStop = false;
             // 
@@ -3559,9 +3527,9 @@
             label22.AutoSize = true;
             label22.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label22.ForeColor = Color.FromArgb(5, 12, 22);
-            label22.Location = new Point(532, 505);
+            label22.Location = new Point(532, 532);
             label22.Name = "label22";
-            label22.Size = new Size(100, 37);
+            label22.Size = new Size(105, 36);
             label22.TabIndex = 12;
             label22.Text = "Privacy";
             // 
@@ -3570,9 +3538,9 @@
             label21.AutoSize = true;
             label21.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label21.ForeColor = Color.FromArgb(5, 12, 22);
-            label21.Location = new Point(532, 411);
+            label21.Location = new Point(532, 433);
             label21.Name = "label21";
-            label21.Size = new Size(112, 37);
+            label21.Size = new Size(117, 36);
             label21.TabIndex = 11;
             label21.Text = "Semster";
             // 
@@ -3581,9 +3549,9 @@
             label20.AutoSize = true;
             label20.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label20.ForeColor = Color.FromArgb(5, 12, 22);
-            label20.Location = new Point(532, 315);
+            label20.Location = new Point(532, 332);
             label20.Name = "label20";
-            label20.Size = new Size(175, 37);
+            label20.Size = new Size(186, 36);
             label20.TabIndex = 10;
             label20.Text = "Studying Year";
             // 
@@ -3592,9 +3560,9 @@
             label19.AutoSize = true;
             label19.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label19.ForeColor = Color.FromArgb(5, 12, 22);
-            label19.Location = new Point(207, 314);
+            label19.Location = new Point(207, 331);
             label19.Name = "label19";
-            label19.Size = new Size(149, 37);
+            label19.Size = new Size(157, 36);
             label19.TabIndex = 9;
             label19.Text = "Description";
             // 
@@ -3603,9 +3571,9 @@
             label18.AutoSize = true;
             label18.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label18.ForeColor = Color.FromArgb(5, 12, 22);
-            label18.Location = new Point(532, 218);
+            label18.Location = new Point(532, 229);
             label18.Name = "label18";
-            label18.Size = new Size(119, 37);
+            label18.Size = new Size(126, 36);
             label18.TabIndex = 8;
             label18.Text = "Category";
             // 
@@ -3614,9 +3582,9 @@
             label17.AutoSize = true;
             label17.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label17.ForeColor = Color.FromArgb(5, 12, 22);
-            label17.Location = new Point(208, 218);
+            label17.Location = new Point(208, 229);
             label17.Name = "label17";
-            label17.Size = new Size(68, 37);
+            label17.Size = new Size(69, 36);
             label17.TabIndex = 7;
             label17.Text = "Title";
             // 
@@ -3626,9 +3594,9 @@
             privacybar.ForeColor = Color.FromArgb(5, 12, 22);
             privacybar.FormattingEnabled = true;
             privacybar.Items.AddRange(new object[] { "Public", "Private" });
-            privacybar.Location = new Point(532, 543);
+            privacybar.Location = new Point(532, 572);
             privacybar.Name = "privacybar";
-            privacybar.Size = new Size(216, 39);
+            privacybar.Size = new Size(216, 50);
             privacybar.TabIndex = 6;
             // 
             // semster_bar
@@ -3640,13 +3608,13 @@
             semster_bar.BorderSize = 2;
             semster_bar.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             semster_bar.ForeColor = Color.DimGray;
-            semster_bar.Location = new Point(532, 447);
+            semster_bar.Location = new Point(532, 471);
             semster_bar.Margin = new Padding(4);
             semster_bar.Multiline = false;
             semster_bar.Name = "semster_bar";
             semster_bar.Padding = new Padding(10, 7, 10, 7);
             semster_bar.PasswordChar = false;
-            semster_bar.Size = new Size(216, 46);
+            semster_bar.Size = new Size(216, 59);
             semster_bar.TabIndex = 5;
             semster_bar.Texts = "";
             semster_bar.UnderlinedStyle = false;
@@ -3660,13 +3628,13 @@
             year_bar.BorderSize = 2;
             year_bar.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             year_bar.ForeColor = Color.DimGray;
-            year_bar.Location = new Point(532, 353);
+            year_bar.Location = new Point(532, 372);
             year_bar.Margin = new Padding(4);
             year_bar.Multiline = false;
             year_bar.Name = "year_bar";
             year_bar.Padding = new Padding(10, 7, 10, 7);
             year_bar.PasswordChar = false;
-            year_bar.Size = new Size(216, 46);
+            year_bar.Size = new Size(216, 59);
             year_bar.TabIndex = 4;
             year_bar.Texts = "";
             year_bar.UnderlinedStyle = false;
@@ -3680,13 +3648,13 @@
             categorybar.BorderSize = 2;
             categorybar.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             categorybar.ForeColor = Color.DimGray;
-            categorybar.Location = new Point(532, 257);
+            categorybar.Location = new Point(532, 271);
             categorybar.Margin = new Padding(4);
             categorybar.Multiline = false;
             categorybar.Name = "categorybar";
             categorybar.Padding = new Padding(10, 7, 10, 7);
             categorybar.PasswordChar = false;
-            categorybar.Size = new Size(216, 46);
+            categorybar.Size = new Size(216, 59);
             categorybar.TabIndex = 3;
             categorybar.Texts = "";
             categorybar.UnderlinedStyle = false;
@@ -3700,13 +3668,13 @@
             dec_bar.BorderSize = 2;
             dec_bar.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dec_bar.ForeColor = Color.DimGray;
-            dec_bar.Location = new Point(200, 353);
+            dec_bar.Location = new Point(200, 372);
             dec_bar.Margin = new Padding(4);
             dec_bar.Multiline = true;
             dec_bar.Name = "dec_bar";
             dec_bar.Padding = new Padding(10, 7, 10, 7);
             dec_bar.PasswordChar = false;
-            dec_bar.Size = new Size(299, 227);
+            dec_bar.Size = new Size(299, 239);
             dec_bar.TabIndex = 2;
             dec_bar.Texts = "";
             dec_bar.UnderlinedStyle = false;
@@ -3720,13 +3688,13 @@
             titlebar.BorderSize = 2;
             titlebar.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             titlebar.ForeColor = Color.DimGray;
-            titlebar.Location = new Point(200, 257);
+            titlebar.Location = new Point(200, 271);
             titlebar.Margin = new Padding(4);
             titlebar.Multiline = false;
             titlebar.Name = "titlebar";
             titlebar.Padding = new Padding(10, 7, 10, 7);
             titlebar.PasswordChar = false;
-            titlebar.Size = new Size(299, 46);
+            titlebar.Size = new Size(299, 59);
             titlebar.TabIndex = 1;
             titlebar.Texts = "";
             titlebar.UnderlinedStyle = false;
@@ -3736,9 +3704,9 @@
             label16.AutoSize = true;
             label16.Font = new Font("Montserrat ExtraBold", 23.7913036F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label16.ForeColor = Color.FromArgb(5, 12, 22);
-            label16.Location = new Point(570, 43);
+            label16.Location = new Point(570, 45);
             label16.Name = "label16";
-            label16.Size = new Size(347, 64);
+            label16.Size = new Size(383, 62);
             label16.TabIndex = 0;
             label16.Text = "Add New Course";
             // 
@@ -3758,7 +3726,7 @@
             addlesson.Dock = DockStyle.Fill;
             addlesson.Location = new Point(0, 0);
             addlesson.Name = "addlesson";
-            addlesson.Size = new Size(1430, 842);
+            addlesson.Size = new Size(1430, 886);
             addlesson.TabIndex = 22;
             // 
             // addlesson_btn
@@ -3773,9 +3741,9 @@
             addlesson_btn.FlatStyle = FlatStyle.Flat;
             addlesson_btn.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             addlesson_btn.ForeColor = Color.White;
-            addlesson_btn.Location = new Point(544, 719);
+            addlesson_btn.Location = new Point(544, 757);
             addlesson_btn.Name = "addlesson_btn";
-            addlesson_btn.Size = new Size(392, 46);
+            addlesson_btn.Size = new Size(392, 48);
             addlesson_btn.TabIndex = 16;
             addlesson_btn.Text = "Add Lesson";
             addlesson_btn.TextColor = Color.White;
@@ -3787,9 +3755,9 @@
             pictureBox16.BackgroundImage = (Image)resources.GetObject("pictureBox16.BackgroundImage");
             pictureBox16.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox16.Cursor = Cursors.Hand;
-            pictureBox16.Location = new Point(-4, -13);
+            pictureBox16.Location = new Point(-4, -14);
             pictureBox16.Name = "pictureBox16";
-            pictureBox16.Size = new Size(142, 121);
+            pictureBox16.Size = new Size(142, 127);
             pictureBox16.TabIndex = 15;
             pictureBox16.TabStop = false;
             pictureBox16.Click += pictureBox16_Click;
@@ -3806,9 +3774,9 @@
             rjButton7.FlatStyle = FlatStyle.Flat;
             rjButton7.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             rjButton7.ForeColor = Color.White;
-            rjButton7.Location = new Point(863, 580);
+            rjButton7.Location = new Point(863, 611);
             rjButton7.Name = "rjButton7";
-            rjButton7.Size = new Size(392, 46);
+            rjButton7.Size = new Size(392, 48);
             rjButton7.TabIndex = 14;
             rjButton7.Text = "Upload Media";
             rjButton7.TextColor = Color.White;
@@ -3819,9 +3787,9 @@
             // 
             mediaview.BackgroundImage = (Image)resources.GetObject("mediaview.BackgroundImage");
             mediaview.BackgroundImageLayout = ImageLayout.Zoom;
-            mediaview.Location = new Point(863, 238);
+            mediaview.Location = new Point(863, 251);
             mediaview.Name = "mediaview";
-            mediaview.Size = new Size(392, 313);
+            mediaview.Size = new Size(392, 329);
             mediaview.TabIndex = 13;
             mediaview.TabStop = false;
             // 
@@ -3830,9 +3798,9 @@
             label36.AutoSize = true;
             label36.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label36.ForeColor = Color.FromArgb(5, 12, 22);
-            label36.Location = new Point(481, 302);
+            label36.Location = new Point(481, 318);
             label36.Name = "label36";
-            label36.Size = new Size(70, 37);
+            label36.Size = new Size(73, 36);
             label36.TabIndex = 10;
             label36.Text = "Date";
             // 
@@ -3841,9 +3809,9 @@
             label38.AutoSize = true;
             label38.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label38.ForeColor = Color.FromArgb(5, 12, 22);
-            label38.Location = new Point(184, 412);
+            label38.Location = new Point(184, 434);
             label38.Name = "label38";
-            label38.Size = new Size(109, 37);
+            label38.Size = new Size(114, 36);
             label38.TabIndex = 8;
             label38.Text = "Content";
             // 
@@ -3852,9 +3820,9 @@
             label39.AutoSize = true;
             label39.Font = new Font("Montserrat ExtraBold", 13.7739124F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label39.ForeColor = Color.FromArgb(5, 12, 22);
-            label39.Location = new Point(180, 303);
+            label39.Location = new Point(180, 319);
             label39.Name = "label39";
-            label39.Size = new Size(68, 37);
+            label39.Size = new Size(69, 36);
             label39.TabIndex = 7;
             label39.Text = "Title";
             // 
@@ -3867,13 +3835,13 @@
             datelesson.BorderSize = 2;
             datelesson.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             datelesson.ForeColor = Color.DimGray;
-            datelesson.Location = new Point(481, 340);
+            datelesson.Location = new Point(481, 358);
             datelesson.Margin = new Padding(4);
             datelesson.Multiline = false;
             datelesson.Name = "datelesson";
             datelesson.Padding = new Padding(10, 7, 10, 7);
             datelesson.PasswordChar = false;
-            datelesson.Size = new Size(216, 46);
+            datelesson.Size = new Size(216, 59);
             datelesson.TabIndex = 4;
             datelesson.Texts = "";
             datelesson.UnderlinedStyle = false;
@@ -3887,13 +3855,13 @@
             contentlesson.BorderSize = 2;
             contentlesson.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             contentlesson.ForeColor = Color.DimGray;
-            contentlesson.Location = new Point(308, 407);
+            contentlesson.Location = new Point(308, 428);
             contentlesson.Margin = new Padding(4);
             contentlesson.Multiline = false;
             contentlesson.Name = "contentlesson";
             contentlesson.Padding = new Padding(10, 7, 10, 7);
             contentlesson.PasswordChar = false;
-            contentlesson.Size = new Size(371, 46);
+            contentlesson.Size = new Size(371, 59);
             contentlesson.TabIndex = 3;
             contentlesson.Texts = "";
             contentlesson.UnderlinedStyle = false;
@@ -3907,13 +3875,13 @@
             titlelesson.BorderSize = 2;
             titlelesson.Font = new Font("Montserrat Light", 16.27826F, FontStyle.Regular, GraphicsUnit.Point, 0);
             titlelesson.ForeColor = Color.DimGray;
-            titlelesson.Location = new Point(172, 342);
+            titlelesson.Location = new Point(172, 360);
             titlelesson.Margin = new Padding(4);
             titlelesson.Multiline = false;
             titlelesson.Name = "titlelesson";
             titlelesson.Padding = new Padding(10, 7, 10, 7);
             titlelesson.PasswordChar = false;
-            titlelesson.Size = new Size(299, 46);
+            titlelesson.Size = new Size(299, 59);
             titlelesson.TabIndex = 1;
             titlelesson.Texts = "";
             titlelesson.UnderlinedStyle = false;
@@ -3923,9 +3891,9 @@
             label40.AutoSize = true;
             label40.Font = new Font("Montserrat ExtraBold", 23.7913036F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label40.ForeColor = Color.FromArgb(5, 12, 22);
-            label40.Location = new Point(615, 43);
+            label40.Location = new Point(615, 45);
             label40.Name = "label40";
-            label40.Size = new Size(271, 64);
+            label40.Size = new Size(297, 62);
             label40.TabIndex = 0;
             label40.Text = "Add Lessons";
             // 
@@ -3941,23 +3909,30 @@
             // 
             openFileDialog3.FileName = "openFileDialog3";
             // 
+            // Register
+            // 
+            Register.Dock = DockStyle.Fill;
+            Register.Location = new Point(0, 0);
+            Register.Name = "Register";
+            Register.Size = new Size(1430, 886);
+            Register.TabIndex = 14;
+            // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 19F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(239, 239, 239);
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1430, 842);
+            ClientSize = new Size(1430, 886);
             Controls.Add(panel1);
             Controls.Add(home);
-            Controls.Add(profile);
-            Controls.Add(exam);
-
+            Controls.Add(courses);
             Controls.Add(teacher);
+            Controls.Add(Register);
+            Controls.Add(profile);
             Controls.Add(chat);
             Controls.Add(exam);
             Controls.Add(classwork);
-            Controls.Add(courses);
             Controls.Add(signup);
             Controls.Add(login);
             DoubleBuffered = true;
@@ -3995,9 +3970,6 @@
             courses.ResumeLayout(false);
             courses.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
-            panel3.ResumeLayout(false);
-            panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             chat.ResumeLayout(false);
             chat.PerformLayout();
             MessageContainer.ResumeLayout(false);
@@ -4123,9 +4095,6 @@
         private Panel courses;
         private Label label5;
         private Panel panel3;
-        private Panel panel4;
-        private RichTextBox richTextBox3;
-        private PictureBox pictureBox7;
         private CustomControls.RJControls.RJButton rjButton3;
         private VScrollBar vScrollBar2;
         private CustomControls.RJControls.RJTextBox rjTextBox8;
@@ -4319,5 +4288,6 @@
         private CustomControls.RJControls.RJButton btnbar_ad;
         private Panel panel14;
         private Panel grades_admin;
+        private Panel Register;
     }
 }

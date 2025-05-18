@@ -12,6 +12,8 @@ using Microsoft.VisualBasic.ApplicationServices;
 using Microsoft.VisualBasic.Devices;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
 using System.Reflection;
+using System.Runtime.ConstrainedExecution;
+//using iTextSharp.text;
 
 namespace courseApp
 {
@@ -82,7 +84,7 @@ namespace courseApp
 
                 if (result == DialogResult.Yes)
                 {
-                    string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+                    string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
 
                     using (SqlConnection conn = new SqlConnection(connectionString))
                     {
@@ -114,7 +116,7 @@ namespace courseApp
 
                 if (result == DialogResult.Yes)
                 {
-                    string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+                    string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
 
                     using (SqlConnection conn = new SqlConnection(connectionString))
                     {
@@ -152,7 +154,7 @@ namespace courseApp
 
                 if (result == DialogResult.Yes)
                 {
-                    string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+                    string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
 
                     using (SqlConnection conn = new SqlConnection(connectionString))
                     {
@@ -220,7 +222,7 @@ namespace courseApp
 
                     int isHidden = (result == DialogResult.Yes) ? 1 : 0; // 1 = Public, 0 = Private
 
-                    string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+                    string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
                     using (SqlConnection conn = new SqlConnection(connectionString))
                     {
                         conn.Open();
@@ -247,7 +249,7 @@ namespace courseApp
                 if (parentPanel != null && parentPanel.Tag != null)
                 {
                     int courseId = Convert.ToInt32(parentPanel.Tag);
-                    string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+                    string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
                     using (SqlConnection conn = new SqlConnection(connectionString))
                     {
                         conn.Open();
@@ -337,15 +339,15 @@ namespace courseApp
             if (pic != null)
             {
                 RE_ID = (int)pic.Tag;
-                string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+                string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     // Use parameters to avoid SQL injection and use the method arguments
                     SqlDataAdapter adapter = new SqlDataAdapter(
                         @"SELECT Subject
-              FROM Chat 
-              WHERE (Sender_id = @SenderId AND Reciever_id = @ReceiverId) ", conn);
+                         FROM Chat 
+                         WHERE (Sender_id = @SenderId AND Reciever_id = @ReceiverId) ", conn);
                     adapter.SelectCommand.Parameters.AddWithValue("@SenderId", SE_ID);
                     adapter.SelectCommand.Parameters.AddWithValue("@ReceiverId", RE_ID);
                     DataTable table = new DataTable();
@@ -362,7 +364,7 @@ namespace courseApp
                         {
                             subject_label2.Text = Subject;
                         }
-                        
+
 
                     }
                 }
@@ -406,7 +408,7 @@ namespace courseApp
             examadmin_cont.Controls.Clear();
             int yOffset = 50;
 
-            string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+            string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
             string query = @"
             SELECT E.ExamId, E.Title, E.Description, E.Duration, E.Date, C.Title AS CourseTitle
             FROM Exam E
@@ -530,7 +532,7 @@ namespace courseApp
             //string connectionString = "Server=DESKTOP-KN5SVN0;Database=Course_system;Trusted_Connection=True;";
 
 
-            string connectionString = "Server=LAPTOP-I23IVTH3;Database=Course_system;Trusted_Connection=True;";
+            string connectionString = "Server=DESKTOP-KN5SVN0;Database=Course_system;Trusted_Connection=True;";
 
             // SQL Query لقراءة البيانات من جدول ClassWork
             string query = "SELECT C.CourseId,CW.ExId, CW.Title, CW.Duration, CW.Date, CW.Description, C.Title AS CourseTitle " +
@@ -668,7 +670,7 @@ namespace courseApp
             {
                 MessageBox.Show($"Edit exam with ID: {examId}", "Edit Exam", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 label44.Text = examId.ToString();
-                string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+                string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
                 string query = "SELECT E.Title, E.Description, E.Duration, E.Date, E.Question " +
                                "FROM Exam E " +
                                "INNER JOIN Course C ON E.ExamId = @examid";
@@ -707,7 +709,7 @@ namespace courseApp
                 MessageBox.Show($"Edit ClassWork with Course ID: {EXID}", "Edit ClassWork", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 label44.Text = EXID.ToString();
 
-                string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+                string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
                 string query = @"
                     SELECT Title, Description, Duration, Date 
                     FROM ClassWork 
@@ -759,7 +761,7 @@ namespace courseApp
         }
 
 
-        private void AddCoursePanel(string courseName, Panel currentpanel, int course_id,Image cover)
+        private void AddCoursePanel(string courseName, Panel currentpanel, int course_id, Image cover)
         {
             // 1. Create the new panel
             Panel newCoursePanel = new Panel();
@@ -815,8 +817,98 @@ namespace courseApp
             newtitle.BorderStyle = BorderStyle.None;
             newCoursePanel.Controls.Add(newtitle);
             // 5. Update scrollbar
-
+            
+            newCoursePanel.Click += (s, e) =>
+            {
+                int selectedCourseId = (int)newCoursePanel.Tag;
+                Register.BringToFront();
+                LoadCourseDetails(selectedCourseId); // دالة جديدة نكتبها لعرض التفاصيل
+                panel1.BringToFront();
+            };
+            
         }
+
+        private void AddCoursePanel3(string courseName, Panel currentpanel, int course_id, Image cover, string grade)
+        {
+            // إعدادات أبعاد ومسافات البطاقة
+            int cardWidth = 302;
+            int cardHeight = 286;
+            int spacingX = 48;   // المسافة الأفقية بين البطاقات
+            int spacingY = 34;   // المسافة الرأسية بين الصفوف
+            int topPadding = 10;   // مسافة من أعلى الحاوية
+
+            // 1. إنشاء البانل الجديد
+            Panel newCoursePanel = new Panel
+            {
+                Size = new Size(cardWidth, cardHeight),
+                BackColor = Color.White,
+                Tag = course_id,
+                Cursor = Cursors.Hand
+            };
+
+            // 2. حساب موضعه (من اليمين إلى اليسار)
+            int index = currentpanel.Controls.Count;
+
+            // عدد الأعمدة الممكنة فى السطر الحالى
+            int maxCols = Math.Max(1, (currentpanel.Width - spacingX) / (cardWidth + spacingX));
+
+            int colIndex = index % maxCols;        // ترتيب البطاقة فى السطر
+            int rowIndex = index / maxCols;        // رقم الصف
+
+            int newX = currentpanel.Width                       // حافة الحاوية اليمنى
+                       - (colIndex + 1) * cardWidth             // عرض البطاقات قبلها
+                       - colIndex * spacingX                    // المسافات بينها
+                       - spacingX;                              // مسافة يمين أول بطاقة
+
+            int newY = topPadding + rowIndex * (cardHeight + spacingY);
+
+            newCoursePanel.Location = new Point(newX, newY);
+
+            // 3. صورة المقرر
+            PictureBox newpic = new PictureBox
+            {
+                Size = new Size(251, 132),
+                Location = new Point(25, 26),
+                BackgroundImage = cover,
+                BackgroundImageLayout = ImageLayout.Zoom,
+                Tag = course_id,
+                Cursor = Cursors.Hand
+            };
+            newpic.Click += coursepic_Click;
+            newCoursePanel.Controls.Add(newpic);
+
+            // 4. عنوان المقرر
+            RichTextBox newtitle = new RichTextBox
+            {
+                Size = new Size(251, 50),
+                Location = new Point(25, 168),
+                Text = courseName,
+                ForeColor = Color.FromArgb(5, 12, 22),
+                Font = new Font("Montserrat Light", 14, FontStyle.Bold),
+                ReadOnly = true,
+                BackColor = Color.White,
+                BorderStyle = BorderStyle.None
+            };
+            newCoursePanel.Controls.Add(newtitle);
+
+            // 5. خانة الدرجة
+            Label gradeLabel = new Label
+            {
+                Text = "📊 Grade: " + grade,
+                Font = new Font("Segoe UI", 10, FontStyle.Italic),
+                ForeColor = Color.FromArgb(80, 80, 80),
+                Location = new Point(25, 228),
+                AutoSize = true
+            };
+            newCoursePanel.Controls.Add(gradeLabel);
+
+            // 6. إضافة البانل إلى الحاوية
+            currentpanel.Controls.Add(newCoursePanel);
+            currentpanel.BringToFront();
+            panel1.BringToFront(); // لو كنت بحاجة لإبقاء panel1 فى الأعلى
+        }
+
+
 
         private void AddCoursePanel2(string courseName, Panel currentpanel, int course_id, Image coverImage)
         {
@@ -1025,7 +1117,7 @@ namespace courseApp
         {
             msg.Controls.Clear();
 
-            string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+            string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
@@ -1055,7 +1147,7 @@ namespace courseApp
         }
         private void loadChats_inpanel(int sender, Panel chat)
         {
-            string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+            string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
@@ -1098,7 +1190,7 @@ namespace courseApp
 
 
 
-            string connectionString = "Server=LAPTOP-I23IVTH3;Database=Course_system;Trusted_Connection=True;";
+            string connectionString = "Server=DESKTOP-KN5SVN0;Database=Course_system;Trusted_Connection=True;";
 
             // SQL Query لقراءة البيانات من جدول ClassWork
             string query = "SELECT C.CourseId,CW.ExId, CW.Title, CW.Duration, CW.Date, CW.Description, C.Title AS CourseTitle " +
@@ -1202,7 +1294,7 @@ namespace courseApp
                                     {
                                         byte[] fileData = File.ReadAllBytes(ofd.FileName);
 
-                                        string connectionString = "Server=LAPTOP-I23IVTH3;Database=Course_system;Trusted_Connection=True;";
+                                        string connectionString = "Server=DESKTOP-KN5SVN0;Database=Course_system;Trusted_Connection=True;";
                                         using (SqlConnection conn = new SqlConnection(connectionString))
                                         {
                                             conn.Open();
@@ -1246,8 +1338,11 @@ namespace courseApp
         }
         private void LoadCourses_admin()
         {
+            
             panel6.Controls.Clear();
-            string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+
+            
+            string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
             //////Load Course of the admin
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -1287,9 +1382,13 @@ namespace courseApp
         }
         private void LoadCourses_user()
         {
-            panel2.Controls.Clear();
+            
+           // home.BringToFront();
+           // panel1.BringToFront();
+           panel2.Controls.Clear();
 
-            string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+           
+            string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
             string selectQuery = @"
                 SELECT 
                     c.CourseId,
@@ -1307,7 +1406,7 @@ namespace courseApp
                 INNER JOIN 
                     Userr u ON c.UserId = u.UserId
                 WHERE 
-                    c.is_hidden = 1";
+                    c.is_hidden = 1 ";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -1316,8 +1415,8 @@ namespace courseApp
                 using (SqlCommand selectCmd = new SqlCommand(selectQuery, conn))
                 using (SqlDataReader reader = selectCmd.ExecuteReader())
                 {
-                    //int yOffset = 10;
-                    
+                    int yOffset = 10;
+
 
                     while (reader.Read())
                     {
@@ -1338,65 +1437,275 @@ namespace courseApp
                         string fullName = reader["FullName"].ToString();
                         string courseid = reader["CourseId"].ToString();
                         AddCoursePanel(title, panel2, Convert.ToInt32(courseid), coverImage);
-                       //yOffset += 160;
-                        //Panel coursePanel = new Panel
-                        //{
-                        //    Size = new Size(700, 150),
-                        //    Location = new Point(10, yOffset),
-                        //    BorderStyle = BorderStyle.FixedSingle,
-                        //    BackColor = Color.White
-                        //};
+                      
 
-                        //Label lblTitle = new Label
-                        //{
-                        //    Text = "📚 " + title,
-                        //    Font = new Font("Segoe UI", 12, FontStyle.Bold),
-                        //    Location = new Point(10, 10),
-                        //    AutoSize = true
-                        //};
-
-                        //Label lblDescription = new Label
-                        //{
-                        //    Text = "📝 " + description,
-                        //    Font = new Font("Segoe UI", 10),
-                        //    Location = new Point(10, 40),
-                        //    Size = new Size(650, 40),
-                        //    ForeColor = Color.Gray
-                        //};
-
-                        //Label lblCategory = new Label
-                        //{
-                        //    Text = "📂 Category: " + category,
-                        //    Font = new Font("Segoe UI", 10),
-                        //    Location = new Point(10, 90),
-                        //    AutoSize = true
-                        //};
-
-                        //Label lblFullName = new Label
-                        //{
-                        //    Text = "👤 Instructor: " + fullName,
-                        //    Font = new Font("Segoe UI", 10, FontStyle.Italic),
-                        //    Location = new Point(10, 115),
-                        //    AutoSize = true
-                        //};
-
-                        //coursePanel.Controls.Add(lblTitle);
-                        //coursePanel.Controls.Add(lblDescription);
-                        //coursePanel.Controls.Add(lblCategory);
-                        //coursePanel.Controls.Add(lblFullName);
-
+                        ///////////-----------------------------------------------
 
                     }
                 }
             }
         }
-        //------------------------Exam page (Esraa&Dado)--------------------------------------------
+        private void LoadCourseDetails(int courseId)
+        {
+            Register.Controls.Clear(); // نظف البانل
+
+            string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
+            string selectQuery = @"
+        SELECT 
+            c.CourseId,
+            c.Title,
+            c.Description,
+            c.Category,
+            c.Studying_Year,
+            c.Semester,
+            u.Fname + ' ' + u.Lname AS FullName
+        FROM 
+            Course c
+         Inner JOIN 
+            Userr u ON c.UserId = u.UserId
+        WHERE 
+            c.CourseId = @CourseId";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(selectQuery, conn))
+                {
+                    cmd.Parameters.AddWithValue("@CourseId", courseId);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            Panel coursePanel = new Panel
+                            {
+                                Size = new Size(700, 200),
+                                Location = new Point(200, 120),
+                                BorderStyle = BorderStyle.FixedSingle,
+                                BackColor = Color.White
+                            };
+
+                            Label lblTitle = new Label
+                            {
+                                Text = "📚 Title: " + reader["Title"],
+                                Font = new Font("Segoe UI", 12, FontStyle.Bold),
+                                Location = new Point(10, 10),
+                                AutoSize = true
+                            };
+
+                            Label lblDescription = new Label
+                            {
+                                Text = "📝 Description: " + reader["Description"],
+                                Font = new Font("Segoe UI", 10),
+                                Location = new Point(10, 40),
+                                Size = new Size(650, 40),
+                                ForeColor = Color.Gray
+                            };
+
+                            Label lblCategory = new Label
+                            {
+                                Text = "📂 Category: " + reader["Category"],
+                                Font = new Font("Segoe UI", 10),
+                                Location = new Point(10, 90),
+                                AutoSize = true
+                            };
+
+                            Label lblInstructor = new Label
+                            {
+                                Text = "👤 Instructor: " + reader["FullName"],
+                                Font = new Font("Segoe UI", 10, FontStyle.Italic),
+                                Location = new Point(10, 120),
+                                AutoSize = true
+                            };
+                            Button registerBtn = new Button
+                            {
+                                Text = "Register",
+                                Location = new Point(580, 115),
+                                Size = new Size(90, 30),
+                                BackColor = Color.FromArgb(100, 149, 237),
+                                ForeColor = Color.White,
+                                FlatStyle = FlatStyle.Flat,
+                                Tag = courseId
+                            };
+
+                            registerBtn.FlatAppearance.BorderSize = 0;
+                            registerBtn.Click += RegisterBtn_Click;
+
+                            Button backBtn = new Button
+                            {
+                                Text = "← Back",
+                                Location = new Point(600, 10),
+                                Size = new Size(80, 30),
+                                BackColor = Color.LightGray
+                            };
+
+                            
+                            backBtn.Click += (s, e) =>
+                            {
+                                LoadCourses_user();        // تحميل الكورسات
+                                home.BringToFront();       // عرض بانيل الهوم
+                                panel1.BringToFront();     // جلبها للواجهة
+                            };
+                            coursePanel.Controls.Add(lblTitle);
+                            coursePanel.Controls.Add(lblDescription);
+                            coursePanel.Controls.Add(lblCategory);
+                            coursePanel.Controls.Add(lblInstructor);
+                            coursePanel.Controls.Add(backBtn);
+                            coursePanel.Controls.Add(registerBtn);
+                            Register.Controls.Add(coursePanel);
+
+                            
+                        }
+                    }
+                }
+            }
+        }
+
+        private void RegisterBtn_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            int courseId = (int)btn.Tag;
+            SE_ID = 123; // استبدليها باليوزر الحقيقي
+
+            string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                string checkQuery = "SELECT COUNT(*) FROM Register WHERE UserId = @UserId AND CourseId = @CourseId";
+                using (SqlCommand checkCmd = new SqlCommand(checkQuery, conn))
+                {
+                    checkCmd.Parameters.AddWithValue("@UserId", SE_ID);
+                    checkCmd.Parameters.AddWithValue("@CourseId", courseId);
+
+                    int count = (int)checkCmd.ExecuteScalar();
+                    if (count > 0)
+                    {
+                        MessageBox.Show("You are already registered in this course.");
+                        return;
+                    }
+                }
+
+                string insertQuery = "INSERT INTO Register (UserId, CourseId, Grade) VALUES (@UserId, @CourseId, 0)";
+                using (SqlCommand insertCmd = new SqlCommand(insertQuery, conn))
+                {
+                    insertCmd.Parameters.AddWithValue("@UserId", SE_ID);
+                    insertCmd.Parameters.AddWithValue("@CourseId", courseId);
+                    insertCmd.ExecuteNonQuery();
+                 
+                }
+
+                MessageBox.Show("Registered successfully!");
+
+                // إعادة تحميل كل الكورسات المسجلة
+               courses.Controls.Clear();
+                LoadAllRegisteredCourses(SE_ID);
+
+                // إظهار بانل الكورسات
+                courses.BringToFront();
+                panel1.BringToFront();
+            }
+
+           
+        }
+
+        private void LoadAllRegisteredCourses(int userId)
+        {
+
+         //  courses.Controls.Clear();
+            string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
+            string query = @"
+    SELECT c.CourseId, c.Title, c.Description, c.Cover , r.Grade
+    FROM Course c
+    INNER JOIN Register r ON c.CourseId = r.CourseId
+    WHERE r.UserId = @UserId";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@UserId", userId);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int courseId = Convert.ToInt32(reader["CourseId"]);
+                            string title = reader["Title"].ToString();
+                            string Grade = reader["Grade"].ToString();
+                            byte[] coverBytes = reader["Cover"] as byte[];
+                            Image coverImage = null;
+
+                            if (coverBytes != null)
+                            {
+                                using (MemoryStream ms = new MemoryStream(coverBytes))
+                                {
+                                    coverImage = Image.FromStream(ms);
+                                }
+                            }
+
+                            AddCoursePanel3(title, courses, courseId, coverImage,Grade);
+                           // courses.BringToFront(); 
+                            //panel1.BringToFront();
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+            private void LoadRegisteredCourseToPanel(int courseId)
+            {
+
+     
+            string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
+            string selectQuery = @"
+        SELECT c.CourseId, c.Title, c.Description, c.Cover , r.grade ,r.UserId
+        FROM Course c
+         join Register r ON c.CourseId = r.CourseId
+        WHERE c.CourseId = @CourseId";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(selectQuery, conn))
+                {
+                    cmd.Parameters.AddWithValue("@CourseId", courseId);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            string title = reader["Title"].ToString();
+                            string description = reader["Description"].ToString();
+                            string Grade = reader["Grade"].ToString();
+                            byte[] coverBytes = reader["Cover"] as byte[];
+                            Image coverImage = null;
+
+                            if (coverBytes != null)
+                            {
+                                using (MemoryStream ms = new MemoryStream(coverBytes))
+                                {
+                                    coverImage = Image.FromStream(ms);
+                                }
+                            }
+
+                            AddCoursePanel3(title, courses, courseId, coverImage,Grade);
+                           
+                        }
+                    }
+                }
+            }
+        }
+
+
+        //------------------------ Exam page (Esraa&Dado) --------------------------------------------
         private void LoadExams()
         {
             exam.Controls.Clear();
             int yOffset = 180;
 
-            string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+            string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
             string query = "SELECT E.ExamId, E.Title, E.Description, E.Duration, E.Date, C.Title AS CourseTitle " +
                            "FROM Exam E " +
                            "INNER JOIN Course C ON E.ExamId = C.ExamId";
@@ -1511,7 +1820,7 @@ namespace courseApp
         //-----------------------the exam -----------------------
         private void LoadExamDetails(int examId)
         {
-            string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+            string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
             string query = "SELECT Title, Description, Question, Duration, Date FROM Exam WHERE ExamId = @ExamId";
 
 
@@ -1633,7 +1942,7 @@ namespace courseApp
                             }
                             else
                             {
-                                string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+                                string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
                                 using (SqlConnection conn = new SqlConnection(connectionString))
                                 {
                                     conn.Open();
@@ -1681,7 +1990,7 @@ namespace courseApp
 
             SE_ID = 123;
             //string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
-            string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+            string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
 
             string query = "SELECT FName, LName, Email, User_Role FROM Userr WHERE UserId = @UserId";
 
@@ -1778,7 +2087,7 @@ namespace courseApp
             string role = ((TextBox)card.Controls["txtrole"]).Text;
 
             //string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
-            string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+            string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
 
             string updateQuery = "UPDATE Userr SET FName = @FName, LName = @LName, Email = @Email, User_Role = @role WHERE UserId = @UserId";
 
@@ -1798,6 +2107,7 @@ namespace courseApp
                 LoadUserProfile(); // رجع البيانات بعد التعديل
             }
         }
+
 
 
 
@@ -1833,36 +2143,29 @@ namespace courseApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+
             panel2OriginalY = panel2.Location.Y; // Save original position
             panel3OriginalY = panel3.Location.Y;
             chatriginalY = ChatContainer.Location.Y;
 
-            /////////////////////////////////////
-
-            ////////////////////////////////////
             string targetWord = "learn";
             int startIndex = richTextBox1.Text.IndexOf(targetWord, StringComparison.OrdinalIgnoreCase);
             if (startIndex >= 0)
             {
                 richTextBox1.Select(startIndex, targetWord.Length);
-                richTextBox1.SelectionColor = Color.FromArgb(221, 168, 83); // Set to your desired color
+                richTextBox1.SelectionColor = Color.FromArgb(221, 168, 83);
                 richTextBox1.Select(0, 0); // Deselect text
             }
 
             // Example: Fill a DataTable and bind to a DataGridView
-
+             
 
             LoadCourses_user();
-            //AddCoursePanel("title", panel2, 123);
+            
             LoadCourses_admin();
-
-            //AddCoursePanel("title", panel2, 123);
-
-
-            //AddCoursePanel2("math 3", panel6, 123);
-
-
-
+             
+           
         }
 
         private void label8_Click(object sender, EventArgs e)
@@ -1899,8 +2202,13 @@ namespace courseApp
 
         private void coursesicon_Click(object sender, EventArgs e)
         {
+            SE_ID = 123;
             handleicon(coursesicon2);
+            courses.Controls.Clear();
+      
             courses.BringToFront();
+            LoadAllRegisteredCourses(SE_ID);
+            
             panel1.BringToFront();
 
         }
@@ -1939,11 +2247,16 @@ namespace courseApp
 
         private void usericon_Click(object sender, EventArgs e)
         {
-            usericon2.BringToFront();
+            handleicon(usericon2);
+            click_check = true;
+            profile.BringToFront();
+            LoadUserProfile();
+            panel1.BringToFront();
         }
 
         private void usericon2_Click(object sender, EventArgs e)
         {
+
             handleicon(usericon2);
             click_check = true;
             profile.BringToFront();
@@ -1994,7 +2307,7 @@ namespace courseApp
                 messagebar.Texts = "";
 
                 // Insert message into database
-                string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+                string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
@@ -2038,7 +2351,7 @@ namespace courseApp
                 addbar.Texts = "";
 
                 // Insert message into database
-                string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+                string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
@@ -2105,6 +2418,7 @@ namespace courseApp
         private void grades_Click(object sender, EventArgs e)
         {
             handleicon2(Grades2);
+
             icons.BringToFront();
         }
 
@@ -2226,7 +2540,7 @@ namespace courseApp
                     imageBytes = ms.ToArray();
                 }
 
-                string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+                string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
@@ -2346,7 +2660,7 @@ namespace courseApp
             }
 
             // Update in database
-            string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+            string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
@@ -2423,14 +2737,14 @@ namespace courseApp
 
             // Validate inputs
             if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(content) ||
-                videoBytes == null)
+                videoBytes == null) 
             {
                 MessageBox.Show("Please fill all fields and select a media.");
                 return;
             }
 
             // Update in database
-            string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+            string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
@@ -2493,7 +2807,7 @@ namespace courseApp
             }
 
             // SQL connection and update command
-            string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+            string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
             string updateQuery = @"
                 UPDATE Exam
                 SET Title = @Title,
@@ -2578,7 +2892,7 @@ namespace courseApp
             }
 
             // Prepare database insert
-            string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+            string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
             string insertExamQuery = @"
                 INSERT INTO Exam (ExamId, Title, Description, Duration, Date, Question)
                 VALUES (@ExamId, @Title, @Description, @Duration, @Date, @Question)";
@@ -2668,7 +2982,7 @@ namespace courseApp
             }
 
             // Database connection and query
-            string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+            string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
             string updateQuery = @"
                     UPDATE ClassWork 
                     SET Title = @Title, 
@@ -2751,7 +3065,7 @@ namespace courseApp
             }
 
             // SQL connection and insert
-            string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+            string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
             string insertQuery = @"
         INSERT INTO ClassWork (CourseId, ExId, Title, Description, Duration, Date)
         VALUES (@CourseId, @ExamId, @Title, @Description, @Duration, @Date)";
@@ -2819,7 +3133,7 @@ namespace courseApp
                 msgbar_ad.Texts = "";
 
                 // Insert message into database
-                string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+                string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
@@ -2853,7 +3167,7 @@ namespace courseApp
                 userid_ad.Texts = "";
 
                 // Insert message into database
-                string connectionString = "Server=LAPTOP-I23IVTH3;Database=course_system;Trusted_Connection=True;";
+                string connectionString = "Server=DESKTOP-KN5SVN0;Database=course_system;Trusted_Connection=True;";
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
@@ -2890,6 +3204,11 @@ namespace courseApp
             else
             {
             }
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
